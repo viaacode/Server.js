@@ -1,0 +1,242 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "@type": "Module",
+  "npm:requireName": "ldf-server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:server-feature-qpf",
+      "@type": "ComponentConstructable",
+      "npm:requireElement": "LinkedDataFragmentsServerWorker",
+      "rdfs:comment": "LinkedDataFragmentsServer is an HTTP server that provides access to Linked Data Fragments",
+      "hasParameter": [
+        {
+          "@id": "rdfs:label",
+          "rdfs:comment": "The server name",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:baseURL",
+          "rdfs:comment": "The base URL path for the server",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:port",
+          "rdfs:comment": "The port the server will bind with",
+          "rdfs:range": "xsd:integer",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:workers",
+          "rdfs:comment": "The number of server instances that will be started",
+          "rdfs:range": "xsd:integer",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:datasource",
+          "rdfs:comment": "A datasource for the server",
+          "rdfs:range": {
+            "@id": "ldfs:Datasource",
+            "rdfs:subClassOf": "lsdc:Component"
+          }
+        },
+        {
+          "@id": "ldfs:dereference",
+          "rdfs:comment": "A dereferencing for a datasource to a path",
+          "rdfs:range": {
+            "@id": "ldfs:Dereferencement"
+          }
+        },
+        {
+          "@id": "ldfs:prefix",
+          "rdfs:comment": "The URI prefixes that will be used"
+        },
+        {
+          "@id": "ldfs:router",
+          "rdfs:comment": "A router for the server",
+          "rdfs:range": {
+            "@id": "ldfs:Router",
+            "rdfs:subClassOf": "lsdc:Component"
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:controller",
+          "rdfs:comment": "A controller for the server",
+          "rdfs:range": {
+            "@id": "ldfs:Controller",
+            "rdfs:subClassOf": "lsdc:Component"
+          }
+        },
+        {
+          "@id": "ldfs:response",
+          "rdfs:comment": "Configuration for the server response data",
+          "rdfs:range": {
+            "@id": "ldfs:Response"
+          }
+        },
+        {
+          "@id": "ldfs:sslKey",
+          "rdfs:comment": "Path to an SSL key",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:sslCert",
+          "rdfs:comment": "Path to an SSL certificate",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:sslCa",
+          "rdfs:comment": "Path to an SSL certificate authority",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:logging",
+          "rdfs:comment": "If the server should perform logging",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:loggingFile",
+          "rdfs:comment": "Path to a log file",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "title",
+                "value": "rdfs:label"
+              },
+              {
+                "rdfs:label": "baseURL",
+                "value": "ldfs:baseURL"
+              },
+              {
+                "rdfs:label": "port",
+                "value": "ldfs:port"
+              },
+              {
+                "rdfs:label": "workers",
+                "value": "ldfs:workers"
+              },
+              {
+                "rdfs:label": "datasources",
+                "value": "ldfs:datasource"
+              },
+              {
+                "rdfs:label": "dereference",
+                "value": "ldfs:dereference"
+              },
+              {
+                "rdfs:label": "prefixes",
+                "rdf:value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "dynamicEntriesFrom": { "@id": "ldfs:prefix" },
+                      "rdfs:label": { "@id": "rdfa:prefix" },
+                      "value": "rdfa:uri"
+                    }
+                  ]
+                }
+              },
+              {
+                "rdfs:label": "routers",
+                "value": "ldfs:router"
+              },
+              {
+                "rdfs:label": "controllers",
+                "value": "ldfs:controller"
+              },
+              {
+                "rdfs:label": "response",
+                "rdf:value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "header",
+                      "rdf:value": {
+                        "@type": "Object",
+                        "hasField": [
+                          {
+                            "dynamicEntriesFrom": { "@id": "ldfs:responseHeader" },
+                            "rdfs:label": { "@id": "ldfs:headerName" },
+                            "value": "ldfs:headerValue"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "rdfs:label": "ssl",
+                "rdf:value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "keys",
+                      "value": {
+                        "@type": "Object",
+                        "hasField": [
+                          {
+                            "rdfs:label": "key",
+                            "value": "ldfs:sslKey"
+                          },
+                          {
+                            "rdfs:label": "cert",
+                            "value": "ldfs:sslCert"
+                          },
+                          {
+                            "rdfs:label": "ca",
+                            "value": "ldfs:sslCa"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "rdfs:label": "logging",
+                "value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "enabled",
+                      "value": "ldfs:logging"
+                    },
+                    {
+                      "rdfs:label": "file",
+                      "value": "ldfs:loggingFile"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,31 +1,42 @@
 {
-  "title": "My Linked Data Fragments server",
-
-  "datasources": {
-    "dbpedia": {
-      "title": "DBpedia 2014",
-      "type": "HdtDatasource",
-      "description": "DBpedia 2014 with an HDT back-end",
-      "settings": { "file": "data/dbpedia2014.hdt" }
-    },
-    "dbpedia-sparql": {
-      "title": "DBpedia 3.9 (Virtuoso)",
-      "type": "SparqlDatasource",
-      "description": "DBpedia 3.9 with a Virtuoso back-end",
-      "settings": { "endpoint": "http://dbpedia.restdesc.org/", "defaultGraph": "http://dbpedia.org" }
-    }
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "ldfs": "http://example.org/npmdataset/bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#"
   },
+  "@id": "http://localhost:3000/",
+  "@type": "ldfs:server-feature-qpf",
 
-  "prefixes": {
-    "rdf":         "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs":        "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd":         "http://www.w3.org/2001/XMLSchema#",
-    "dc":          "http://purl.org/dc/terms/",
-    "foaf":        "http://xmlns.com/foaf/0.1/",
-    "dbpedia":     "http://dbpedia.org/resource/",
-    "dbpedia-owl": "http://dbpedia.org/ontology/",
-    "dbpprop":     "http://dbpedia.org/property/",
-    "hydra":       "http://www.w3.org/ns/hydra/core#",
-    "void":        "http://rdfs.org/ns/void#"
-  }
+  "rdfs:label": "My Linked Data Fragments server",
+
+  "ldfs:datasource": [
+    {
+      "@id": "ex:myHdtDatasource",
+      "@type": "ldfs:Datasource/Hdt",
+      "rdfs:label": "DBpedia 2014",
+      "rdfs:comment": "DBpedia 2014 with an HDT back-end",
+      "ldfs:hdt/file": "data/dbpedia2014.hdt"
+    },
+    {
+      "@id": "ex:mySparqlDatasource",
+      "@type": "ldfs:Datasource/Sparql",
+      "rdfs:label": "DBpedia 3.9 (Virtuoso)",
+      "rdfs:comment": "DBpedia 3.9 with a Virtuoso back-end",
+      "ldfs:sparql/endpoint": "http://dbpedia.restdesc.org/",
+      "ldfs:sparql/defaultGraph": "http://dbpedia.org"
+    }
+  ],
+
+  "ldfs:prefix": [
+    { "rdfa:prefix": "rdf",         "rdfa:uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" },
+    { "rdfa:prefix": "rdfs",        "rdfa:uri": "http://www.w3.org/2000/01/rdf-schema#" },
+    { "rdfa:prefix": "xsd",         "rdfa:uri": "http://www.w3.org/2001/XMLSchema#" },
+    { "rdfa:prefix": "dc",          "rdfa:uri": "http://purl.org/dc/terms/" },
+    { "rdfa:prefix": "foaf",        "rdfa:uri": "http://xmlns.com/foaf/0.1/" },
+    { "rdfa:prefix": "dbpedia",     "rdfa:uri": "http://dbpedia.org/resource/" },
+    { "rdfa:prefix": "dbpedia-owl", "rdfa:uri": "http://dbpedia.org/ontology/" },
+    { "rdfa:prefix": "dbpprop",     "rdfa:uri": "http://dbpedia.org/property/" },
+    { "rdfa:prefix": "hydra",       "rdfa:uri": "http://www.w3.org/ns/hydra/core#" },
+    { "rdfa:prefix": "void",        "rdfa:uri": "http://rdfs.org/ns/void#" }
+  ]
 }

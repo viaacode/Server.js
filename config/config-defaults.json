@@ -1,60 +1,62 @@
 {
-  "title": "Linked Data Fragments server",
-  "baseURL": "/",
-
-  "port": 3000,
-  "workers": 1,
-
-  "datasources": {},
-
-  "dereference": {},
-
-  "prefixes": {
-    "rdf":   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs":  "http://www.w3.org/2000/01/rdf-schema#",
-    "owl":   "http://www.w3.org/2002/07/owl#",
-    "xsd":   "http://www.w3.org/2001/XMLSchema#",
-    "hydra": "http://www.w3.org/ns/hydra/core#",
-    "void":  "http://rdfs.org/ns/void#",
-    "sd":    "http://www.w3.org/TR/sparql11-service-description/#"
+  "@context": {
+    "lsdc": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#"
   },
+  "@id": "ldfs:defaultLdfServer",
+  "@type": "ldfs:server-feature-qpf",
 
-  "routers": [
-    "DatasourceRouter",
-    "QuadPatternRouter",
-    "PageRouter"
+  "rdfs:label": "Linked Data Fragments server",
+  "ldfs:baseURL": "/",
+
+  "ldfs:port": 3000,
+  "ldfs:workers": 1,
+
+  "ldfs:datasource": [],
+
+  "ldfs:dereference": [],
+
+  "ldfs:prefix": [
+    { "rdfa:prefix": "rdf",         "rdfa:uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" },
+    { "rdfa:prefix": "rdfs",        "rdfa:uri": "http://www.w3.org/2000/01/rdf-schema#" },
+    { "rdfa:prefix": "owl",         "rdfa:uri": "http://www.w3.org/2002/07/owl#" },
+    { "rdfa:prefix": "xsd",         "rdfa:uri": "http://www.w3.org/2001/XMLSchema#" },
+    { "rdfa:prefix": "hydra",       "rdfa:uri": "http://www.w3.org/ns/hydra/core#" },
+    { "rdfa:prefix": "void",        "rdfa:uri": "http://rdfs.org/ns/void#" },
+    { "rdfa:prefix": "sd",          "rdfa:uri": "http://www.w3.org/TR/sparql11-service-description/#" }
   ],
 
-  "controllers": [
-    "SummaryController",
-    "TimegateController",
-    "QuadPatternFragmentsController",
-    "AssetsController",
-    "DereferenceController",
-    "NotFoundController"
+  "ldfs:router": [
+    { "@type": "ldfs:Router/Datasource" },
+    { "@type": "ldfs:Router/QuadPattern" },
+    { "@type": "ldfs:Router/Page" }
   ],
 
-  "response": {
-    "headers": {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Accept-Datetime",
-      "Access-Control-Expose-Headers": "Content-Location,Link,Memento-Datetime"
-    }
-  },
+  "ldfs:controller": [
+    { "@type": "ldfs:Controller/Summary" },
+    { "@type": "ldfs:Controller/Timegate" },
+    {
+      "@type": "ldfs:Controller/QuadPatternFragments",
+      "ldfs:extension": "ldfs:ControllerExtension/Memento"
+    },
+    { "@type": "ldfs:Controller/Assets" },
+    { "@type": "ldfs:Controller/Dereference" },
+    { "@type": "ldfs:Controller/NotFound" }
+  ],
 
-  "extensions": {
-    "QuadPatternFragmentsController": [
-      "MementoControllerExtension"
-    ]
-  },
+  "ldfs:responseHeader": [
+    { "ldfs:headerName": "Access-Control-Allow-Origin",   "ldfs:headerValue": "*" },
+    { "ldfs:headerName": "Access-Control-Allow-Headers",  "ldfs:headerValue": "Accept-Datetime" },
+    { "ldfs:headerName": "Access-Control-Expose-Headers", "ldfs:headerValue": "Content-Location,Link,Memento-Datetime" }
+  ],
 
-  "ssl": {
-    "keys" : {
-      "key":  "config/certs/localhost-server.key",
-      "cert": "config/certs/localhost-server.crt",
-      "ca": [ "config/certs/localhost-ca.crt" ]
-    }
-  },
+  "ldfs:sslKey": "config/certs/localhost-server.key",
+  "ldfs:sslCert": "config/certs/localhost-server.crt",
+  "ldfs:sslCa": [ "config/certs/localhost-ca.crt" ],
 
-  "logging": { "enabled": false, "file": "access.log" }
+  "ldfs:logging": false,
+  "ldfs:loggingFile": "access.log"
 }
