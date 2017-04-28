@@ -34,6 +34,15 @@
           "parameterUnique": true
         },
         {
+          "@id": "ldfs:urlData",
+          "rdfs:comment": "The UrlData helper object",
+          "rdfs:range": {
+            "@id": "ldfs:UrlData",
+            "rdfs:subClassOf": "lsdc:Component"
+          },
+          "parameterUnique": true
+        },
+        {
           "@id": "ldfs:port",
           "rdfs:comment": "The port the server will bind with",
           "rdfs:range": "xsd:integer",
@@ -121,8 +130,8 @@
                 "value": "rdfs:label"
               },
               {
-                "rdfs:label": "baseURL",
-                "value": "ldfs:baseURL"
+                "rdfs:label": "urlData",
+                "value": "ldfs:urlData"
               },
               {
                 "rdfs:label": "port",
@@ -135,7 +144,16 @@
               {
                 "@id": "ldfs:datasourcesField",
                 "rdfs:label": "datasources",
-                "value": "ldfs:datasource"
+                "rdf:value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "dynamicEntriesFrom": { "@id": "ldfs:datasource" },
+                      "rdfs:label": { "@id": "rdf:subject" },
+                      "value": "rdf:object"
+                    }
+                  ]
+                }
               },
               {
                 "rdfs:label": "dereference",
@@ -596,6 +614,210 @@
               },
               {
                 "@id": "ldfs:datasourcesField"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+
+
+
+    {
+      "@id": "ldfs:UrlData",
+      "@type": [ "ComponentConstructable" ],
+      "npm:requireElement": "UrlData",
+      "rdfs:comment": "A data object class for preset URL information",
+      "hasParameter": [
+        {
+          "@id": "ldfs:UrlData/baseURL",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:baseURL" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "baseURL",
+                "value": "ldfs:baseURL"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+
+
+
+
+    {
+      "@id": "ldfs:Datasource/Hdt",
+      "@type": [ "ComponentConstructable", "ldfs:Datasource" ],
+      "npm:requireElement": "datasources.HdtDatasource",
+      "rdfs:comment": "An HdtDatasource loads and queries an HDT document in-process",
+      "hasParameter": [
+        {
+          "@id": "rdfs:label",
+          "rdfs:comment": "The datasource name",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "rdfs:comment",
+          "rdfs:comment": "The datasource description",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/enabled",
+          "rdfs:comment": "If the datasource is enabled, by default true",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/urlData",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:urlData" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:Datasource/Hdt/file",
+          "rdfs:comment": "The HDT datasource source file",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/Hdt/external",
+          "rdfs:comment": "Switch to external HDT datasource if true",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "id",
+                "value": "rdf:subject"
+              },
+              {
+                "rdfs:label": "title",
+                "value": "rdfs:label"
+              },
+              {
+                "rdfs:label": "description",
+                "value": "rdfs:comment"
+              },
+              {
+                "rdfs:label": "enabled",
+                "value": "ldfs:Datasource/enabled"
+              },
+              {
+                "rdfs:label": "urlData",
+                "value": "ldfs:urlData"
+              },
+              {
+                "rdfs:label": "file",
+                "value": "ldfs:Datasource/Hdt/file"
+              },
+              {
+                "rdfs:label": "external",
+                "value": "ldfs:Datasource/Hdt/external"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Datasource/Sparql",
+      "@type": [ "ComponentConstructable", "ldfs:Datasource" ],
+      "npm:requireElement": "datasources.SparqlDatasource",
+      "rdfs:comment": "A SparqlDatasource provides queryable access to a SPARQL endpoint",
+      "hasParameter": [
+        {
+          "@id": "rdfs:label",
+          "rdfs:comment": "The datasource name",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "rdfs:comment",
+          "rdfs:comment": "The datasource description",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/enabled",
+          "rdfs:comment": "If the datasource is enabled, by default true",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/urlData",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:urlData" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:Datasource/Sparql/endpoint",
+          "rdfs:comment": "The SPARQL endpoint URL",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/Sparql/defaultGraph",
+          "rdfs:comment": "The default graph for the SPARQL endpoint",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "id",
+                "value": "rdf:subject"
+              },
+              {
+                "rdfs:label": "title",
+                "value": "rdfs:label"
+              },
+              {
+                "rdfs:label": "description",
+                "value": "rdfs:comment"
+              },
+              {
+                "rdfs:label": "enabled",
+                "value": "ldfs:Datasource/enabled"
+              },
+              {
+                "rdfs:label": "urlData",
+                "value": "ldfs:urlData"
+              },
+              {
+                "rdfs:label": "file",
+                "value": "ldfs:Datasource/Sparql/endpoint"
+              },
+              {
+                "rdfs:label": "external",
+                "value": "ldfs:Datasource/Sparql/defaultGraph"
               }
             ]
           }
