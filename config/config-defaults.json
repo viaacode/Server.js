@@ -17,8 +17,6 @@
 
   "ldfs:datasource": [],
 
-  "ldfs:dereference": [],
-
   "ldfs:prefix": [
     { "rdfa:prefix": "rdf",         "rdfa:uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" },
     { "rdfa:prefix": "rdfs",        "rdfa:uri": "http://www.w3.org/2000/01/rdf-schema#" },
@@ -30,21 +28,22 @@
   ],
 
   "ldfs:router": [
-    { "@type": "ldfs:Router/Datasource" },
-    { "@type": "ldfs:Router/QuadPattern" },
-    { "@type": "ldfs:Router/Page" }
+    { "@id": "ldfs:defaultRouterDatasource",  "@type": "ldfs:Router/Datasource" },
+    { "@id": "ldfs:defaultRouterQuadPattern", "@type": "ldfs:Router/QuadPattern" },
+    { "@id": "ldfs:defaultRouterPage",        "@type": "ldfs:Router/Page" }
   ],
 
   "ldfs:controller": [
-    { "@type": "ldfs:Controller/Summary" },
-    { "@type": "ldfs:Controller/Timegate" },
+    { "@id": "ldfs:defaultSummaryController",     "@type": "ldfs:Controller/Summary" },
+    { "@id": "ldfs:defaultTimegateController",    "@type": "ldfs:Controller/Timegate" },
     {
+      "@id": "ldfs:defaultQuadPatternFragmentsController",
       "@type": "ldfs:Controller/QuadPatternFragments",
-      "ldfs:extension": "ldfs:ControllerExtension/Memento"
+      "ldfs:qpfControllerExtension": { "@type": "ldfs:ControllerExtension/Memento" }
     },
-    { "@type": "ldfs:Controller/Assets" },
-    { "@type": "ldfs:Controller/Dereference" },
-    { "@type": "ldfs:Controller/NotFound" }
+    { "@id": "ldfs:defaultAssetsController",      "@type": "ldfs:Controller/Assets" },
+    { "@id": "ldfs:defaultDereferenceController", "@type": "ldfs:Controller/Dereference" },
+    { "@id": "ldfs:defaultNotFoundController",    "@type": "ldfs:Controller/NotFound" }
   ],
 
   "ldfs:responseHeader": [

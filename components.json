@@ -54,13 +54,6 @@
           }
         },
         {
-          "@id": "ldfs:dereference",
-          "rdfs:comment": "A dereferencing for a datasource to a path",
-          "rdfs:range": {
-            "@id": "ldfs:Dereferencement"
-          }
-        },
-        {
           "@id": "ldfs:prefix",
           "rdfs:comment": "The URI prefixes that will be used"
         },
@@ -140,6 +133,7 @@
                 "value": "ldfs:workers"
               },
               {
+                "@id": "ldfs:datasourcesField",
                 "rdfs:label": "datasources",
                 "value": "ldfs:datasource"
               },
@@ -148,6 +142,7 @@
                 "value": "ldfs:dereference"
               },
               {
+                "@id": "ldfs:prefixFieldMapping",
                 "rdfs:label": "prefixes",
                 "rdf:value": {
                   "@type": "Object",
@@ -161,6 +156,7 @@
                 }
               },
               {
+                "@id": "ldfs:routersField",
                 "rdfs:label": "routers",
                 "value": "ldfs:router"
               },
@@ -239,6 +235,10 @@
       }
     },
 
+
+
+
+
     {
       "@id": "ldfs:Router/Datasource",
       "@type": [ "ComponentConstructable", "ldfs:Router" ],
@@ -272,6 +272,7 @@
         ]
       }
     },
+
     {
       "@id": "ldfs:Router/QuadPattern",
       "@type": [ "ComponentConstructable", "ldfs:Router" ],
@@ -294,17 +295,307 @@
             "@type": "Object",
             "hasField": [
               {
-                "rdfs:label": "prefixes",
+                "@id": "ldfs:prefixFieldMapping"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+
+
+
+
+    {
+      "@id": "ldfs:Controller/Summary",
+      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "npm:requireElement": "controllers.SummaryController",
+      "rdfs:comment": "A SummaryController responds to requests for summaries",
+      "hasParameter": [
+        {
+          "@id": "ldfs:summaryDir",
+          "rdfs:comment": "Path to a directory where summaries can be found",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:summaryPath",
+          "rdfs:comment": "Path matching for summaries",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "summaries",
                 "value": {
                   "@type": "Object",
                   "hasField": [
                     {
-                      "dynamicEntriesFrom": { "@id": "ldfs:prefix" },
-                      "rdfs:label": { "@id": "rdfa:prefix" },
-                      "value": "rdfa:uri"
+                      "rdfs:label": "dir",
+                      "value": "ldfs:summaryDir"
+                    },
+                    {
+                      "rdfs:label": "path",
+                      "value": "ldfs:summaryPath"
                     }
                   ]
                 }
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Controller/Timegate",
+      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "npm:requireElement": "controllers.TimegateController",
+      "rdfs:comment": "A TimegateController responds to timegate requests",
+      "hasParameter": [
+        {
+          "@id": "ldfs:timegatePath",
+          "rdfs:comment": "Path matching for the time gate",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:memento",
+          "rdfs:comment": "Path to a directory where summaries can be found",
+          "rdfs:range": {
+            "@id": "ldfs:Memento",
+            "rdfs:hasProperty": [
+              { "@id": "ldfs:mementoDatasource" },
+              { "@id": "ldfs:mementoVersion" }
+            ]
+          }
+        },
+        {
+          "@id": "ldfs:timegateRouter",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:router" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "@id": "ldfs:timeGatesField",
+                "rdfs:label": "timegates",
+                "value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "baseUrl",
+                      "value": "ldfs:timegatePath"
+                    },
+                    {
+                      "rdfs:label": "mementos",
+                      "value": {
+                        "@type": "Object",
+                        "hasField": [
+                          {
+                            "dynamicEntriesFrom": { "@id": "ldfs:memento" },
+                            "rdfs:label": { "@id": "ldfs:mementoDatasource" },
+                            "value": "ldfs:mementoVersion"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@id": "ldfs:routersField"
+              },
+              {
+                "@id": "ldfs:datasourcesField"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Controller/QuadPatternFragments",
+      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "npm:requireElement": "controllers.QuadPatternFragmentsController",
+      "rdfs:comment": "A QuadPatternFragmentsController responds to requests for TPFs and QPFs",
+      "hasParameter": [
+        {
+          "@id": "ldfs:qpfRouter",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:router" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:qpfControllerExtension",
+          "rdfs:comment": "An extension for this controller",
+          "rdfs:range": {
+            "@id": "ldfs:ControllerExtension",
+            "rdfs:subClassOf": "lsdc:Component"
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "@id": "ldfs:routersField"
+              },
+              {
+                "rdfs:label": "extensions",
+                "value": "ldfs:qpfControllerExtension"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Controller/Assets",
+      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "npm:requireElement": "controllers.AssetsController",
+      "rdfs:comment": "An AssetsController responds to requests for assets",
+      "hasParameter": [
+        {
+          "@id": "ldfs:assetsDir",
+          "rdfs:comment": "Path to a directory where assets can be found",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:assetsPath",
+          "rdfs:comment": "Path matching for assets",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "assetsFolder",
+                "value": "ldfs:assetsDir"
+              },
+              {
+                "rdfs:label": "path",
+                "value": "ldfs:assetsPath"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Controller/Dereference",
+      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "npm:requireElement": "controllers.DereferenceController",
+      "rdfs:comment": "A DeferenceController responds to dereferencing requests",
+      "hasParameter": [
+        {
+          "@id": "ldfs:dereference",
+          "rdfs:comment": "A dereferencing for a datasource to a path",
+          "rdfs:range": {
+            "@id": "ldfs:Dereferencement",
+            "rdfs:hasProperty": [
+              { "@id": "ldfs:dereferenceDatasource" },
+              { "@id": "ldfs:dereferencePath" }
+            ]
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "dereference",
+                "value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "dynamicEntriesFrom": { "@id": "ldfs:dereference" },
+                      "rdfs:label": { "@id": "ldfs:dereferencePath" },
+                      "value": "ldfs:dereferenceDatasource"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Controller/NotFound",
+      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "npm:requireElement": "controllers.NotFoundController",
+      "rdfs:comment": "A NotFoundController responds to requests that cannot be resolved"
+    },
+
+
+
+
+
+    {
+      "@id": "ldfs:ControllerExtension/Memento",
+      "@type": [ "ComponentConstructable", "ldfs:ControllerExtension" ],
+      "npm:requireElement": "controllers.MementoControllerExtension",
+      "rdfs:comment": "A MementoControllerExtension extends Triple Pattern Fragments responses with Memento headers",
+      "hasParameter": [
+        {
+          "@id": "ldfs:mementoTimegatePath",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:timegatePath" },
+            "owl:allValuesFrom": { "@id": "ldfs:Controller/Timegate" }
+          }
+        },
+        {
+          "@id": "ldfs:mementoMemento",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:memento" },
+            "owl:allValuesFrom": { "@id": "ldfs:Controller/Timegate" }
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "@id": "ldfs:timeGatesField"
+              },
+              {
+                "@id": "ldfs:routersField"
+              },
+              {
+                "@id": "ldfs:datasourcesField"
               }
             ]
           }
