@@ -7,7 +7,7 @@
     "rdfa": "http://www.w3.org/ns/rdfa#"
   },
   "@id": "ldfs:defaultLdfServer",
-  "@type": "ldfs:server-feature-qpf",
+  "@type": "ldfs:Server/Qpf",
 
   "rdfs:label": "Linked Data Fragments server",
   "ldfs:baseURL": "/",

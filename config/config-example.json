@@ -5,7 +5,7 @@
     "rdfa": "http://www.w3.org/ns/rdfa#"
   },
   "@id": "http://localhost:3000/",
-  "@type": "ldfs:server-feature-qpf",
+  "@type": "ldfs:Server/Qpf",
 
   "rdfs:label": "My Linked Data Fragments server",
 

@@ -8,6 +8,7 @@
     "npm": "http://example.org/npm#",
     "ldfs": "npmd:bundles/npm/ldf-server/",
     "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
     "value": { "@id": "rdf:value", "@type": "@id"}
   },
   "@id": "npmd:bundles/npm/@ldf/server",
@@ -15,7 +16,7 @@
   "npm:requireName": "ldf-server",
   "hasComponent": [
     {
-      "@id": "ldfs:server-feature-qpf",
+      "@id": "ldfs:Server/Qpf",
       "@type": "ComponentConstructable",
       "npm:requireElement": "LinkedDataFragmentsServerWorker",
       "rdfs:comment": "LinkedDataFragmentsServer is an HTTP server that provides access to Linked Data Fragments",
@@ -69,8 +70,7 @@
           "rdfs:range": {
             "@id": "ldfs:Router",
             "rdfs:subClassOf": "lsdc:Component"
-          },
-          "parameterUnique": true
+          }
         },
         {
           "@id": "ldfs:controller",
@@ -229,6 +229,79 @@
                     {
                       "rdfs:label": "file",
                       "value": "ldfs:loggingFile"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:Router/Datasource",
+      "@type": [ "ComponentConstructable", "ldfs:Router" ],
+      "npm:requireElement": "routers.DatasourceRouter",
+      "rdfs:comment": "A DatasourceRouter routes URLs to data sources"
+    },
+    {
+      "@id": "ldfs:Router/Page",
+      "@type": [ "ComponentConstructable", "ldfs:Router" ],
+      "npm:requireElement": "routers.PageRouter",
+      "rdfs:comment": "A PageRouter routes page numbers to offsets",
+      "hasParameter": [
+        {
+          "@id": "ldfs:pageSize",
+          "rdfs:comment": "The triple page size, which defaults to 100",
+          "rdfs:range": "xsd:integer",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "pageSize",
+                "value": "ldfs:pageSize"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "@id": "ldfs:Router/QuadPattern",
+      "@type": [ "ComponentConstructable", "ldfs:Router" ],
+      "npm:requireElement": "routers.QuadPatternRouter",
+      "rdfs:comment": "A QuadPatternRouter routes basic quad patterns",
+      "hasParameter": [
+        {
+          "@id": "ldfs:routerPrefix",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:prefix" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "prefixes",
+                "value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "dynamicEntriesFrom": { "@id": "ldfs:prefix" },
+                      "rdfs:label": { "@id": "rdfa:prefix" },
+                      "value": "rdfa:uri"
                     }
                   ]
                 }
