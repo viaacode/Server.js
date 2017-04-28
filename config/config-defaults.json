@@ -3,6 +3,7 @@
     "lsdc": "http://linkedsoftwaredependencies.org/vocabulary/components#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
     "ldfs": "npmd:bundles/npm/ldf-server/",
     "rdfa": "http://www.w3.org/ns/rdfa#"
   },
@@ -11,6 +12,7 @@
 
   "rdfs:label": "Linked Data Fragments server",
   "ldfs:baseURL": "/",
+  "ldfs:urlData": { "@id": "ldfs:defaultUrlData", "@type": "ldfs:UrlData" },
 
   "ldfs:port": 3000,
   "ldfs:workers": 1,
