@@ -55,6 +55,12 @@
           "hasDefaultValue": 1
         },
         {
+          "@id": "ldfs:protocol",
+          "rdfs:comment": "Explicitly set the protocol, default will be the protocol derived from the baseURL",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
           "@id": "ldfs:datasource",
           "rdfs:comment": "Datasource that will be exposed by the server",
           "rdfs:range": { "@id": "ldfs:Datasource" },
@@ -218,6 +224,10 @@
               {
                 "rdfs:label": "port",
                 "value": "ldfs:port"
+              },
+              {
+                "rdfs:label": "protocol",
+                "value": "ldfs:protocol"
               },
               {
                 "rdfs:label": "workers",
