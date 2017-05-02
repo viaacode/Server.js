@@ -20,19 +20,21 @@ if (args.length < 1 || args.length > 3 || /^--?h(elp)?$/.test(args[0])) {
 // TODO: for now we only support JSON-LD. Improve this so we accept any kind of RDF syntax.
 var configDefaults = JSON.parse(fs.readFileSync(path.join(__dirname, '../config/config-defaults.json'))),
     givenConfig = JSON.parse(fs.readFileSync(args[0])),
-    config = givenConfig["@graph"]
-      ? {
-        "@context": givenConfig["@context"],
-        "@graph": [_.defaults(givenConfig["@graph"][0], configDefaults)].concat(givenConfig["@graph"].slice(1))
-        }
-      : _.defaults(givenConfig, configDefaults),
-    serverConfig = givenConfig["@graph"] ? config["@graph"][0] : config,
+    config = givenConfig['@graph'] ? {
+      '@context': givenConfig['@context'],
+      '@graph': [_.defaults(givenConfig['@graph'][0], configDefaults)].concat(givenConfig['@graph'].slice(1)),
+    } : _.defaults(givenConfig, configDefaults),
+    serverConfig = givenConfig['@graph'] ? config['@graph'][0] : config,
     port = parseInt(args[1], 10) || serverConfig['ldfs:port'],
     workers = parseInt(args[2], 10) || serverConfig['ldfs:workers'],
     protocolMatch = (serverConfig['ldfs:baseURL'] || '').match(/^(\w+):/),
     protocol = serverConfig.protocol = protocolMatch ? protocolMatch[1] : 'http';
 // Merge JSON-LD contexts
 config['@context'] = _.defaults(config['@context'], configDefaults['@context']);
+if (config['@graph'])
+  config['@graph'][0]['ldfs:datasource'] = config['@graph'][0]['ldfs:datasource'].concat(configDefaults['ldfs:datasource']);
+else
+  config['ldfs:datasource'] = config['ldfs:datasource'].concat(configDefaults['ldfs:datasource']);
 
 // Start up a cluster master
 if (cluster.isMaster) {

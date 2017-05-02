@@ -1,5 +1,6 @@
 /*! @license MIT ©2015-2016 Ruben Verborgh, Ghent University - imec */
-var Controller = require('../../lib/controllers/Controller');
+var Controller = require('../../lib/controllers/Controller'),
+    UrlData = require('../../lib/UrlData');
 
 var http = require('http'),
     request = require('supertest'),
@@ -61,7 +62,7 @@ describe('Controller', function () {
   describe('A Controller instance with baseURL', function () {
     var controller, client;
     before(function () {
-      controller = new Controller({ baseURL: 'http://example.org:1234/base?c=d#f' });
+      controller = new Controller({ urlData: new UrlData({ baseURL: 'http://example.org:1234/base?c=d#f' }) });
       sinon.spy(controller, '_handleRequest');
       client = request.agent(new DummyServer(controller));
     });
