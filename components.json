@@ -59,7 +59,74 @@
           "rdfs:comment": "A datasource for the server",
           "rdfs:range": {
             "@id": "ldfs:Datasource",
-            "rdfs:subClassOf": "lsdc:Component"
+            "@type": "lsdc:ComponentConstructableAbstract",
+            "hasParameter": [
+              {
+                "@id": "rdfs:label",
+                "rdfs:comment": "The datasource name",
+                "rdfs:range": "xsd:string",
+                "parameterUnique": true
+              },
+              {
+                "@id": "rdfs:comment",
+                "rdfs:comment": "The datasource description",
+                "rdfs:range": "xsd:string",
+                "parameterUnique": true
+              },
+              {
+                "@id": "ldfs:Datasource/enabled",
+                "rdfs:comment": "If the datasource is enabled, by default true",
+                "rdfs:range": "xsd:boolean",
+                "parameterUnique": true
+              },
+              {
+                "@id": "ldfs:Datasource/hide",
+                "rdfs:comment": "If the datasource must be hidden from the index, by default false",
+                "rdfs:range": "xsd:boolean",
+                "parameterUnique": true
+              },
+              {
+                "@id": "ldfs:Datasource/urlData",
+                "rdfs:subClassOf": {
+                  "@type": "owl:Restriction",
+                  "owl:onProperty": { "@id": "ldfs:urlData" },
+                  "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+                }
+              }
+            ],
+            "constructorMapping": {
+              "@list": [
+                {
+                  "@id": "ldfs:Datasource/ConstructorMappingObject",
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "id",
+                      "value": "rdf:subject"
+                    },
+                    {
+                      "rdfs:label": "title",
+                      "value": "rdfs:label"
+                    },
+                    {
+                      "rdfs:label": "description",
+                      "value": "rdfs:comment"
+                    },
+                    {
+                      "rdfs:label": "enabled",
+                      "value": "ldfs:Datasource/enabled"
+                    },
+                    {
+                      "rdfs:label": "hidde",
+                      "value": "ldfs:Datasource/hidden"
+                    },
+                    {
+                      "@id": "ldfs:urlDataFieldMapping"
+                    }
+                  ]
+                }
+              ]
+            }
           }
         },
         {
@@ -71,7 +138,7 @@
           "rdfs:comment": "A router for the server",
           "rdfs:range": {
             "@id": "ldfs:Router",
-            "rdfs:subClassOf": "lsdc:Component"
+            "@type": "ComponentConstructableAbstract"
           }
         },
         {
@@ -79,7 +146,52 @@
           "rdfs:comment": "A controller for the server",
           "rdfs:range": {
             "@id": "ldfs:Controller",
-            "rdfs:subClassOf": "lsdc:Component"
+            "@type": "ComponentConstructableAbstract",
+            "hasParameter": [
+              {
+                "@id": "ldfs:Controller/prefix",
+                "rdfs:subClassOf": {
+                  "@type": "owl:Restriction",
+                  "owl:onProperty": { "@id": "ldfs:prefix" },
+                  "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+                }
+              },
+              {
+                "@id": "ldfs:Controller/datasource",
+                "rdfs:subClassOf": {
+                  "@type": "owl:Restriction",
+                  "owl:onProperty": { "@id": "ldfs:datasource" },
+                  "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+                }
+              },
+              {
+                "@id": "ldfs:Controller/urlData",
+                "rdfs:subClassOf": {
+                  "@type": "owl:Restriction",
+                  "owl:onProperty": { "@id": "ldfs:urlData" },
+                  "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+                }
+              }
+            ],
+            "constructorMapping": {
+              "@list": [
+                {
+                  "@id": "ldfs:Controller/ConstructorMappingObject",
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "@id": "ldfs:prefixFieldMapping"
+                    },
+                    {
+                      "@id": "ldfs:datasourcesFieldMapping"
+                    },
+                    {
+                      "@id": "ldfs:urlDataFieldMapping"
+                    }
+                  ]
+                }
+              ]
+            }
           }
         },
         {
@@ -130,6 +242,7 @@
                 "value": "rdfs:label"
               },
               {
+                "@id": "ldfs:urlDataFieldMapping",
                 "rdfs:label": "urlData",
                 "value": "ldfs:urlData"
               },
@@ -142,7 +255,7 @@
                 "value": "ldfs:workers"
               },
               {
-                "@id": "ldfs:datasourcesField",
+                "@id": "ldfs:datasourcesFieldMapping",
                 "rdfs:label": "datasources",
                 "rdf:value": {
                   "@type": "Object",
@@ -327,7 +440,8 @@
 
     {
       "@id": "ldfs:Controller/Summary",
-      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "npm:requireElement": "controllers.SummaryController",
       "rdfs:comment": "A SummaryController responds to requests for summaries",
       "hasParameter": [
@@ -348,6 +462,7 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" },
             "hasField": [
               {
                 "rdfs:label": "summaries",
@@ -373,7 +488,8 @@
 
     {
       "@id": "ldfs:Controller/Timegate",
-      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "npm:requireElement": "controllers.TimegateController",
       "rdfs:comment": "A TimegateController responds to timegate requests",
       "hasParameter": [
@@ -407,6 +523,7 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" },
             "hasField": [
               {
                 "@id": "ldfs:timeGatesField",
@@ -438,7 +555,7 @@
                 "@id": "ldfs:routersField"
               },
               {
-                "@id": "ldfs:datasourcesField"
+                "@id": "ldfs:datasourcesFieldMapping"
               }
             ]
           }
@@ -448,7 +565,8 @@
 
     {
       "@id": "ldfs:Controller/QuadPatternFragments",
-      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "npm:requireElement": "controllers.QuadPatternFragmentsController",
       "rdfs:comment": "A QuadPatternFragmentsController responds to requests for TPFs and QPFs",
       "hasParameter": [
@@ -473,6 +591,7 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" },
             "hasField": [
               {
                 "@id": "ldfs:routersField"
@@ -489,7 +608,8 @@
 
     {
       "@id": "ldfs:Controller/Assets",
-      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "npm:requireElement": "controllers.AssetsController",
       "rdfs:comment": "An AssetsController responds to requests for assets",
       "hasParameter": [
@@ -510,6 +630,7 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" },
             "hasField": [
               {
                 "rdfs:label": "assetsFolder",
@@ -527,7 +648,8 @@
 
     {
       "@id": "ldfs:Controller/Dereference",
-      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "npm:requireElement": "controllers.DereferenceController",
       "rdfs:comment": "A DeferenceController responds to dereferencing requests",
       "hasParameter": [
@@ -547,6 +669,7 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" },
             "hasField": [
               {
                 "rdfs:label": "dereference",
@@ -569,9 +692,18 @@
 
     {
       "@id": "ldfs:Controller/NotFound",
-      "@type": [ "ComponentConstructable", "ldfs:Controller" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "npm:requireElement": "controllers.NotFoundController",
-      "rdfs:comment": "A NotFoundController responds to requests that cannot be resolved"
+      "rdfs:comment": "A NotFoundController responds to requests that cannot be resolved",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" }
+          }
+        ]
+      }
     },
 
 
@@ -580,7 +712,8 @@
 
     {
       "@id": "ldfs:ControllerExtension/Memento",
-      "@type": [ "ComponentConstructable", "ldfs:ControllerExtension" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:ControllerExtension" },
       "npm:requireElement": "controllers.MementoControllerExtension",
       "rdfs:comment": "A MementoControllerExtension extends Triple Pattern Fragments responses with Memento headers",
       "hasParameter": [
@@ -613,7 +746,7 @@
                 "@id": "ldfs:routersField"
               },
               {
-                "@id": "ldfs:datasourcesField"
+                "@id": "ldfs:datasourcesFieldMapping"
               }
             ]
           }
@@ -659,37 +792,28 @@
 
 
     {
+      "@id": "ldfs:Datasource/Index",
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Datasource" },
+      "npm:requireElement": "datasources.IndexDatasource",
+      "rdfs:comment": "An IndexDatasource is a datasource that lists other data sources",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Datasource/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
       "@id": "ldfs:Datasource/Hdt",
-      "@type": [ "ComponentConstructable", "ldfs:Datasource" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Datasource" },
       "npm:requireElement": "datasources.HdtDatasource",
       "rdfs:comment": "An HdtDatasource loads and queries an HDT document in-process",
       "hasParameter": [
-        {
-          "@id": "rdfs:label",
-          "rdfs:comment": "The datasource name",
-          "rdfs:range": "xsd:string",
-          "parameterUnique": true
-        },
-        {
-          "@id": "rdfs:comment",
-          "rdfs:comment": "The datasource description",
-          "rdfs:range": "xsd:string",
-          "parameterUnique": true
-        },
-        {
-          "@id": "ldfs:Datasource/enabled",
-          "rdfs:comment": "If the datasource is enabled, by default true",
-          "rdfs:range": "xsd:boolean",
-          "parameterUnique": true
-        },
-        {
-          "@id": "ldfs:Datasource/urlData",
-          "rdfs:subClassOf": {
-            "@type": "owl:Restriction",
-            "owl:onProperty": { "@id": "ldfs:urlData" },
-            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
-          }
-        },
         {
           "@id": "ldfs:Datasource/Hdt/file",
           "rdfs:comment": "The HDT datasource source file",
@@ -707,27 +831,8 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Datasource/ConstructorMappingObject" },
             "hasField": [
-              {
-                "rdfs:label": "id",
-                "value": "rdf:subject"
-              },
-              {
-                "rdfs:label": "title",
-                "value": "rdfs:label"
-              },
-              {
-                "rdfs:label": "description",
-                "value": "rdfs:comment"
-              },
-              {
-                "rdfs:label": "enabled",
-                "value": "ldfs:Datasource/enabled"
-              },
-              {
-                "rdfs:label": "urlData",
-                "value": "ldfs:urlData"
-              },
               {
                 "rdfs:label": "file",
                 "value": "ldfs:Datasource/Hdt/file"
@@ -744,36 +849,11 @@
 
     {
       "@id": "ldfs:Datasource/Sparql",
-      "@type": [ "ComponentConstructable", "ldfs:Datasource" ],
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Datasource" },
       "npm:requireElement": "datasources.SparqlDatasource",
       "rdfs:comment": "A SparqlDatasource provides queryable access to a SPARQL endpoint",
       "hasParameter": [
-        {
-          "@id": "rdfs:label",
-          "rdfs:comment": "The datasource name",
-          "rdfs:range": "xsd:string",
-          "parameterUnique": true
-        },
-        {
-          "@id": "rdfs:comment",
-          "rdfs:comment": "The datasource description",
-          "rdfs:range": "xsd:string",
-          "parameterUnique": true
-        },
-        {
-          "@id": "ldfs:Datasource/enabled",
-          "rdfs:comment": "If the datasource is enabled, by default true",
-          "rdfs:range": "xsd:boolean",
-          "parameterUnique": true
-        },
-        {
-          "@id": "ldfs:Datasource/urlData",
-          "rdfs:subClassOf": {
-            "@type": "owl:Restriction",
-            "owl:onProperty": { "@id": "ldfs:urlData" },
-            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
-          }
-        },
         {
           "@id": "ldfs:Datasource/Sparql/endpoint",
           "rdfs:comment": "The SPARQL endpoint URL",
@@ -790,27 +870,8 @@
         "@list": [
           {
             "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Datasource/ConstructorMappingObject" },
             "hasField": [
-              {
-                "rdfs:label": "id",
-                "value": "rdf:subject"
-              },
-              {
-                "rdfs:label": "title",
-                "value": "rdfs:label"
-              },
-              {
-                "rdfs:label": "description",
-                "value": "rdfs:comment"
-              },
-              {
-                "rdfs:label": "enabled",
-                "value": "ldfs:Datasource/enabled"
-              },
-              {
-                "rdfs:label": "urlData",
-                "value": "ldfs:urlData"
-              },
               {
                 "rdfs:label": "file",
                 "value": "ldfs:Datasource/Sparql/endpoint"

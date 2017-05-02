@@ -37,11 +37,12 @@ describe('QuadPatternFragmentsController', function () {
         }),
       };
       datasource = {
+        title: 'My data',
         supportsQuery: sinon.stub().returns(true),
         select: sinon.stub().returns({ stream: 'items' }),
         supportedFeatures: { quadPattern: true },
       };
-      datasources = { 'my-datasource': { title: 'My data', datasource: datasource } };
+      datasources = { 'my-datasource': datasource };
       view = new QuadPatternFragmentsRdfView(),
       sinon.spy(view, 'render');
       prefixes = { a: 'a' };

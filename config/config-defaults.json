@@ -17,7 +17,15 @@
   "ldfs:port": 3000,
   "ldfs:workers": 1,
 
-  "ldfs:datasource": [],
+  "ldfs:datasource": [
+    {
+      "@id": "ldfs:defaultIndexDatasource",
+      "@type": "ldfs:Datasource/Index",
+      "rdfs:label": "dataset index",
+      "ldfs:Datasource/hidden": true,
+      "ldfs:Datasource/Hdt/file": "data/dbpedia2014.hdt"
+    }
+  ],
 
   "ldfs:prefix": [
     { "rdfa:prefix": "rdf",         "rdfa:uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" },
