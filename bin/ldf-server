@@ -111,7 +111,6 @@ else {
   var runner = new ComponentRunner();
   var moduleStream = fs.createReadStream(path.join(__dirname, '/../components.json')).pipe(new JsonLdStreamParser());
   var configStream = new JsonLdStreamer(config);
-  runner.overrideRequireNames['ldf-server'] = path.join(__dirname, '/../module.js'); // TODO: Hack!
   runner.registerModuleResourcesStream(moduleStream)
     .then(function () {
       // TODO: detect config URI at runtime.
