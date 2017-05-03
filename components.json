@@ -117,7 +117,7 @@
                       "value": "ldfs:Datasource/enabled"
                     },
                     {
-                      "rdfs:label": "hidde",
+                      "rdfs:label": "hidden",
                       "value": "ldfs:Datasource/hidden"
                     },
                     {
@@ -165,6 +165,14 @@
                 }
               },
               {
+                "@id": "ldfs:Controller/viewCollection",
+                "rdfs:subClassOf": {
+                  "@type": "owl:Restriction",
+                  "owl:onProperty": { "@id": "ldfs:viewCollection" },
+                  "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+                }
+              },
+              {
                 "@id": "ldfs:Controller/urlData",
                 "rdfs:subClassOf": {
                   "@type": "owl:Restriction",
@@ -186,7 +194,51 @@
                       "@id": "ldfs:datasourcesFieldMapping"
                     },
                     {
+                      "@id": "ldfs:viewCollectionFieldMapping"
+                    },
+                    {
                       "@id": "ldfs:urlDataFieldMapping"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "@id": "ldfs:viewCollection",
+          "rdfs:comment": "A ViewCollection provides access to content-negotiated views by name",
+          "rdfs:range": {
+            "@id": "ldfs:ViewCollection"
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:view",
+          "rdfs:comment": "A view for the server",
+          "rdfs:range": {
+            "@id": "ldfs:View",
+            "rdfs:comment": "View is a base class for objects that generate server responses",
+            "@type": "ComponentConstructableAbstract",
+            "hasParameter": [
+              {
+                "@id": "ldfs:View/extension",
+                "rdfs:comment": "An extension for this view",
+                "rdfs:range": {
+                  "@id": "ldfs:ViewExtension",
+                  "rdfs:subClassOf": "lsdc:Component"
+                }
+              }
+            ],
+            "constructorMapping": {
+              "@list": [
+                {
+                  "@id": "ldfs:ViewExtension/ConstructorMappingObject",
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "extensions",
+                      "value": "ldfs:View/extension"
                     }
                   ]
                 }
@@ -228,6 +280,18 @@
         {
           "@id": "ldfs:loggingFile",
           "rdfs:comment": "Path to a log file",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:assetsPath",
+          "rdfs:comment": "Path matching for assets",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:assetsDir",
+          "rdfs:comment": "Path to a directory where assets can be found",
           "rdfs:range": "xsd:string",
           "parameterUnique": true
         }
@@ -294,6 +358,16 @@
               {
                 "rdfs:label": "controllers",
                 "value": "ldfs:controller"
+              },
+              {
+                "@id": "ldfs:viewCollectionFieldMapping",
+                "rdfs:label": "views",
+                "value": "ldfs:viewCollection"
+              },
+              {
+                "@id": "ldfs:viewsFieldMapping",
+                "rdfs:label": "viewsRaw",
+                "value": "ldfs:view"
               },
               {
                 "rdfs:label": "response",
@@ -614,15 +688,21 @@
       "rdfs:comment": "An AssetsController responds to requests for assets",
       "hasParameter": [
         {
-          "@id": "ldfs:assetsDir",
-          "rdfs:comment": "Path to a directory where assets can be found",
-          "rdfs:range": "xsd:string",
+          "@id": "ldfs:Controller/Assets/assetsDir",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:assetsDir" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
           "parameterUnique": true
         },
         {
-          "@id": "ldfs:assetsPath",
-          "rdfs:comment": "Path matching for assets",
-          "rdfs:range": "xsd:string",
+          "@id": "ldfs:Controller/Assets/assetsPath",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:assetsPath" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
           "parameterUnique": true
         }
       ],
@@ -770,6 +850,24 @@
             "owl:onProperty": { "@id": "ldfs:baseURL" },
             "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
           }
+        },
+        {
+          "@id": "ldfs:UrlData/assetsPath",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:assetsPath" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:UrlData/assetsFolder",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:assetsFolder" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
         }
       ],
       "constructorMapping": {
@@ -780,6 +878,10 @@
               {
                 "rdfs:label": "baseURL",
                 "value": "ldfs:baseURL"
+              },
+              {
+                "rdfs:label": "assetsPath",
+                "value": "ldfs:UrlData/assetsPath"
               }
             ]
           }
@@ -881,6 +983,279 @@
                 "value": "ldfs:Datasource/Sparql/defaultGraph"
               }
             ]
+          }
+        ]
+      }
+    },
+
+
+
+
+    {
+      "@id": "ldfs:ViewCollection",
+      "@type": "ComponentConstructable",
+      "npm:requireElement": "views.ViewCollection",
+      "hasParameter": [
+        {
+          "@id": "ldfs:ViewCollection/view",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:view" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Array",
+            "hasElement": [
+              {
+                "value": "ldfs:view"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Html",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View" },
+      "rdfs:comment": "HtmlView is a base class for views that generate HTML responses",
+      "hasParameter": [
+        {
+          "@id": "ldfs:View/Html/cache",
+          "rdfs:comment": "If views should be cached",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/n3Util",
+          "rdfs:comment": "The N3Util class",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/urlData",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:urlData" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/title",
+          "rdfs:comment": "The view title",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/header",
+          "rdfs:comment": "The view header title",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@id": "ldfs:View/Html/ConstructorMappingObject",
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/ConstructorMappingObject" },
+            "hasField": [
+              {
+                "rdfs:label": "cache",
+                "value": "ldfs:View/Html/cache"
+              },
+              {
+                "rdfs:label": "N3Util",
+                "value": "ldfs:View/Html/n3Util"
+              },
+              {
+                "rdfs:label": "urlData",
+                "value": "ldfs:urlData"
+              },
+              {
+                "rdfs:label": "title",
+                "value": "ldfs:View/Html/title"
+              },
+              {
+                "rdfs:label": "header",
+                "value": "ldfs:View/Html/header"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Rdf",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View" },
+      "rdfs:comment": "RdfView is a base class for views that generate RDF responses",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@id": "ldfs:View/Rdf/ConstructorMappingObject",
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Html/Error",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Html" },
+      "npm:requireElement": "views.error.ErrorHtmlView",
+      "rdfs:comment": "An ErrorHtmlView represents a 500 response in HTML",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Html/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "ldfs:View/Rdf/Error",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Rdf" },
+      "npm:requireElement": "views.error.ErrorRdfView",
+      "rdfs:comment": "An ErrorRdfView represents a 500 response in RDF",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Rdf/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Html/Forbidden",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Html" },
+      "npm:requireElement": "views.forbidden.ForbiddenHtmlView",
+      "rdfs:comment": "A ForbiddenHtmlView represents a 401 response in HTML",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Html/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Html/NotFound",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Html" },
+      "npm:requireElement": "views.notfound.NotFoundHtmlView",
+      "rdfs:comment": "A NotFoundHtmlView represents a 404 response in HTML",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Html/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "ldfs:View/Rdf/NotFound",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Rdf" },
+      "npm:requireElement": "views.notfound.NotFoundRdfView",
+      "rdfs:comment": "A NotFoundRdfView represents a 404 response in RDF",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Rdf/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Html/Qpf",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Html" },
+      "npm:requireElement": "views.quadpatternfragments.QuadPatternFragmentsHtmlView",
+      "rdfs:comment": "A QuadPatternFragmentsRdfView represents a TPF or QPF in HTML",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Html/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "ldfs:View/Rdf/Qpf",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Rdf" },
+      "npm:requireElement": "views.quadpatternfragments.QuadPatternFragmentsRdfView",
+      "rdfs:comment": "A QuadPatternFragmentsRdfView represents a Quad Pattern Fragment in RDF",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Rdf/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:View/Rdf/Summary",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Rdf" },
+      "npm:requireElement": "views.summary.SummaryRdfView",
+      "rdfs:comment": "A SummaryRdfView represents a data summary in RDF",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Rdf/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+
+    {
+      "@id": "ldfs:ViewExtension/Rdf/Qpf/Summary",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:ViewExtension" },
+      "npm:requireElement": "views.summary.QuadPatternFragmentsRdfView-Summary",
+      "rdfs:comment": "A SummaryRdfViewExtension extends the Quad Pattern Fragments RDF view with a summary link",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:ViewExtension/ConstructorMappingObject" }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "ldfs:ViewExtension/Html/Qpf/Summary",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:ViewExtension" },
+      "npm:requireElement": "views.summary.QuadPatternFragmentsHtmlView-Summary",
+      "rdfs:comment": "A SummaryHtmlViewExtension extends the Quad Pattern Fragments HTML view with a summary link",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:ViewExtension/ConstructorMappingObject" }
           }
         ]
       }
