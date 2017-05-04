@@ -1,0 +1,68 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:UrlData",
+      "@type": [ "ComponentConstructable" ],
+      "npm:requireElement": "UrlData",
+      "rdfs:comment": "A data object class for preset URL information",
+      "hasParameter": [
+        {
+          "@id": "ldfs:UrlData/baseURL",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:baseURL" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:UrlData/assetsPath",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:assetsPath" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:UrlData/assetsFolder",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:assetsFolder" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "hasField": [
+              {
+                "rdfs:label": "baseURL",
+                "value": "ldfs:baseURL"
+              },
+              {
+                "rdfs:label": "assetsPath",
+                "value": "ldfs:UrlData/assetsPath"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

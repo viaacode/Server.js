@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:View/Rdf/Summary",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View/Rdf" },
+      "npm:requireElement": "views.summary.SummaryRdfView",
+      "rdfs:comment": "A SummaryRdfView represents a data summary in RDF",
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/Rdf/ConstructorMappingObject" }
+          }
+        ]
+      }
+    }
+  ]
+}

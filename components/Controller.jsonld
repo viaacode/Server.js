@@ -1,0 +1,77 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:Controller",
+      "@type": "ComponentConstructableAbstract",
+      "hasParameter": [
+        {
+          "@id": "ldfs:Controller/prefix",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:prefix" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:Controller/datasource",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:datasource" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:Controller/viewCollection",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:viewCollection" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        },
+        {
+          "@id": "ldfs:Controller/urlData",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:urlData" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@id": "ldfs:Controller/ConstructorMappingObject",
+            "@type": "Object",
+            "hasField": [
+              {
+                "@id": "ldfs:prefixFieldMapping"
+              },
+              {
+                "@id": "ldfs:datasourcesFieldMapping"
+              },
+              {
+                "@id": "ldfs:viewCollectionFieldMapping"
+              },
+              {
+                "@id": "ldfs:urlDataFieldMapping"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

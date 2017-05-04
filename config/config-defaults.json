@@ -56,7 +56,7 @@
     { "@id": "ldfs:defaultNotFoundController",    "@type": "ldfs:Controller/NotFound" }
   ],
 
-  "ldfs:viewCollection": { "@id": "ldfs:defaultViewCollection", "@type": "ldfs:ViewCollection" },
+  "ldfs:viewCollection": { "@id": "ldfs:defaultViewCollection", "@type": "ldfs:View/Collection" },
   "ldfs:view": [
     { "@id": "ldfs:defaultViewHtmlError", "@type": "ldfs:View/Html/Error" },
     { "@id": "ldfs:defaultViewRdfError",  "@type": "ldfs:View/Rdf/Error"  },

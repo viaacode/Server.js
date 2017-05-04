@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:View/Html",
+      "@type": "ComponentConstructableAbstract",
+      "rdfs:subClassOf": { "@id": "ldfs:View" },
+      "rdfs:comment": "HtmlView is a base class for views that generate HTML responses",
+      "hasParameter": [
+        {
+          "@id": "ldfs:View/Html/cache",
+          "rdfs:comment": "If views should be cached",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/n3Util",
+          "rdfs:comment": "The N3Util class",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/urlData",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:urlData" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/title",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "rdfs:label" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          },
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:View/Html/header",
+          "rdfs:comment": "The view header title",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@id": "ldfs:View/Html/ConstructorMappingObject",
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:View/ConstructorMappingObject" },
+            "hasField": [
+              {
+                "rdfs:label": "cache",
+                "value": "ldfs:View/Html/cache"
+              },
+              {
+                "rdfs:label": "N3Util",
+                "value": "ldfs:View/Html/n3Util"
+              },
+              {
+                "rdfs:label": "urlData",
+                "value": "ldfs:urlData"
+              },
+              {
+                "rdfs:label": "title",
+                "value": "rdfs:label"
+              },
+              {
+                "rdfs:label": "header",
+                "value": "ldfs:View/Html/header"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
