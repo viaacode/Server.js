@@ -7,7 +7,7 @@
   },
   "@graph": [
     {
-      "@id": "http://localhost:3000/",
+      "@id": "ex:myLdfServer",
       "@type": "ldfs:Server/Qpf",
 
       "rdfs:label": "My Linked Data Fragments server",
@@ -18,6 +18,7 @@
           "@type": "ldfs:Datasource/Hdt",
           "rdfs:label": "DBpedia 2014",
           "rdfs:comment": "DBpedia 2014 with an HDT back-end",
+          "ldfs:Datasource/path": "dbpedia",
           "ldfs:Datasource/Hdt/file": "data/dbpedia2014.hdt"
         },
         {
@@ -25,6 +26,7 @@
           "@type": "ldfs:Datasource/Sparql",
           "rdfs:label": "DBpedia 3.9 (Virtuoso)",
           "rdfs:comment": "DBpedia 3.9 with a Virtuoso back-end",
+          "ldfs:Datasource/path": "dbpedia-sparql",
           "ldfs:Datasource/Sparql/endpoint": "http://dbpedia.restdesc.org/",
           "ldfs:Datasource/Sparql/defaultGraph": "http://dbpedia.org"
         }
