@@ -103,11 +103,10 @@ if (cluster.isMaster) {
 else {
   var runner = new ComponentRunner();
   var configStream = new JsonLdStreamer(config);
+  var configUri = 'http://example.org/myLdfServer'; // TODO: detect config URI at runtime.
   runner.registerModuleResourcesUrl('file:components/components.json', path.join(__dirname, '../'))
-    .then(function () {
-      // TODO: detect config URI at runtime.
-      return runner.runConfigStream('http://example.org/myLdfServer', configStream);
-    })
+    .then(function ()       { return runner.runConfigStream(configUri, configStream); })
+    .then(function (worker) { worker.run(); })
     .catch(function (e) {
       console.error(e);
       process.exit(1);
