@@ -23,96 +23,170 @@
           "@id": "rdfs:label",
           "rdfs:comment": "The server name",
           "rdfs:range": "xsd:string",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": "Linked Data Fragments server"
         },
         {
           "@id": "ldfs:baseURL",
           "rdfs:comment": "The base URL path for the server",
           "rdfs:range": "xsd:string",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": "/"
         },
         {
           "@id": "ldfs:urlData",
           "rdfs:comment": "The UrlData helper object",
           "rdfs:range": { "@id": "ldfs:UrlData" },
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": { "@id": "ldfs:defaultUrlData", "@type": "ldfs:UrlData" }
         },
         {
           "@id": "ldfs:port",
           "rdfs:comment": "The port the server will bind with",
           "rdfs:range": "xsd:integer",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": 3000
         },
         {
           "@id": "ldfs:workers",
           "rdfs:comment": "The number of server instances that will be started",
           "rdfs:range": "xsd:integer",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": 1
         },
         {
           "@id": "ldfs:datasource",
           "rdfs:comment": "Datasource that will be exposed by the server",
-          "rdfs:range": { "@id": "ldfs:Datasource" }
+          "rdfs:range": { "@id": "ldfs:Datasource" },
+          "hasFixedValue": [
+            {
+              "@id": "ldfs:defaultIndexDatasource",
+              "@type": "ldfs:Datasource/Index",
+              "rdfs:label": "dataset index",
+              "ldfs:Datasource/path": "",
+              "ldfs:Datasource/hidden": true
+            }
+          ]
         },
         {
           "@id": "ldfs:prefix",
-          "rdfs:comment": "The URI prefixes that will be used"
+          "rdfs:comment": "The URI prefixes that will be used",
+          "hasDefaultValue": [
+            { "rdfa:prefix": "rdf",         "rdfa:uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" },
+            { "rdfa:prefix": "rdfs",        "rdfa:uri": "http://www.w3.org/2000/01/rdf-schema#" },
+            { "rdfa:prefix": "owl",         "rdfa:uri": "http://www.w3.org/2002/07/owl#" },
+            { "rdfa:prefix": "xsd",         "rdfa:uri": "http://www.w3.org/2001/XMLSchema#" },
+            { "rdfa:prefix": "hydra",       "rdfa:uri": "http://www.w3.org/ns/hydra/core#" },
+            { "rdfa:prefix": "void",        "rdfa:uri": "http://rdfs.org/ns/void#" },
+            { "rdfa:prefix": "sd",          "rdfa:uri": "http://www.w3.org/TR/sparql11-service-description/#" }
+          ]
         },
         {
           "@id": "ldfs:router",
           "rdfs:comment": "A router for the server",
-          "rdfs:range": { "@id": "ldfs:Router" }
+          "rdfs:range": { "@id": "ldfs:Router" },
+          "hasDefaultValue": [
+            { "@id": "ldfs:defaultRouterDatasource",  "@type": "ldfs:Router/Datasource" },
+            { "@id": "ldfs:defaultRouterQuadPattern", "@type": "ldfs:Router/QuadPattern" },
+            { "@id": "ldfs:defaultRouterPage",        "@type": "ldfs:Router/Page" }
+          ]
         },
         {
           "@id": "ldfs:controller",
           "rdfs:comment": "A controller for the server",
-          "rdfs:range": { "@id": "ldfs:Controller" }
+          "rdfs:range": { "@id": "ldfs:Controller" },
+          "hasDefaultValue": [
+            { "@id": "ldfs:defaultSummaryController",     "@type": "ldfs:Controller/Summary" },
+            { "@id": "ldfs:defaultTimegateController",    "@type": "ldfs:Controller/Timegate" },
+            {
+              "@id": "ldfs:defaultQuadPatternFragmentsController",
+              "@type": "ldfs:Controller/QuadPatternFragments",
+              "ldfs:qpfControllerExtension": { "@type": "ldfs:ControllerExtension/Memento" }
+            },
+            { "@id": "ldfs:defaultAssetsController",      "@type": "ldfs:Controller/Assets" },
+            { "@id": "ldfs:defaultDereferenceController", "@type": "ldfs:Controller/Dereference" },
+            { "@id": "ldfs:defaultNotFoundController",    "@type": "ldfs:Controller/NotFound" }
+          ]
         },
         {
           "@id": "ldfs:viewCollection",
           "rdfs:comment": "A ViewCollection provides access to content-negotiated views by name",
           "rdfs:range": { "@id": "ldfs:View/Collection" },
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": { "@id": "ldfs:defaultViewCollection", "@type": "ldfs:View/Collection" }
         },
         {
           "@id": "ldfs:view",
           "rdfs:comment": "A view for the server",
-          "rdfs:range": { "@id": "ldfs:View" }
+          "rdfs:range": { "@id": "ldfs:View" },
+          "hasDefaultValue": [
+            { "@id": "ldfs:defaultViewHtmlError", "@type": "ldfs:View/Html/Error" },
+            { "@id": "ldfs:defaultViewRdfError",  "@type": "ldfs:View/Rdf/Error"  },
+            { "@id": "ldfs:defaultViewHtmlForbidden", "@type": "ldfs:View/Html/Forbidden" },
+            { "@id": "ldfs:defaultViewHtmlNotFound", "@type": "ldfs:View/Html/NotFound" },
+            { "@id": "ldfs:defaultViewRdfNotFound",  "@type": "ldfs:View/Rdf/NotFound"  },
+            {
+              "@id": "ldfs:defaultViewHtmlQpf",
+              "@type": "ldfs:View/Html/Qpf",
+              "ldfs:View/extension": [
+                { "@type": "ldfs:ViewExtension/Html/Qpf/Memento" },
+                { "@type": "ldfs:ViewExtension/Html/Qpf/Summary" }
+              ]
+            },
+            {
+              "@id": "ldfs:defaultViewRdfQpf",
+              "@type": "ldfs:View/Rdf/Qpf",
+              "ldfs:View/extension": [
+                { "@type": "ldfs:ViewExtension/Rdf/Qpf/Summary" }
+              ]
+            },
+            { "@id": "ldfs:defaultViewRdfSummary",  "@type": "ldfs:View/Rdf/Summary"  }
+          ]
         },
         {
-          "@id": "ldfs:response",
+          "@id": "ldfs:responseHeader",
           "rdfs:comment": "Configuration for the server response data",
-          "rdfs:range": { "@id": "ldfs:Response" }
+          "rdfs:range": { "@id": "ldfs:Response" },
+          "hasDefaultValue": [
+            { "ldfs:headerName": "Access-Control-Allow-Origin",   "ldfs:headerValue": "*" },
+            { "ldfs:headerName": "Access-Control-Allow-Headers",  "ldfs:headerValue": "Accept-Datetime" },
+            { "ldfs:headerName": "Access-Control-Expose-Headers", "ldfs:headerValue": "Content-Location,Link,Memento-Datetime" }
+          ]
         },
         {
           "@id": "ldfs:sslKey",
           "rdfs:comment": "Path to an SSL key",
           "rdfs:range": "xsd:string",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": "config/certs/localhost-server.key"
         },
         {
           "@id": "ldfs:sslCert",
           "rdfs:comment": "Path to an SSL certificate",
           "rdfs:range": "xsd:string",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": "config/certs/localhost-server.crt"
         },
         {
           "@id": "ldfs:sslCa",
           "rdfs:comment": "Path to an SSL certificate authority",
           "rdfs:range": "xsd:string",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": [ "config/certs/localhost-ca.crt" ]
         },
         {
           "@id": "ldfs:logging",
           "rdfs:comment": "If the server should perform logging",
           "rdfs:range": "xsd:boolean",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": false
         },
         {
           "@id": "ldfs:loggingFile",
           "rdfs:comment": "Path to a log file",
           "rdfs:range": "xsd:string",
-          "parameterUnique": true
+          "parameterUnique": true,
+          "hasDefaultValue": "access.log"
         },
         {
           "@id": "ldfs:assetsPath",
