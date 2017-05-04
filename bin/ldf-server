@@ -114,7 +114,7 @@ else {
   runner.registerModuleResourcesStream(moduleStream)
     .then(function () {
       // TODO: detect config URI at runtime.
-      return runner.runConfigStream('http://localhost:3000/', configStream);
+      return runner.runConfigStream('http://example.org/myLdfServer', configStream);
     })
     .catch(function (e) {
       console.error(e);
