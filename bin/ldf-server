@@ -8,7 +8,6 @@ var _ = require('lodash'),
     cluster = require('cluster'),
     components = require('lsd-components'),
     ComponentRunner = components.ComponentRunner,
-    JsonLdStreamParser = components.JsonLdStreamParser,
     JsonLdStreamer = components.JsonLdStreamer;
 
 // Parse arguments
@@ -109,9 +108,8 @@ if (cluster.isMaster) {
 // Start up a worker
 else {
   var runner = new ComponentRunner();
-  var moduleStream = fs.createReadStream(path.join(__dirname, '/../components.json')).pipe(new JsonLdStreamParser());
   var configStream = new JsonLdStreamer(config);
-  runner.registerModuleResourcesStream(moduleStream)
+  runner.registerModuleResourcesUrl('file:components/components.json', path.join(__dirname, '../'))
     .then(function () {
       // TODO: detect config URI at runtime.
       return runner.runConfigStream('http://example.org/myLdfServer', configStream);

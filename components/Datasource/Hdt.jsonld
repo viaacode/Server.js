@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:Datasource/Hdt",
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Datasource" },
+      "npm:requireElement": "datasources.HdtDatasource",
+      "rdfs:comment": "An HdtDatasource loads and queries an HDT document in-process",
+      "hasParameter": [
+        {
+          "@id": "ldfs:Datasource/Hdt/file",
+          "rdfs:comment": "The HDT datasource source file",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:Datasource/Hdt/external",
+          "rdfs:comment": "Switch to external HDT datasource if true",
+          "rdfs:range": "xsd:boolean",
+          "parameterUnique": true
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Datasource/ConstructorMappingObject" },
+            "hasField": [
+              {
+                "rdfs:label": "file",
+                "value": "ldfs:Datasource/Hdt/file"
+              },
+              {
+                "rdfs:label": "external",
+                "value": "ldfs:Datasource/Hdt/external"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

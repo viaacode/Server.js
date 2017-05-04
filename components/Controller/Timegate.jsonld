@@ -1,0 +1,93 @@
+{
+  "@context": {
+    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "npmd": "http://example.org/npmdataset/",
+    "npm": "http://example.org/npm#",
+    "ldfs": "npmd:bundles/npm/ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "value": { "@id": "rdf:value", "@type": "@id"}
+  },
+  "@id": "npmd:bundles/npm/@ldf/server",
+  "hasComponent": [
+    {
+      "@id": "ldfs:Controller/Timegate",
+      "@type": "ComponentConstructable",
+      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
+      "npm:requireElement": "controllers.TimegateController",
+      "rdfs:comment": "A TimegateController responds to timegate requests",
+      "hasParameter": [
+        {
+          "@id": "ldfs:timegatePath",
+          "rdfs:comment": "Path matching for the time gate",
+          "rdfs:range": "xsd:string",
+          "parameterUnique": true
+        },
+        {
+          "@id": "ldfs:memento",
+          "rdfs:comment": "Path to a directory where summaries can be found",
+          "rdfs:range": {
+            "@id": "ldfs:Memento",
+            "rdfs:hasProperty": [
+              { "@id": "ldfs:mementoDatasource" },
+              { "@id": "ldfs:mementoVersion" }
+            ]
+          }
+        },
+        {
+          "@id": "ldfs:timegateRouter",
+          "rdfs:subClassOf": {
+            "@type": "owl:Restriction",
+            "owl:onProperty": { "@id": "ldfs:router" },
+            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          }
+        }
+      ],
+      "constructorMapping": {
+        "@list": [
+          {
+            "@type": "Object",
+            "rdfs:subClassOf": { "@id": "ldfs:Controller/ConstructorMappingObject" },
+            "hasField": [
+              {
+                "@id": "ldfs:timeGatesField",
+                "rdfs:label": "timegates",
+                "value": {
+                  "@type": "Object",
+                  "hasField": [
+                    {
+                      "rdfs:label": "baseUrl",
+                      "value": "ldfs:timegatePath"
+                    },
+                    {
+                      "rdfs:label": "mementos",
+                      "value": {
+                        "@type": "Object",
+                        "hasField": [
+                          {
+                            "dynamicEntriesFrom": { "@id": "ldfs:memento" },
+                            "rdfs:label": { "@id": "ldfs:mementoDatasource" },
+                            "value": "ldfs:mementoVersion"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@id": "ldfs:routersField"
+              },
+              {
+                "@id": "ldfs:datasourcesFieldMapping"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "ldf-server",
   "description": "Linked Data Fragments Server",
   "version": "2.2.2",
-  "lsd:components": true,
+  "lsd:components": "components/components.json",
   "license": "MIT",
   "engines": {
     "node": ">=4.0"
