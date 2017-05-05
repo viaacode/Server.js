@@ -2,27 +2,47 @@
 /*! @license MIT ©2013-2017 Ruben Verborgh and Ruben Taelman, Ghent University - imec */
 /* Standalone Linked Data Fragments Server */
 
-var fs = require('fs'),
-    path = require('path'),
+var path = require('path'),
     cluster = require('cluster'),
     components = require('lsd-components'),
-    ComponentRunner = components.ComponentRunner,
-    JsonLdStreamer = components.JsonLdStreamer;
+    ComponentsLoader = components.Loader;
 
 // Parse arguments
 var args = process.argv.slice(2);
-if (args.length < 1 || args.length > 3 || /^--?h(elp)?$/.test(args[0])) {
-  console.log('usage: server config.json [port [workers]]');
+if (args.length < 1 || args.length > 4 || /^--?h(elp)?$/.test(args[0])) {
+  console.log('usage: server config.json [port [workers [componentConfigUri]]]');
   return process.exit(1);
 }
-// TODO: for now we only support JSON-LD. Improve this so we accept any kind of RDF syntax.
-var config = JSON.parse(fs.readFileSync(args[0])),
-    serverConfig = config['@graph'] ? config['@graph'][0] : config,
-    port = parseInt(args[1], 10) || serverConfig['ldfs:port'] || 3000,
-    workers = parseInt(args[2], 10) || serverConfig['ldfs:workers'] || 1;
 
-// Start up a cluster master
-if (cluster.isMaster) {
+var cliPort = parseInt(args[1], 10),
+    cliWorkers = parseInt(args[2], 10),
+    configUri = args[3] || 'urn:ldfserver:my';
+
+var loader = new ComponentsLoader();
+loader.registerModuleResourcesUrl('components/components.json', path.join(__dirname, '../'))
+  .then(function () {
+    // Start up a cluster master
+    if (cluster.isMaster) {
+      return loader.getConfigConstructorFromUrl(configUri, args[0])
+        .then(function (constructor) {
+          startClusterMaster(constructor.makeArguments(true)[0]);
+        });
+    }
+    else {
+      return loader.instantiateFromUrl(configUri, args[0])
+        .then(function (worker) {
+          worker.run(cliPort);
+        });
+    }
+  })
+  .catch(function (e) {
+    console.error(e);
+    process.exit(1);
+  });
+
+function startClusterMaster(config) {
+  var workers = cliWorkers || config.workers || 1;
+
   // Create workers
   console.log('Master %d running.', process.pid);
   for (var i = 0; i < workers; i++)
@@ -33,7 +53,7 @@ if (cluster.isMaster) {
     worker.once('exit', function (code, signal) {
       if (!worker.suicide) {
         console.log('Worker %d died with %s. Starting new worker.',
-                    worker.process.pid, code || signal);
+          worker.process.pid, code || signal);
         cluster.fork();
       }
     });
@@ -58,7 +78,7 @@ if (cluster.isMaster) {
             return newWorker.kill(), respawnNext(); // Dead workers are replaced automatically
           worker.once('exit', function () {
             console.log('Worker %d replaces killed worker %d.',
-                        newWorker.process.pid, worker.process.pid);
+              newWorker.process.pid, worker.process.pid);
             respawnNext();
           });
           worker.kill();
@@ -69,7 +89,7 @@ if (cluster.isMaster) {
         function abort(code, signal) {
           if (!newWorker.suicide) {
             console.log('Respawning aborted because worker %d died with %s.',
-                        newWorker.process.pid, code || signal);
+              newWorker.process.pid, code || signal);
             process.addListener('SIGHUP', respawn);
             process.removeListener('SIGHUP', respawnPending);
           }
@@ -84,17 +104,4 @@ if (cluster.isMaster) {
     })();
     function respawnPending() { console.log('Respawning already in progress'); }
   });
-}
-// Start up a worker
-else {
-  var runner = new ComponentRunner();
-  var configStream = new JsonLdStreamer(config);
-  var configUri = 'http://example.org/myLdfServer'; // TODO: detect config URI at runtime.
-  runner.registerModuleResourcesUrl('file:components/components.json', path.join(__dirname, '../'))
-    .then(function ()       { return runner.runConfigStream(configUri, configStream); })
-    .then(function (worker) { worker.run(port); })
-    .catch(function (e) {
-      console.error(e);
-      process.exit(1);
-    });
 }
