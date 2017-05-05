@@ -19,7 +19,7 @@ var cliPort = parseInt(args[1], 10),
     configUri = args[3] || 'urn:ldfserver:my';
 
 var loader = new ComponentsLoader();
-loader.registerModuleResourcesUrl('components/components.json', path.join(__dirname, '../'))
+loader.registerModuleResourcesUrl('components/components.jsonld', path.join(__dirname, '../'))
   .then(function () {
     // Start up a cluster master
     if (cluster.isMaster) {

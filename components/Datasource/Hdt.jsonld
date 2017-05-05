@@ -1,56 +1,157 @@
 {
-  "@context": {
-    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "npmd": "http://example.org/npmdataset/",
-    "npm": "http://example.org/npm#",
-    "ldfs": "npmd:bundles/npm/ldf-server/",
-    "rdfa": "http://www.w3.org/ns/rdfa#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "value": { "@id": "rdf:value", "@type": "@id"}
-  },
-  "@id": "npmd:bundles/npm/@ldf/server",
-  "hasComponent": [
+  "@context": [
+    {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+
+      "lsdc": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+      "Module": {
+        "@id": "lsdc:Module"
+      },
+      "ComponentConstructable": {
+        "@id": "lsdc:ComponentConstructable"
+      },
+      "ComponentConstructableAbstract": {
+        "@id": "lsdc:ComponentConstructableAbstract"
+      },
+      "ComponentComponentInstance": {
+        "@id": "lsdc:ComponentInstance"
+      },
+      "components": {
+        "@id": "lsdc:hasComponent"
+      },
+      "parameters": {
+        "@id": "lsdc:hasParameter"
+      },
+      "constructorMapping": {
+        "@id": "lsdc:constructorMapping",
+        "@container": "@list"
+      },
+      "parameterUnique": {
+        "@id": "lsdc:parameterUnique"
+      },
+      "hasDefaultValue": {
+        "@id": "lsdc:hasDefaultValue"
+      },
+      "hasFixedValue": {
+        "@id": "lsdc:hasFixedValue"
+      },
+
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "comment": {
+        "@id": "rdfs:comment",
+        "@type": "@id"
+      },
+      "extends": {
+        "@id": "rdfs:subClassOf",
+        "@type": "@id"
+      },
+      "range": {
+        "@id": "rdfs:range",
+        "@type": "@id"
+      },
+
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "import": {
+        "@id": "owl:imports"
+      },
+      "InheritanceValue": {
+        "@id": "owl:Restriction"
+      },
+      "inheritValues": {
+        "@id": "rdfs:subClassOf",
+        "@type": "@id"
+      },
+      "onParameter": {
+        "@id": "owl:onProperty",
+        "@type": "@id"
+      },
+      "from": {
+        "@id": "owl:allValuesFrom",
+        "@type": "@id"
+      },
+
+      "npm": "http://example.org/npm#",
+      "requireName": {
+        "@id": "npm:requireName"
+      },
+      "requireElement": {
+        "@id": "npm:requireElement"
+      },
+
+      "om": "http://linkedsoftwaredependencies.org/vocabulary/object-mapping#",
+      "ObjectMap": {
+        "@id": "om:ObjectMap"
+      },
+      "ArrayMap": {
+        "@id": "om:ArrayMap"
+      },
+      "fields": {
+        "@id": "om:field",
+        "@type": "om:ObjectMapEntry"
+      },
+      "elements": {
+        "@id": "om:element",
+        "@type": "om:ArrayMapEntry"
+      },
+      "dynamicEntries": {
+        "@id": "om:dynamicEntries",
+        "@type": "@id"
+      },
+      "keyRaw": {
+        "@id": "om:fieldName"
+      },
+      "key": {
+        "@id": "om:fieldName",
+        "@type": "@id"
+      },
+      "value": {
+        "@id": "om:fieldValue",
+        "@type": "@id"
+      }
+    },
+    {
+      "npmd": "http://linkedsoftwaredependencies.org/bundles/npm/",
+      "ldfs": "npmd:ldf-server/",
+      "rdfa": "http://www.w3.org/ns/rdfa#"
+    }
+  ],
+  "@id": "npmd:@ldf/server",
+  "components": [
     {
       "@id": "ldfs:Datasource/Hdt",
       "@type": "ComponentConstructable",
-      "rdfs:subClassOf": { "@id": "ldfs:Datasource" },
-      "npm:requireElement": "datasources.HdtDatasource",
-      "rdfs:comment": "An HdtDatasource loads and queries an HDT document in-process",
-      "hasParameter": [
+      "extends": "ldfs:Datasource",
+      "requireElement": "datasources.HdtDatasource",
+      "comment": "An HdtDatasource loads and queries an HDT document in-process",
+      "parameters": [
         {
           "@id": "ldfs:Datasource/Hdt/file",
-          "rdfs:comment": "The HDT datasource source file",
-          "rdfs:range": "xsd:string",
+          "comment": "The HDT datasource source file",
+          "range": "xsd:string",
           "parameterUnique": true
         },
         {
           "@id": "ldfs:Datasource/Hdt/external",
-          "rdfs:comment": "Switch to external HDT datasource if true",
-          "rdfs:range": "xsd:boolean",
+          "comment": "Switch to external HDT datasource if true",
+          "range": "xsd:boolean",
           "parameterUnique": true
         }
       ],
-      "constructorMapping": {
-        "@list": [
-          {
-            "@type": "Object",
-            "rdfs:subClassOf": { "@id": "ldfs:Datasource/ConstructorMappingObject" },
-            "hasField": [
-              {
-                "rdfs:label": "file",
-                "value": "ldfs:Datasource/Hdt/file"
-              },
-              {
-                "rdfs:label": "external",
-                "value": "ldfs:Datasource/Hdt/external"
-              }
-            ]
-          }
-        ]
-      }
+      "constructorMapping": [
+        {
+          "extends": "ldfs:Datasource/ConstructorMappingObject",
+          "fields": [
+            {
+              "keyRaw": "file",
+              "value": "ldfs:Datasource/Hdt/file"
+            },
+            {
+              "keyRaw": "external",
+              "value": "ldfs:Datasource/Hdt/external"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "@context": {
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "ldfs": "http://example.org/npmdataset/bundles/npm/ldf-server/",
-    "rdfa": "http://www.w3.org/ns/rdfa#",
-    "ex":   "http://example.org/"
+    "npmd": "http://linkedsoftwaredependencies.org/bundles/npm/",
+    "ldfs": "npmd:ldf-server/",
+    "rdfa": "http://www.w3.org/ns/rdfa#"
   },
   "@id": "urn:ldfserver:my",
   "@type": "ldfs:Server/Qpf",

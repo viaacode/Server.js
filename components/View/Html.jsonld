@@ -1,90 +1,191 @@
 {
-  "@context": {
-    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "npmd": "http://example.org/npmdataset/",
-    "npm": "http://example.org/npm#",
-    "ldfs": "npmd:bundles/npm/ldf-server/",
-    "rdfa": "http://www.w3.org/ns/rdfa#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "value": { "@id": "rdf:value", "@type": "@id"}
-  },
-  "@id": "npmd:bundles/npm/@ldf/server",
-  "hasComponent": [
+  "@context": [
+    {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+
+      "lsdc": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+      "Module": {
+        "@id": "lsdc:Module"
+      },
+      "ComponentConstructable": {
+        "@id": "lsdc:ComponentConstructable"
+      },
+      "ComponentConstructableAbstract": {
+        "@id": "lsdc:ComponentConstructableAbstract"
+      },
+      "ComponentComponentInstance": {
+        "@id": "lsdc:ComponentInstance"
+      },
+      "components": {
+        "@id": "lsdc:hasComponent"
+      },
+      "parameters": {
+        "@id": "lsdc:hasParameter"
+      },
+      "constructorMapping": {
+        "@id": "lsdc:constructorMapping",
+        "@container": "@list"
+      },
+      "parameterUnique": {
+        "@id": "lsdc:parameterUnique"
+      },
+      "hasDefaultValue": {
+        "@id": "lsdc:hasDefaultValue"
+      },
+      "hasFixedValue": {
+        "@id": "lsdc:hasFixedValue"
+      },
+
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "comment": {
+        "@id": "rdfs:comment",
+        "@type": "@id"
+      },
+      "extends": {
+        "@id": "rdfs:subClassOf",
+        "@type": "@id"
+      },
+      "range": {
+        "@id": "rdfs:range",
+        "@type": "@id"
+      },
+
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "import": {
+        "@id": "owl:imports"
+      },
+      "InheritanceValue": {
+        "@id": "owl:Restriction"
+      },
+      "inheritValues": {
+        "@id": "rdfs:subClassOf",
+        "@type": "@id"
+      },
+      "onParameter": {
+        "@id": "owl:onProperty",
+        "@type": "@id"
+      },
+      "from": {
+        "@id": "owl:allValuesFrom",
+        "@type": "@id"
+      },
+
+      "npm": "http://example.org/npm#",
+      "requireName": {
+        "@id": "npm:requireName"
+      },
+      "requireElement": {
+        "@id": "npm:requireElement"
+      },
+
+      "om": "http://linkedsoftwaredependencies.org/vocabulary/object-mapping#",
+      "ObjectMap": {
+        "@id": "om:ObjectMap"
+      },
+      "ArrayMap": {
+        "@id": "om:ArrayMap"
+      },
+      "fields": {
+        "@id": "om:field",
+        "@type": "om:ObjectMapEntry"
+      },
+      "elements": {
+        "@id": "om:element",
+        "@type": "om:ArrayMapEntry"
+      },
+      "dynamicEntries": {
+        "@id": "om:dynamicEntries",
+        "@type": "@id"
+      },
+      "keyRaw": {
+        "@id": "om:fieldName"
+      },
+      "key": {
+        "@id": "om:fieldName",
+        "@type": "@id"
+      },
+      "value": {
+        "@id": "om:fieldValue",
+        "@type": "@id"
+      }
+    },
+    {
+      "npmd": "http://linkedsoftwaredependencies.org/bundles/npm/",
+      "ldfs": "npmd:ldf-server/",
+      "rdfa": "http://www.w3.org/ns/rdfa#"
+    }
+  ],
+  "@id": "npmd:@ldf/server",
+  "components": [
     {
       "@id": "ldfs:View/Html",
       "@type": "ComponentConstructableAbstract",
-      "rdfs:subClassOf": { "@id": "ldfs:View" },
-      "rdfs:comment": "HtmlView is a base class for views that generate HTML responses",
-      "hasParameter": [
+      "extends": "ldfs:View",
+      "comment": "HtmlView is a base class for views that generate HTML responses",
+      "parameters": [
         {
           "@id": "ldfs:View/Html/cache",
-          "rdfs:comment": "If views should be cached",
-          "rdfs:range": "xsd:boolean",
+          "comment": "If views should be cached",
+          "range": "xsd:boolean",
           "parameterUnique": true
         },
         {
           "@id": "ldfs:View/Html/n3Util",
-          "rdfs:comment": "The N3Util class",
+          "comment": "The N3Util class",
           "parameterUnique": true
         },
         {
           "@id": "ldfs:View/Html/urlData",
-          "rdfs:subClassOf": {
-            "@type": "owl:Restriction",
-            "owl:onProperty": { "@id": "ldfs:urlData" },
-            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          "inheritValues": {
+            "@type": "InheritanceValue",
+            "onParameter": "ldfs:urlData",
+            "from": "ldfs:Server/Qpf"
           },
           "parameterUnique": true
         },
         {
           "@id": "ldfs:View/Html/title",
-          "rdfs:subClassOf": {
-            "@type": "owl:Restriction",
-            "owl:onProperty": { "@id": "rdfs:label" },
-            "owl:allValuesFrom": { "@id": "ldfs:Server/Qpf" }
+          "inheritValues": {
+            "@type": "InheritanceValue",
+            "onParameter": "rdfs:label",
+            "from": "ldfs:Server/Qpf"
           },
           "parameterUnique": true
         },
         {
           "@id": "ldfs:View/Html/header",
-          "rdfs:comment": "The view header title",
+          "comment": "The view header title",
           "parameterUnique": true
         }
       ],
-      "constructorMapping": {
-        "@list": [
-          {
-            "@id": "ldfs:View/Html/ConstructorMappingObject",
-            "@type": "Object",
-            "rdfs:subClassOf": { "@id": "ldfs:View/ConstructorMappingObject" },
-            "hasField": [
-              {
-                "rdfs:label": "cache",
-                "value": "ldfs:View/Html/cache"
-              },
-              {
-                "rdfs:label": "N3Util",
-                "value": "ldfs:View/Html/n3Util"
-              },
-              {
-                "rdfs:label": "urlData",
-                "value": "ldfs:urlData"
-              },
-              {
-                "rdfs:label": "title",
-                "value": "rdfs:label"
-              },
-              {
-                "rdfs:label": "header",
-                "value": "ldfs:View/Html/header"
-              }
-            ]
-          }
-        ]
-      }
+      "constructorMapping": [
+        {
+          "@id": "ldfs:View/Html/ConstructorMappingObject",
+          "extends": "ldfs:View/ConstructorMappingObject",
+          "fields": [
+            {
+              "keyRaw": "cache",
+              "value": "ldfs:View/Html/cache"
+            },
+            {
+              "keyRaw": "N3Util",
+              "value": "ldfs:View/Html/n3Util"
+            },
+            {
+              "keyRaw": "urlData",
+              "value": "ldfs:urlData"
+            },
+            {
+              "keyRaw": "title",
+              "value": "rdfs:label"
+            },
+            {
+              "keyRaw": "header",
+              "value": "ldfs:View/Html/header"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
