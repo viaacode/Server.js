@@ -9,46 +9,46 @@
   "@type": "Module",
   "npm:requireName": "ldf-server",
   "owl:imports": [
-    "file:components/Controller.jsonld",
-    "file:components/Datasource.jsonld",
-    "file:components/Router.jsonld",
-    "file:components/UrlData.jsonld",
-    "file:components/View.jsonld",
+    "components/Controller.jsonld",
+    "components/Datasource.jsonld",
+    "components/Router.jsonld",
+    "components/UrlData.jsonld",
+    "components/View.jsonld",
 
-    "file:components/Server/Qpf.jsonld",
+    "components/Server/Qpf.jsonld",
 
-    "file:components/Controller/Summary.jsonld",
-    "file:components/Controller/Timegate.jsonld",
-    "file:components/Controller/QuadPatternFragments.jsonld",
-    "file:components/Controller/Assets.jsonld",
-    "file:components/Controller/Dereference.jsonld",
-    "file:components/Controller/NotFound.jsonld",
+    "components/Controller/Summary.jsonld",
+    "components/Controller/Timegate.jsonld",
+    "components/Controller/QuadPatternFragments.jsonld",
+    "components/Controller/Assets.jsonld",
+    "components/Controller/Dereference.jsonld",
+    "components/Controller/NotFound.jsonld",
 
-    "file:components/ControllerExtension/Memento.jsonld",
+    "components/ControllerExtension/Memento.jsonld",
 
-    "file:components/Datasource/Index.jsonld",
-    "file:components/Datasource/Hdt.jsonld",
-    "file:components/Datasource/Sparql.jsonld",
+    "components/Datasource/Index.jsonld",
+    "components/Datasource/Hdt.jsonld",
+    "components/Datasource/Sparql.jsonld",
 
-    "file:components/Router/Datasource.jsonld",
-    "file:components/Router/Page.jsonld",
-    "file:components/Router/QuadPattern.jsonld",
+    "components/Router/Datasource.jsonld",
+    "components/Router/Page.jsonld",
+    "components/Router/QuadPattern.jsonld",
 
-    "file:components/View/ViewCollection.jsonld",
+    "components/View/ViewCollection.jsonld",
 
-    "file:components/View/Html.jsonld",
-    "file:components/View/Html/Error.jsonld",
-    "file:components/View/Html/Forbidden.jsonld",
-    "file:components/View/Html/NotFound.jsonld",
-    "file:components/View/Html/Qpf.jsonld",
+    "components/View/Html.jsonld",
+    "components/View/Html/Error.jsonld",
+    "components/View/Html/Forbidden.jsonld",
+    "components/View/Html/NotFound.jsonld",
+    "components/View/Html/Qpf.jsonld",
 
-    "file:components/View/Rdf.jsonld",
-    "file:components/View/Rdf/Error.jsonld",
-    "file:components/View/Rdf/NotFound.jsonld",
-    "file:components/View/Rdf/Qpf.jsonld",
-    "file:components/View/Rdf/Summary.jsonld",
+    "components/View/Rdf.jsonld",
+    "components/View/Rdf/Error.jsonld",
+    "components/View/Rdf/NotFound.jsonld",
+    "components/View/Rdf/Qpf.jsonld",
+    "components/View/Rdf/Summary.jsonld",
 
-    "file:components/ViewExtension/Html/Qpf/Summary.jsonld",
-    "file:components/ViewExtension/Rdf/Qpf/Summary.jsonld"
+    "components/ViewExtension/Html/Qpf/Summary.jsonld",
+    "components/ViewExtension/Rdf/Qpf/Summary.jsonld"
   ]
 }
