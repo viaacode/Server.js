@@ -111,23 +111,53 @@
     },
     {
       "npmd": "http://linkedsoftwaredependencies.org/bundles/npm/",
-      "ldfs": "npmd:ldf-server/",
-      "rdfa": "http://www.w3.org/ns/rdfa#"
+      "ldfs": "npmd:ldf-server/"
     }
   ],
   "@id": "npmd:@ldf/server",
-  "components": [
-    {
-      "@id": "ldfs:View/Rdf/Qpf",
-      "@type": "ComponentConstructableAbstract",
-      "extends": "ldfs:View/Rdf",
-      "requireElement": "views.quadpatternfragments.QuadPatternFragmentsRdfView",
-      "comment": "A QuadPatternFragmentsRdfView represents a Quad Pattern Fragment in RDF",
-      "constructorMapping": [
-        {
-          "extends": "ldfs:View/Rdf/ConstructorMappingObject"
-        }
-      ]
-    }
+  "@type": "Module",
+  "requireName": "ldf-server",
+  "import": [
+    "components/Controller.jsonld",
+    "components/Datasource.jsonld",
+    "components/Router.jsonld",
+    "components/UrlData.jsonld",
+    "components/View.jsonld",
+
+    "components/Server/Qpf.jsonld",
+
+    "components/Controller/Summary.jsonld",
+    "components/Controller/Timegate.jsonld",
+    "components/Controller/QuadPatternFragments.jsonld",
+    "components/Controller/Assets.jsonld",
+    "components/Controller/Dereference.jsonld",
+    "components/Controller/NotFound.jsonld",
+
+    "components/ControllerExtension/Memento.jsonld",
+
+    "components/Datasource/Index.jsonld",
+    "components/Datasource/Hdt.jsonld",
+    "components/Datasource/Sparql.jsonld",
+
+    "components/Router/Datasource.jsonld",
+    "components/Router/Page.jsonld",
+    "components/Router/QuadPattern.jsonld",
+
+    "components/View/ViewCollection.jsonld",
+
+    "components/View/Html.jsonld",
+    "components/View/Html/Error.jsonld",
+    "components/View/Html/Forbidden.jsonld",
+    "components/View/Html/NotFound.jsonld",
+    "components/View/Html/Qpf.jsonld",
+
+    "components/View/Rdf.jsonld",
+    "components/View/Rdf/Error.jsonld",
+    "components/View/Rdf/NotFound.jsonld",
+    "components/View/Rdf/Qpf.jsonld",
+    "components/View/Rdf/Summary.jsonld",
+
+    "components/ViewExtension/Html/Qpf/Summary.jsonld",
+    "components/ViewExtension/Rdf/Qpf/Summary.jsonld"
   ]
 }
