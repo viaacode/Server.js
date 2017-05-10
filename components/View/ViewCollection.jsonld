@@ -90,8 +90,9 @@
         "@type": "om:ObjectMappingEntry"
       },
       "elements": {
-        "@id": "om:element",
-        "@type": "om:ArrayMappingEntry"
+        "@id": "om:elements",
+        "@type": "@id",
+        "@container": "@list"
       },
       "collectEntries": {
         "@id": "om:collectEntriesFrom",
@@ -134,9 +135,7 @@
       "constructorMapping": [
         {
           "elements": [
-            {
-              "value": "ldfs:view"
-            }
+            "ldfs:view"
           ]
         }
       ]
