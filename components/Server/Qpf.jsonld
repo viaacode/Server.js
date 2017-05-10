@@ -169,7 +169,7 @@
           "@id": "ldfs:datasource",
           "comment": "Datasource that will be exposed by the server",
           "range": { "@id": "ldfs:Datasource" },
-          "hasFixedValue": [
+          "hasDefaultValue": [
             {
               "@id": "ldfs:defaultIndexDatasource",
               "@type": "ldfs:Datasource/Index",
