@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -124,9 +124,9 @@
       "extends": "ldfs:Controller",
       "requireElement": "controllers.NotFoundController",
       "comment": "A NotFoundController responds to requests that cannot be resolved",
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "extends": "ldfs:Controller/ConstructorMappingObject"
+          "extends": "ldfs:Controller/constructorArgumentsObject"
         }
       ]
     }

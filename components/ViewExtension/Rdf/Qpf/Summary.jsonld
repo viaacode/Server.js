@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -124,9 +124,9 @@
       "extends": "ldfs:ViewExtension",
       "requireElement": "views.summary.QuadPatternFragmentsRdfView-Summary",
       "comment": "A SummaryRdfViewExtension extends the Quad Pattern Fragments RDF view with a summary link",
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "extends": "ldfs:ViewExtension/ConstructorMappingObject"
+          "extends": "ldfs:ViewExtension/constructorArgumentsObject"
         }
       ]
     }

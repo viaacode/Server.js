@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -138,9 +138,9 @@
           "parameterUnique": true
         }
       ],
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "extends": "ldfs:Datasource/ConstructorMappingObject",
+          "extends": "ldfs:Datasource/constructorArgumentsObject",
           "fields": [
             {
               "keyRaw": "file",

@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -123,11 +123,11 @@
       "@type": "ComponentConstructableAbstract",
       "extends": "ldfs:View",
       "comment": "RdfView is a base class for views that generate RDF responses",
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "@id": "ldfs:View/Rdf/ConstructorMappingObject",
+          "@id": "ldfs:View/Rdf/constructorArgumentsObject",
           "@type": "Object",
-          "extends": "ldfs:View/ConstructorMappingObject"
+          "extends": "ldfs:View/constructorArgumentsObject"
         }
       ]
     }

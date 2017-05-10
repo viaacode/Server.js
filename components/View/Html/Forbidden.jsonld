@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -124,9 +124,9 @@
       "extends": "ldfs:View/Html",
       "requireElement": "views.forbidden.ForbiddenHtmlView",
       "comment": "A ForbiddenHtmlView represents a 401 response in HTML",
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "extends": "ldfs:View/Html/ConstructorMappingObject"
+          "extends": "ldfs:View/Html/constructorArgumentsObject"
         }
       ]
     }

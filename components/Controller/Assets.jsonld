@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -144,10 +144,10 @@
           "parameterUnique": true
         }
       ],
-      "constructorMapping": [
+      "constructorArguments": [
         {
           "@type": "Object",
-          "extends": "ldfs:Controller/ConstructorMappingObject",
+          "extends": "ldfs:Controller/constructorArgumentsObject",
           "fields": [
             {
               "keyRaw": "assetsFolder",

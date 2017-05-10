@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -124,9 +124,9 @@
       "extends": "ldfs:View/Rdf",
       "requireElement": "views.error.ErrorRdfView",
       "comment": "An ErrorRdfView represents a 500 response in RDF",
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "extends": "ldfs:View/Rdf/ConstructorMappingObject"
+          "extends": "ldfs:View/Rdf/constructorArgumentsObject"
         }
       ]
     }
