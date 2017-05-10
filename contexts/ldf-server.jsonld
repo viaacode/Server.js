@@ -1,0 +1,26 @@
+{
+  "@context": [
+    "http://linkedsoftwaredependencies.org/contexts/components.jsonld",
+    {
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "npmd": "http://linkedsoftwaredependencies.org/bundles/npm/",
+      "ldfs": "npmd:ldf-server/",
+      "rdfa": "http://www.w3.org/ns/rdfa#",
+
+      "title": "rdfs:label",
+      "description": "ldfs:description",
+
+      "datasources": "ldfs:datasource",
+      "path": "ldfs:Datasource/path",
+      "HdtDatasource": "ldfs:Datasource/Hdt",
+      "hdtFile": "ldfs:Datasource/Hdt/file",
+      "SparqlDatasource": "ldfs:Datasource/Sparql",
+      "sparqlEndpoint": "ldfs:Datasource/Sparql/endpoint",
+      "sparqlDefaultGraph": "ldfs:Datasource/Sparql/defaultGraph",
+
+      "prefixes": "ldfs:prefix",
+      "prefix": "rdfa:prefix",
+      "uri": "rdfa:uri"
+    }
+  ]
+}

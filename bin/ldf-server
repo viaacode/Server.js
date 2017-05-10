@@ -4,6 +4,7 @@
 
 var path = require('path'),
     cluster = require('cluster'),
+    fs = require('fs'),
     components = require('lsd-components'),
     ComponentsLoader = components.Loader;
 
@@ -18,7 +19,12 @@ var cliPort = parseInt(args[1], 10),
     cliWorkers = parseInt(args[2], 10),
     configUri = args[3] || 'urn:ldfserver:my';
 
-var loader = new ComponentsLoader();
+var loader = new ComponentsLoader({
+  contexts: {
+    'http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld':
+      fs.readFileSync(path.join(__dirname, '/../contexts/ldf-server.jsonld'), 'utf8'),
+  },
+});
 loader.registerModuleResourcesUrl('components/components.jsonld', path.join(__dirname, '../'))
   .then(function () {
     // Start up a cluster master
