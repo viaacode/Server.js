@@ -9,7 +9,7 @@
       "comment": "LinkedDataFragmentsServer is an HTTP server that provides access to Linked Data Fragments",
       "parameters": [
         {
-          "@id": "rdfs:label",
+          "@id": "ldfs:title",
           "comment": "The server name",
           "range": "xsd:string",
           "@type": "ParameterUnique",
@@ -201,10 +201,10 @@
           "fields": [
             {
               "keyRaw": "title",
-              "value": "rdfs:label"
+              "value": "ldfs:title"
             },
             {
-              "@id": "ldfs:urlDataFieldMapping",
+              "@id": "ldfs:Server/Qpf/ObjectMappings/urlData",
               "keyRaw": "urlData",
               "value": "ldfs:urlData"
             },
@@ -221,7 +221,7 @@
               "value": "ldfs:workers"
             },
             {
-              "@id": "ldfs:datasourcesFieldMapping",
+              "@id": "ldfs:Server/Qpf/ObjectMappings/datasources",
               "keyRaw": "datasources",
               "value": {
                 "fields": [
@@ -235,10 +235,10 @@
             },
             {
               "keyRaw": "dereference",
-              "value": "ldfs:dereference"
+              "value": "ldfs:Controller/Dereference/dereference"
             },
             {
-              "@id": "ldfs:prefixFieldMapping",
+              "@id": "ldfs:Server/Qpf/ObjectMappings/prefixes",
               "keyRaw": "prefixes",
               "value": {
                 "fields": [
@@ -251,7 +251,7 @@
               }
             },
             {
-              "@id": "ldfs:routersField",
+              "@id": "ldfs:Server/Qpf/ObjectMappings/routers",
               "keyRaw": "routers",
               "value": "ldfs:router"
             },
@@ -260,12 +260,12 @@
               "value": "ldfs:controller"
             },
             {
-              "@id": "ldfs:viewCollectionFieldMapping",
+              "@id": "ldfs:Server/Qpf/ObjectMappings/views",
               "keyRaw": "views",
               "value": "ldfs:viewCollection"
             },
             {
-              "@id": "ldfs:viewsFieldMapping",
+              "@id": "ldfs:Server/Qpf/ObjectMappings/viewsRaw",
               "keyRaw": "viewsRaw",
               "value": "ldfs:view"
             },

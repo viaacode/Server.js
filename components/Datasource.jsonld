@@ -7,12 +7,13 @@
       "@type": "lsdc:ComponentConstructableAbstract",
       "parameters": [
         {
-          "@id": "rdfs:label",
+          "@id": "ldfs:Datasource/title",
           "comment": "The datasource name",
-          "range": "xsd:string"
+          "range": "xsd:string",
+          "@type": "ParameterUnique"
         },
         {
-          "@id": "ldfs:description",
+          "@id": "ldfs:Datasource/description",
           "comment": "The datasource description",
           "range": "xsd:string",
           "@type": "ParameterUnique"
@@ -54,11 +55,11 @@
             },
             {
               "keyRaw": "title",
-              "value": "rdfs:label"
+              "value": "ldfs:Datasource/title"
             },
             {
               "keyRaw": "description",
-              "value": "ldfs:description"
+              "value": "ldfs:Datasource/description"
             },
             {
               "keyRaw": "path",
@@ -73,7 +74,7 @@
               "value": "ldfs:Datasource/hidden"
             },
             {
-              "@id": "ldfs:urlDataFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/urlData"
             }
           ]
         }

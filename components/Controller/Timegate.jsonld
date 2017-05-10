@@ -10,19 +10,19 @@
       "comment": "A TimegateController responds to timegate requests",
       "parameters": [
         {
-          "@id": "ldfs:timegatePath",
+          "@id": "ldfs:Controller/Timegate/path",
           "comment": "Path matching for the time gate",
           "range": "xsd:string",
           "@type": "ParameterUnique"
         },
         {
-          "@id": "ldfs:memento",
+          "@id": "ldfs:Controller/Timegate/memento",
           "comment": "Path to a directory where summaries can be found",
           "range": {
             "@id": "ldfs:Memento",
             "hasProperty": [
-              "ldfs:mementoDatasource",
-              "ldfs:mementoVersion"
+              "ldfs:Controller/Timegate/mementoDatasource",
+              "ldfs:Controller/Timegate/mementoVersion"
             ]
           }
         },
@@ -46,16 +46,16 @@
                 "fields": [
                   {
                     "keyRaw": "baseUrl",
-                    "value": "ldfs:timegatePath"
+                    "value": "ldfs:Controller/Timegate/path"
                   },
                   {
                     "keyRaw": "mementos",
                     "value": {
                       "fields": [
                         {
-                          "collectEntries": "ldfs:memento",
-                          "key": "ldfs:mementoDatasource",
-                          "value": "ldfs:mementoVersion"
+                          "collectEntries": "ldfs:Controller/Timegate/memento",
+                          "key": "ldfs:Controller/Timegate/mementoDatasource",
+                          "value": "ldfs:Controller/Timegate/mementoVersion"
                         }
                       ]
                     }
@@ -64,10 +64,10 @@
               }
             },
             {
-              "@id": "ldfs:routersField"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/routers"
             },
             {
-              "@id": "ldfs:datasourcesFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/datasources"
             }
           ]
         }

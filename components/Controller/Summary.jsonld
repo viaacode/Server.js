@@ -10,13 +10,13 @@
       "comment": "A SummaryController responds to requests for summaries",
       "parameters": [
         {
-          "@id": "ldfs:summaryDir",
+          "@id": "ldfs:Controller/Summary/directory",
           "comment": "Path to a directory where summaries can be found",
           "range": "xsd:string",
           "@type": "ParameterUnique"
         },
         {
-          "@id": "ldfs:summaryPath",
+          "@id": "ldfs:Controller/Summary/path",
           "comment": "Path matching for summaries",
           "range": "xsd:string",
           "@type": "ParameterUnique"
@@ -33,11 +33,11 @@
                 "fields": [
                   {
                     "keyRaw": "dir",
-                    "value": "ldfs:summaryDir"
+                    "value": "ldfs:Controller/Summary/directory"
                   },
                   {
                     "keyRaw": "path",
-                    "value": "ldfs:summaryPath"
+                    "value": "ldfs:Controller/Summary/path"
                   }
                 ]
               }

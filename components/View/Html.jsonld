@@ -32,7 +32,7 @@
           "@id": "ldfs:View/Html/title",
           "inheritValues": {
             "@type": "InheritanceValue",
-            "onParameter": "rdfs:label",
+            "onParameter": "ldfs:title",
             "from": "ldfs:Server/Qpf"
           },
           "@type": "ParameterUnique"
@@ -62,7 +62,7 @@
             },
             {
               "keyRaw": "title",
-              "value": "rdfs:label"
+              "value": "ldfs:title"
             },
             {
               "keyRaw": "header",

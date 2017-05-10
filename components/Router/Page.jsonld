@@ -10,7 +10,7 @@
       "comment": "A PageRouter routes page numbers to offsets",
       "parameters": [
         {
-          "@id": "ldfs:pageSize",
+          "@id": "ldfs:Router/Page/size",
           "comment": "The triple page size, which defaults to 100",
           "range": "xsd:integer",
           "@type": "ParameterUnique"
@@ -21,7 +21,7 @@
           "fields": [
             {
               "keyRaw": "pageSize",
-              "value": "ldfs:pageSize"
+              "value": "ldfs:Router/Page/size"
             }
           ]
         }
