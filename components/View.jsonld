@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"

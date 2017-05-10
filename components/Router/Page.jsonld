@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -129,7 +129,7 @@
           "@id": "ldfs:pageSize",
           "comment": "The triple page size, which defaults to 100",
           "range": "xsd:integer",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         }
       ],
       "constructorArguments": [

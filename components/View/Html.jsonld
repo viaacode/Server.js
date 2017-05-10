@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -128,12 +128,12 @@
           "@id": "ldfs:View/Html/cache",
           "comment": "If views should be cached",
           "range": "xsd:boolean",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:View/Html/n3Util",
           "comment": "The N3Util class",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:View/Html/urlData",
@@ -142,7 +142,7 @@
             "onParameter": "ldfs:urlData",
             "from": "ldfs:Server/Qpf"
           },
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:View/Html/title",
@@ -151,12 +151,12 @@
             "onParameter": "rdfs:label",
             "from": "ldfs:Server/Qpf"
           },
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:View/Html/header",
           "comment": "The view header title",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         }
       ],
       "constructorArguments": [

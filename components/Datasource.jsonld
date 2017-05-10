@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -131,25 +131,25 @@
           "@id": "comment",
           "comment": "The datasource description",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:Datasource/path",
           "comment": "The relative path to the datasource from the baseURL",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:Datasource/enabled",
           "comment": "If the datasource is enabled, by default true",
           "range": "xsd:boolean",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:Datasource/hidden",
           "comment": "If the datasource must be hidden from the index, by default false",
           "range": "xsd:boolean",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:Datasource/urlData",
