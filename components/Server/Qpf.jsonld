@@ -93,8 +93,8 @@
         "@id": "om:element",
         "@type": "om:ArrayMappingEntry"
       },
-      "dynamicEntries": {
-        "@id": "om:dynamicEntries",
+      "collectEntries": {
+        "@id": "om:collectEntriesFrom",
         "@type": "@id"
       },
       "keyRaw": {
@@ -341,7 +341,7 @@
               "value": {
                 "fields": [
                   {
-                    "dynamicEntries": "ldfs:datasource",
+                    "collectEntries": "ldfs:datasource",
                     "key": "ldfs:Datasource/path",
                     "value": "rdf:object"
                   }
@@ -358,7 +358,7 @@
               "value": {
                 "fields": [
                   {
-                    "dynamicEntries": "ldfs:prefix",
+                    "collectEntries": "ldfs:prefix",
                     "key": "rdfa:prefix",
                     "value": "rdfa:uri"
                   }
@@ -394,7 +394,7 @@
                     "value": {
                       "fields": [
                         {
-                          "dynamicEntries": "ldfs:responseHeader",
+                          "collectEntries": "ldfs:responseHeader",
                           "key": "ldfs:headerName",
                           "value": "ldfs:headerValue"
                         }
