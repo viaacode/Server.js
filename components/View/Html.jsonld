@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -159,10 +159,10 @@
           "parameterUnique": true
         }
       ],
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "@id": "ldfs:View/Html/ConstructorMappingObject",
-          "extends": "ldfs:View/ConstructorMappingObject",
+          "@id": "ldfs:View/Html/constructorArgumentsObject",
+          "extends": "ldfs:View/constructorArgumentsObject",
           "fields": [
             {
               "keyRaw": "cache",

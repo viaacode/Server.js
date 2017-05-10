@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -155,9 +155,9 @@
           }
         }
       ],
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "@id": "ldfs:Controller/ConstructorMappingObject",
+          "@id": "ldfs:Controller/constructorArgumentsObject",
           "fields": [
             {
               "@id": "ldfs:prefixFieldMapping"

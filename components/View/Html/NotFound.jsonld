@@ -22,8 +22,8 @@
       "parameters": {
         "@id": "lsdc:hasParameter"
       },
-      "constructorMapping": {
-        "@id": "lsdc:constructorMapping",
+      "constructorArguments": {
+        "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
       "parameterUnique": {
@@ -124,9 +124,9 @@
       "extends": "ldfs:View/Html",
       "requireElement": "views.notfound.NotFoundHtmlView",
       "comment": "A NotFoundHtmlView represents a 404 response in HTML",
-      "constructorMapping": [
+      "constructorArguments": [
         {
-          "extends": "ldfs:View/Html/ConstructorMappingObject"
+          "extends": "ldfs:View/Html/constructorArgumentsObject"
         }
       ]
     }
