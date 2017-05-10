@@ -10,18 +10,18 @@
       "comment": "A MementoControllerExtension extends Triple Pattern Fragments responses with Memento headers",
       "parameters": [
         {
-          "@id": "ldfs:mementoTimegatePath",
+          "@id": "ldfs:ControllerExtension/Memento/timegatePath",
           "inheritValues": {
             "@type": "InheritanceValue",
-            "onParameter": "ldfs:timegatePath",
+            "onParameter": "ldfs:Controller/Timegate/path",
             "from": "ldfs:Controller/Timegate"
           }
         },
         {
-          "@id": "ldfs:mementoMemento",
+          "@id": "ControllerExtension/Memento/memento",
           "inheritValues": {
             "@type": "InheritanceValue",
-            "onParameter": "ldfs:memento",
+            "onParameter": "ldfs:Controller/Timegate/memento",
             "from": "ldfs:Controller/Timegate"
           }
         }
@@ -33,10 +33,10 @@
               "@id": "ldfs:timeGatesField"
             },
             {
-              "@id": "ldfs:routersField"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/routers"
             },
             {
-              "@id": "ldfs:datasourcesFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/datasources"
             }
           ]
         }

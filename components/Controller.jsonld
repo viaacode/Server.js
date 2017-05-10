@@ -44,16 +44,16 @@
           "@id": "ldfs:Controller/constructorArgumentsObject",
           "fields": [
             {
-              "@id": "ldfs:prefixFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/prefixes"
             },
             {
-              "@id": "ldfs:datasourcesFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/datasources"
             },
             {
-              "@id": "ldfs:viewCollectionFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/views"
             },
             {
-              "@id": "ldfs:urlDataFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/urlData"
             }
           ]
         }

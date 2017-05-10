@@ -23,7 +23,7 @@
           "extends": "ldfs:Datasource/constructorArgumentsObject",
           "fields": [
             {
-              "@id": "ldfs:datasourcesFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/datasources"
             }
           ]
         }

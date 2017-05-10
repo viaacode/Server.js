@@ -10,7 +10,7 @@
       "comment": "A QuadPatternFragmentsController responds to requests for TPFs and QPFs",
       "parameters": [
         {
-          "@id": "ldfs:qpfRouter",
+          "@id": "ldfs:Controller/QuadPatternFragments/router",
           "inheritValues": {
             "@type": "InheritanceValue",
             "onParameter": "ldfs:router",
@@ -18,7 +18,7 @@
           }
         },
         {
-          "@id": "ldfs:qpfControllerExtension",
+          "@id": "ldfs:Controller/QuadPatternFragments/extension",
           "comment": "An extension for this controller",
           "range": {
             "@id": "ldfs:ControllerExtension",
@@ -32,11 +32,11 @@
           "extends": "ldfs:Controller/constructorArgumentsObject",
           "fields": [
             {
-              "@id": "ldfs:routersField"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/routers"
             },
             {
               "keyRaw": "extensions",
-              "value": "ldfs:qpfControllerExtension"
+              "value": "ldfs:Controller/QuadPatternFragments/extension"
             }
           ]
         }

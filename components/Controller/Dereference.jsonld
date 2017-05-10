@@ -10,13 +10,13 @@
       "comment": "A DeferenceController responds to dereferencing requests",
       "parameters": [
         {
-          "@id": "ldfs:dereference",
+          "@id": "ldfs:Controller/Dereference/dereference",
           "comment": "A dereferencing for a datasource to a path",
           "range": {
             "@id": "ldfs:Dereferencement",
             "hasProperty": [
-              "ldfs:dereferenceDatasource",
-              "ldfs:dereferencePath"
+              "ldfs:Controller/Dereference/dereferenceDatasource",
+              "ldfs:Controller/Dereference/dereferencePath"
             ]
           }
         }
@@ -31,9 +31,9 @@
               "value": {
                 "fields": [
                   {
-                    "collectEntries": "ldfs:dereference",
-                    "key": "ldfs:dereferencePath",
-                    "value": "ldfs:dereferenceDatasource"
+                    "collectEntries": "ldfs:Controller/Dereference/dereference",
+                    "key": "ldfs:Controller/Dereference/dereferencePath",
+                    "value": "ldfs:Controller/Dereference/dereferenceDatasource"
                   }
                 ]
               }

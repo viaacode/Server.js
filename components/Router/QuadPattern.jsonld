@@ -10,7 +10,7 @@
       "comment": "A QuadPatternRouter routes basic quad patterns",
       "parameters": [
         {
-          "@id": "ldfs:routerPrefix",
+          "@id": "ldfs:Router/QuadPattern/Prefix",
           "inheritValues": {
             "@type": "InheritanceValue",
             "onParameter": "ldfs:prefix",
@@ -23,7 +23,7 @@
         {
           "fields": [
             {
-              "@id": "ldfs:prefixFieldMapping"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/prefixes"
             }
           ]
         }

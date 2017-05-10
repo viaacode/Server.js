@@ -7,10 +7,12 @@
       "ldfs": "npmd:ldf-server/",
       "rdfa": "http://www.w3.org/ns/rdfa#",
 
-      "title": "rdfs:label",
-      "description": "ldfs:description",
+      "QpfServer": "ldfs:Server/Qpf",
+      "title": "ldfs:title",
 
       "datasources": "ldfs:datasource",
+      "datasourceTitle": "ldfs:Datasource/title",
+      "datasourceDescription": "ldfs:Datasource/description",
       "path": "ldfs:Datasource/path",
       "HdtDatasource": "ldfs:Datasource/Hdt",
       "hdtFile": "ldfs:Datasource/Hdt/file",
