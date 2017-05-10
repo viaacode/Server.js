@@ -12,6 +12,9 @@
 
   "ldfs:datasource": [
     {
+      "@id": "ldfs:defaultIndexDatasource"
+    },
+    {
       "@id": "ex:myHdtDatasource",
       "@type": "ldfs:Datasource/Hdt",
       "rdfs:label": "DBpedia 2014",
