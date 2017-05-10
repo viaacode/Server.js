@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -128,42 +128,42 @@
           "@id": "rdfs:label",
           "comment": "The server name",
           "range": "xsd:string",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": "Linked Data Fragments server"
         },
         {
           "@id": "ldfs:baseURL",
           "comment": "The base URL path for the server",
           "range": "xsd:string",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": "/"
         },
         {
           "@id": "ldfs:urlData",
           "comment": "The UrlData helper object",
           "range": { "@id": "ldfs:UrlData" },
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": { "@id": "ldfs:defaultUrlData", "@type": "ldfs:UrlData" }
         },
         {
           "@id": "ldfs:port",
           "comment": "The port the server will bind with",
           "range": "xsd:integer",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": 3000
         },
         {
           "@id": "ldfs:workers",
           "comment": "The number of server instances that will be started",
           "range": "xsd:integer",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": 1
         },
         {
           "@id": "ldfs:protocol",
           "comment": "Explicitly set the protocol, default will be the protocol derived from the baseURL",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:datasource",
@@ -223,7 +223,7 @@
           "@id": "ldfs:viewCollection",
           "comment": "A ViewCollection provides access to content-negotiated views by name",
           "range": { "@id": "ldfs:View/Collection" },
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": { "@id": "ldfs:defaultViewCollection", "@type": "ldfs:View/Collection" }
         },
         {
@@ -268,48 +268,48 @@
           "@id": "ldfs:sslKey",
           "comment": "Path to an SSL key",
           "range": "xsd:string",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": "config/certs/localhost-server.key"
         },
         {
           "@id": "ldfs:sslCert",
           "comment": "Path to an SSL certificate",
           "range": "xsd:string",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": "config/certs/localhost-server.crt"
         },
         {
           "@id": "ldfs:sslCa",
           "comment": "Path to an SSL certificate authority",
           "range": "xsd:string",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": [ "config/certs/localhost-ca.crt" ]
         },
         {
           "@id": "ldfs:logging",
           "comment": "If the server should perform logging",
           "range": "xsd:boolean",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": false
         },
         {
           "@id": "ldfs:loggingFile",
           "comment": "Path to a log file",
           "range": "xsd:string",
-          "parameterUnique": true,
+          "@type": "ParameterUnique",
           "hasDefaultValue": "access.log"
         },
         {
           "@id": "ldfs:assetsPath",
           "comment": "Path matching for assets",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:assetsDir",
           "comment": "Path to a directory where assets can be found",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         }
       ],
       "constructorArguments": [

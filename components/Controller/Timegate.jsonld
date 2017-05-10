@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -130,7 +130,7 @@
           "@id": "ldfs:timegatePath",
           "comment": "Path matching for the time gate",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:memento",

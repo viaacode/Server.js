@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -129,13 +129,13 @@
           "@id": "ldfs:summaryDir",
           "comment": "Path to a directory where summaries can be found",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:summaryPath",
           "comment": "Path matching for summaries",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         }
       ],
       "constructorArguments": [

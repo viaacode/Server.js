@@ -26,8 +26,8 @@
         "@id": "lsdc:constructorArguments",
         "@container": "@list"
       },
-      "parameterUnique": {
-        "@id": "lsdc:parameterUnique"
+      "ParameterUnique": {
+        "@id": "lsdc:ParameterUnique"
       },
       "hasDefaultValue": {
         "@id": "lsdc:hasDefaultValue"
@@ -129,12 +129,12 @@
           "@id": "ldfs:Datasource/Sparql/endpoint",
           "comment": "The SPARQL endpoint URL",
           "range": "xsd:string",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         },
         {
           "@id": "ldfs:Datasource/Sparql/defaultGraph",
           "comment": "The default graph for the SPARQL endpoint",
-          "parameterUnique": true
+          "@type": "ParameterUnique"
         }
       ],
       "constructorArguments": [
