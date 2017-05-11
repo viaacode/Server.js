@@ -4,37 +4,37 @@
   "components": [
     {
       "@id": "ldfs:Datasource",
-      "@type": "lsdc:ComponentConstructableAbstract",
+      "@type": "AbstractClass",
       "parameters": [
         {
           "@id": "ldfs:Datasource/title",
           "comment": "The datasource name",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/description",
           "comment": "The datasource description",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/path",
           "comment": "The relative path to the datasource from the baseURL",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/enabled",
           "comment": "If the datasource is enabled, by default true",
           "range": "xsd:boolean",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/hidden",
           "comment": "If the datasource must be hidden from the index, by default false",
           "range": "xsd:boolean",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/urlData",

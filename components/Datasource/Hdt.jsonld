@@ -13,13 +13,13 @@
           "@id": "ldfs:Datasource/Hdt/file",
           "comment": "The HDT datasource source file",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/Hdt/external",
           "comment": "Switch to external HDT datasource if true",
           "range": "xsd:boolean",
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

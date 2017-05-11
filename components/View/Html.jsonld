@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Html",
-      "@type": "ComponentConstructableAbstract",
+      "@type": "AbstractClass",
       "extends": "ldfs:View",
       "comment": "HtmlView is a base class for views that generate HTML responses",
       "parameters": [
@@ -12,12 +12,12 @@
           "@id": "ldfs:View/Html/cache",
           "comment": "If views should be cached",
           "range": "xsd:boolean",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:View/Html/n3Util",
           "comment": "The N3Util class",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:View/Html/urlData",
@@ -26,7 +26,7 @@
             "onParameter": "ldfs:urlData",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:View/Html/title",
@@ -35,12 +35,12 @@
             "onParameter": "ldfs:title",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:View/Html/header",
           "comment": "The view header title",
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

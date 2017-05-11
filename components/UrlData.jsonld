@@ -23,7 +23,7 @@
             "onParameter": "ldfs:assetsPath",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:UrlData/assetsFolder",
@@ -32,7 +32,7 @@
             "onParameter": "ldfs:assetsFolder",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

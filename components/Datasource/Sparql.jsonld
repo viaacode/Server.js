@@ -13,12 +13,12 @@
           "@id": "ldfs:Datasource/Sparql/endpoint",
           "comment": "The SPARQL endpoint URL",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Datasource/Sparql/defaultGraph",
           "comment": "The default graph for the SPARQL endpoint",
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

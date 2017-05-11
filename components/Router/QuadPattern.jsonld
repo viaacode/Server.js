@@ -16,7 +16,7 @@
             "onParameter": "ldfs:prefix",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

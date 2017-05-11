@@ -22,7 +22,7 @@
           "comment": "An extension for this controller",
           "range": {
             "@id": "ldfs:ControllerExtension",
-            "extends": "lsdc:Component"
+            "extends": "AbstractClass"
           }
         }
       ],

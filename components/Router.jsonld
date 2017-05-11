@@ -5,7 +5,7 @@
     {
       "@id": "ldfs:Router",
       "comment": "Router is a base class for routing requests",
-      "@type": "ComponentConstructableAbstract"
+      "@type": "AbstractClass"
     }
   ]
 }
