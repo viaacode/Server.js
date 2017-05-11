@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Rdf",
-      "@type": "ComponentConstructableAbstract",
+      "@type": "AbstractClass",
       "extends": "ldfs:View",
       "comment": "RdfView is a base class for views that generate RDF responses",
       "constructorArguments": [

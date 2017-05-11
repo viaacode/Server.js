@@ -13,7 +13,7 @@
           "@id": "ldfs:Router/Page/size",
           "comment": "The triple page size, which defaults to 100",
           "range": "xsd:integer",
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

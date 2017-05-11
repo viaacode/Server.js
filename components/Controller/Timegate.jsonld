@@ -13,7 +13,7 @@
           "@id": "ldfs:Controller/Timegate/path",
           "comment": "Path matching for the time gate",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Controller/Timegate/memento",

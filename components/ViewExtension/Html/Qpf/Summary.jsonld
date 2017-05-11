@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:ViewExtension/Html/Qpf/Summary",
-      "@type": "ComponentConstructableAbstract",
+      "@type": "AbstractClass",
       "extends": "ldfs:ViewExtension",
       "requireElement": "views.summary.QuadPatternFragmentsHtmlView-Summary",
       "comment": "A SummaryHtmlViewExtension extends the Quad Pattern Fragments HTML view with a summary link",

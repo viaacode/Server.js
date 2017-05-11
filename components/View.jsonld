@@ -5,14 +5,14 @@
     {
       "@id": "ldfs:View",
       "comment": "View is a base class for objects that generate server responses",
-      "@type": "ComponentConstructableAbstract",
+      "@type": "AbstractClass",
       "parameters": [
         {
           "@id": "ldfs:View/extension",
           "comment": "An extension for this view",
           "range": {
             "@id": "ldfs:ViewExtension",
-            "extends": "lsdc:Component"
+            "extends": "AbstractClass"
           }
         }
       ],

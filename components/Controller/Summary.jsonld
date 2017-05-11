@@ -13,13 +13,13 @@
           "@id": "ldfs:Controller/Summary/directory",
           "comment": "Path to a directory where summaries can be found",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Controller/Summary/path",
           "comment": "Path matching for summaries",
           "range": "xsd:string",
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [

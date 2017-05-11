@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Rdf/Qpf",
-      "@type": "ComponentConstructableAbstract",
+      "@type": "AbstractClass",
       "extends": "ldfs:View/Rdf",
       "requireElement": "views.quadpatternfragments.QuadPatternFragmentsRdfView",
       "comment": "A QuadPatternFragmentsRdfView represents a Quad Pattern Fragment in RDF",

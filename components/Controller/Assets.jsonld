@@ -16,7 +16,7 @@
             "onParameter": "ldfs:assetsDir",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         },
         {
           "@id": "ldfs:Controller/Assets/assetsPath",
@@ -25,7 +25,7 @@
             "onParameter": "ldfs:assetsPath",
             "from": "ldfs:Server/Qpf"
           },
-          "@type": "ParameterUnique"
+          "unique": true
         }
       ],
       "constructorArguments": [
