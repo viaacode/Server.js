@@ -1,6 +1,6 @@
 {
   "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
-  "@id": "npmd:@ldf/server",
+  "@id": "npmd:ldf-server",
   "components": [
     {
       "@id": "ldfs:View/Rdf/Error",
