@@ -1,9 +1,9 @@
 {
   "@context": [
-    "http://linkedsoftwaredependencies.org/contexts/components.jsonld",
+    "https://linkedsoftwaredependencies.org/contexts/components.jsonld",
     {
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "npmd": "http://linkedsoftwaredependencies.org/bundles/npm/",
+      "npmd": "https://linkedsoftwaredependencies.org/bundles/npm/",
       "ldfs": "npmd:ldf-server/",
       "rdfa": "http://www.w3.org/ns/rdfa#",
 
