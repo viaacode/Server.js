@@ -31,7 +31,7 @@
               "value": "ldfs:Datasource/Sparql/endpoint"
             },
             {
-              "keyRaw": "external",
+              "keyRaw": "defaultGraph",
               "value": "ldfs:Datasource/Sparql/defaultGraph"
             }
           ]
