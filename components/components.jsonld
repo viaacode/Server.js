@@ -22,6 +22,7 @@
     "components/ControllerExtension/Memento.jsonld",
 
     "components/Datasource/Index.jsonld",
+    "components/Datasource/Empty.jsonld",
     "components/Datasource/Hdt.jsonld",
     "components/Datasource/Sparql.jsonld",
 

@@ -14,6 +14,7 @@
       "datasourceTitle": "ldfs:Datasource/title",
       "datasourceDescription": "ldfs:Datasource/description",
       "path": "ldfs:Datasource/path",
+      "EmptyDatasource": "ldfs:Datasource/Empty",
       "HdtDatasource": "ldfs:Datasource/Hdt",
       "hdtFile": "ldfs:Datasource/Hdt/file",
       "SparqlDatasource": "ldfs:Datasource/Sparql",
