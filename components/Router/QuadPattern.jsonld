@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Router/QuadPattern",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Router",
       "requireElement": "routers.QuadPatternRouter",
       "comment": "A QuadPatternRouter routes basic quad patterns",

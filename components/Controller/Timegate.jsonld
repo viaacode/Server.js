@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Controller/Timegate",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Controller",
       "requireElement": "controllers.TimegateController",
       "comment": "A TimegateController responds to timegate requests",

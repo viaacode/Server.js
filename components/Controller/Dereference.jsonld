@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Controller/Dereference",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "rdfs:subClassOf": { "@id": "ldfs:Controller" },
       "requireElement": "controllers.DereferenceController",
       "comment": "A DeferenceController responds to dereferencing requests",

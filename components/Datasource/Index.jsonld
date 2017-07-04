@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Datasource/Index",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Datasource",
       "requireElement": "datasources.IndexDatasource",
       "comment": "An IndexDatasource is a datasource that lists other data sources",

@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Datasource/Empty",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Datasource",
       "requireElement": "datasources.EmptyDatasource",
       "comment": "An empty data source doesn't contain any quads",

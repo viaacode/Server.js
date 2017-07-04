@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Router/Datasource",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Router",
       "requireElement": "routers.DatasourceRouter",
       "comment": "A DatasourceRouter routes URLs to data sources"

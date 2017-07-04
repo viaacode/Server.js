@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:ControllerExtension/Memento",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:ControllerExtension",
       "requireElement": "controllers.MementoControllerExtension",
       "comment": "A MementoControllerExtension extends Triple Pattern Fragments responses with Memento headers",

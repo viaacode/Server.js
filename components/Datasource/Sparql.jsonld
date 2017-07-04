@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Datasource/Sparql",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Datasource",
       "requireElement": "datasources.SparqlDatasource",
       "comment": "A SparqlDatasource provides queryable access to a SPARQL endpoint",

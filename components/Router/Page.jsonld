@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Router/Page",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Router",
       "requireElement": "routers.PageRouter",
       "comment": "A PageRouter routes page numbers to offsets",

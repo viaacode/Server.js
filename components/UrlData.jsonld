@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:UrlData",
-      "@type": [ "ComponentConstructable" ],
+      "@type": [ "Class" ],
       "requireElement": "UrlData",
       "comment": "A data object class for preset URL information",
       "parameters": [

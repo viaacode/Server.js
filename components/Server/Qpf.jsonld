@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Server/Qpf",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "requireElement": "LinkedDataFragmentsServerWorker",
       "comment": "LinkedDataFragmentsServer is an HTTP server that provides access to Linked Data Fragments",
       "parameters": [

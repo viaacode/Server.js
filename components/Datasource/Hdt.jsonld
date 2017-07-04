@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Datasource/Hdt",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Datasource",
       "requireElement": "datasources.HdtDatasource",
       "comment": "An HdtDatasource loads and queries an HDT document in-process",

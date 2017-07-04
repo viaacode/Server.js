@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Controller/Assets",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Controller",
       "requireElement": "controllers.AssetsController",
       "comment": "An AssetsController responds to requests for assets",

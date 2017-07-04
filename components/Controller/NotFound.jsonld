@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:Controller/NotFound",
-      "@type": "ComponentConstructable",
+      "@type": "Class",
       "extends": "ldfs:Controller",
       "requireElement": "controllers.NotFoundController",
       "comment": "A NotFoundController responds to requests that cannot be resolved",
