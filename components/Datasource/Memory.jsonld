@@ -1,0 +1,41 @@
+{
+  "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@id": "npmd:ldf-server",
+  "components": [
+    {
+      "@id": "ldfs:Datasource/Memory",
+      "@type": "AbstractClass",
+      "extends": "ldfs:Datasource",
+      "parameters": [
+        {
+          "@id": "ldfs:Datasource/Memory/file",
+          "comment": "The dataset file path",
+          "range": "xsd:string",
+          "unique": true
+        },
+        {
+          "@id": "ldfs:Datasource/Memory/url",
+          "comment": "The dataset file URL",
+          "range": "xsd:string",
+          "unique": true
+        }
+      ],
+      "constructorArguments": [
+        {
+          "@id": "ldfs:Datasource/Memory/constructorArgumentsObject",
+          "extends": "ldfs:Datasource/constructorArgumentsObject",
+          "fields": [
+            {
+              "keyRaw": "file",
+              "value": "ldfs:Datasource/Memory/file"
+            },
+            {
+              "keyRaw": "url",
+              "value": "ldfs:Datasource/Memory/url"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

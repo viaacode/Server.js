@@ -21,8 +21,10 @@
 
     "components/ControllerExtension/Memento.jsonld",
 
+    "components/Datasource/Memory.jsonld",
     "components/Datasource/Index.jsonld",
     "components/Datasource/Empty.jsonld",
+    "components/Datasource/JsonLd.jsonld",
     "components/Datasource/Hdt.jsonld",
     "components/Datasource/Sparql.jsonld",
 
@@ -45,6 +47,7 @@
     "components/View/Rdf/Summary.jsonld",
 
     "components/ViewExtension/Html/Qpf/Summary.jsonld",
+    "components/ViewExtension/Html/Qpf/Memento.jsonld",
     "components/ViewExtension/Rdf/Qpf/Summary.jsonld"
   ]
 }

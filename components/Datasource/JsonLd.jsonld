@@ -1,0 +1,18 @@
+{
+  "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@id": "npmd:ldf-server",
+  "components": [
+    {
+      "@id": "ldfs:Datasource/JsonLd",
+      "@type": "Class",
+      "extends": "ldfs:Datasource/Memory",
+      "requireElement": "datasources.JsonLdDatasource",
+      "comment": "An JsonLdDatasource fetches data from a JSON-LD document",
+      "constructorArguments": [
+        {
+          "extends": "ldfs:Datasource/Memory/constructorArgumentsObject"
+        }
+      ]
+    }
+  ]
+}
