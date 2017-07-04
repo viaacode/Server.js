@@ -13,7 +13,14 @@
       "datasources": "ldfs:datasource",
       "datasourceTitle": "ldfs:Datasource/title",
       "datasourceDescription": "ldfs:Datasource/description",
+      "hide": "ldfs:Datasource/hidden",
+      "graph": "ldfs:Datasource/graph",
       "path": "ldfs:Datasource/path",
+      "CompositeDatasource": "ldfs:Datasource/Composite",
+      "compose": {
+        "@id": "ldfs:Datasource/Composite/compose",
+        "@type": "@id"
+      },
       "EmptyDatasource": "ldfs:Datasource/Empty",
       "file": "ldfs:Datasource/Memory/file",
       "url": "ldfs:Datasource/Memory/url",

@@ -1,49 +1,70 @@
 {
+  "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@id": "urn:ldfserver:my",
+  "@type": "QpfServer",
+
   "title": "Composite Linked Data Fragments server",
 
-  "datasources": {
-    "test-composite": {
-      "title": "Composite",
-      "type": "CompositeDatasource",
-      "description": "An example composite datasource",
-      "settings": {
-        "references": [ "hdt", "ttl", "jsonld", "hdtext", "trig" ]
-      }
+  "datasources": [
+    {
+      "@id": "ldfs:defaultIndexDatasource"
     },
-    "hdt": {
-      "hide": true,
-      "title": "HDT",
-      "type": "HdtDatasource",
-      "description": "A test HDT datasource",
-      "settings": { "file": "test/assets/test.hdt", "graph": "http://example.org/graph0" }
+    {
+      "@id": "ex:myCompositeDatasource",
+      "@type": "CompositeDatasource",
+      "datasourceTitle": "Composite",
+      "datasourceDescription": "An example composite datasource",
+      "path": "composite",
+      "compose": [ "ex:myHdt", "ex:myTtl", "ex:myJsonld", "ex:myHdtext", "ex:myTrig" ]
     },
-    "ttl": {
+    {
+      "@id": "ex:myHdt",
+      "@type": "HdtDatasource",
       "hide": true,
-      "title": "Turtle",
-      "type": "TurtleDatasource",
-      "description": "A test turtle datasource",
-      "settings": { "file": "test/assets/test.ttl", "graph": "http://example.org/graph1" }
+      "datasourceTitle": "HDT",
+      "datasourceDescription": "A test HDT datasource",
+      "path": "hdt",
+      "hdtFile": "test/assets/test.hdt",
+      "graph": "http://example.org/graph0"
     },
-    "jsonld": {
+    {
+      "@id": "ex:myTtl",
+      "@type": "TurtleDatasource",
       "hide": true,
-      "title": "JSONLD",
-      "type": "JsonLdDatasource",
-      "description": "A test jsonld datasource",
-      "settings": { "file": "test/assets/test.jsonld", "graph": "http://example.org/graph2" }
+      "datasourceTitle": "Turtle",
+      "datasourceDescription": "A test turtle datasource",
+      "path": "turtle",
+      "file": "test/assets/test.ttl",
+      "graph": "http://example.org/graph1"
     },
-    "hdtext": {
+    {
+      "@id": "ex:myJsonld",
+      "@type": "JsonLdDatasource",
       "hide": true,
-      "title": "HDT-EXT",
-      "type": "ExternalHdtDatasource",
-      "description": "A blank test HDT datasource",
-      "settings": { "file": "test/assets/test-blank.hdt", "graph": "http://example.org/graph3" }
+      "datasourceTitle": "JSONLD",
+      "datasourceDescription": "A test jsonld datasource",
+      "path": "jsonld",
+      "file": "test/assets/test.jsonld",
+      "graph": "http://example.org/graph2"
     },
-    "trig": {
+    {
+      "@id": "ex:myHdtext",
+      "@type": "HdtDatasource",
       "hide": true,
-      "title": "Trig",
-      "type": "TrigDatasource",
-      "description": "A test Trig datasource",
-      "settings": { "file": "test/assets/test.trig" }
+      "datasourceTitle": "HDT-EXT",
+      "datasourceDescription": "A blank test HDT datasource",
+      "path": "hdtext",
+      "hdtFile": "test/assets/test-blank.hdt",
+      "graph": "http://example.org/graph3"
+    },
+    {
+      "@id": "ex:myTrig",
+      "@type": "TrigDatasource",
+      "hide": true,
+      "datasourceTitle": "Trig",
+      "datasourceDescription": "A test Trig datasource",
+      "path": "trig",
+      "file": "test/assets/test.trig"
     }
-  }
+  ]
 }

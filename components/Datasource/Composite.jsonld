@@ -1,0 +1,38 @@
+{
+  "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@id": "npmd:ldf-server",
+  "components": [
+    {
+      "@id": "ldfs:Datasource/Composite",
+      "@type": "Class",
+      "extends": "ldfs:Datasource",
+      "requireElement": "datasources.CompositeDatasource",
+      "comment": "A CompositeDatasource delegates queries to an consecutive list of datasources",
+      "parameters": [
+        {
+          "@id": "ldfs:Datasource/Composite/compose",
+          "comment": "The datasource references list"
+        }
+      ],
+      "constructorArguments": [
+        {
+          "extends": "ldfs:Datasource/constructorArgumentsObject",
+          "fields": [
+            {
+              "keyRaw": "references",
+              "value": {
+                "fields": [
+                  {
+                    "collectEntries": "ldfs:Datasource/Composite/compose",
+                    "key": "rdf:subject",
+                    "value": "rdf:object"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

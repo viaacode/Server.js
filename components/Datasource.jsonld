@@ -37,6 +37,12 @@
           "unique": true
         },
         {
+          "@id": "ldfs:Datasource/graph",
+          "comment": "The default graph of the datasource",
+          "range": "xsd:string",
+          "unique": true
+        },
+        {
           "@id": "ldfs:Datasource/urlData",
           "inheritValues": {
             "@type": "InheritanceValue",
@@ -72,6 +78,10 @@
             {
               "keyRaw": "hide",
               "value": "ldfs:Datasource/hidden"
+            },
+            {
+              "keyRaw": "graph",
+              "value": "ldfs:Datasource/graph"
             },
             {
               "@id": "ldfs:Server/Qpf/ObjectMappings/urlData"

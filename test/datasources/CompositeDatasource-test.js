@@ -21,10 +21,12 @@ describe('CompositeDatasource', function () {
   Object.keys(datasources).forEach(function (datasourceId) {
     var datasource = datasources[datasourceId];
     var DatasourceType = datasource.datasourceType;
-    datasource.datasource = new DatasourceType(datasource.settings);
-    datasource.datasource.initialize();
+    var size = datasource.size;
+    datasource = new DatasourceType(datasource.settings);
+    datasource.initialize();
+    datasources[datasourceId] = datasource;
+    datasource.size = size;
   });
-  var references = Object.keys(datasources);
   var totalSize = Object.keys(datasources).reduce(function (acc, key) {
     return acc + datasources[key].size;
   }, 0);
@@ -35,19 +37,19 @@ describe('CompositeDatasource', function () {
     });
 
     it('should be an CompositeDatasource constructor', function (done) {
-      var instance = new CompositeDatasource({ datasources: datasources, references: references });
+      var instance = new CompositeDatasource({ references: datasources });
       instance.should.be.an.instanceof(CompositeDatasource);
       instance.close(done);
     });
 
     it('should create CompositeDatasource objects', function (done) {
-      var instance = new CompositeDatasource({ datasources: datasources, references: references });
+      var instance = new CompositeDatasource({ references: datasources });
       instance.should.be.an.instanceof(CompositeDatasource);
       instance.close(done);
     });
 
     it('should create Datasource objects', function (done) {
-      var instance = new CompositeDatasource({ datasources: datasources, references: references });
+      var instance = new CompositeDatasource({ references: datasources });
       instance.should.be.an.instanceof(Datasource);
       instance.close(done);
     });
@@ -57,7 +59,7 @@ describe('CompositeDatasource', function () {
     var datasource;
     function getDatasource() { return datasource; }
     before(function (done) {
-      datasource = new CompositeDatasource({ datasources: datasources, references: references });
+      datasource = new CompositeDatasource({ references: datasources });
       datasource.initialize();
       datasource.on('initialized', done);
     });
