@@ -1,0 +1,18 @@
+{
+  "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@id": "npmd:ldf-server",
+  "components": [
+    {
+      "@id": "ldfs:Datasource/N3",
+      "@type": "Class",
+      "extends": "ldfs:Datasource/Memory",
+      "requireElement": "datasources.N3Datasource",
+      "comment": "An N3Datasource fetches data from Turtle/TriG/N-Triples/N-Quads/N3 documents",
+      "constructorArguments": [
+        {
+          "extends": "ldfs:Datasource/Memory/constructorArgumentsObject"
+        }
+      ]
+    }
+  ]
+}

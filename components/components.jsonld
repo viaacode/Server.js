@@ -25,6 +25,12 @@
     "components/Datasource/Index.jsonld",
     "components/Datasource/Empty.jsonld",
     "components/Datasource/JsonLd.jsonld",
+    "components/Datasource/N3.jsonld",
+    "components/Datasource/NQuads.jsonld",
+    "components/Datasource/NTriples.jsonld",
+    "components/Datasource/N3.jsonld",
+    "components/Datasource/Trig.jsonld",
+    "components/Datasource/Turtle.jsonld",
     "components/Datasource/Hdt.jsonld",
     "components/Datasource/Sparql.jsonld",
 
