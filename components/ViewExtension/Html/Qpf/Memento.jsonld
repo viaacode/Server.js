@@ -3,14 +3,14 @@
   "@id": "npmd:ldf-server",
   "components": [
     {
-      "@id": "ldfs:ViewExtension/Html/Qpf/Summary",
+      "@id": "ldfs:ViewExtension/Html/Qpf/Memento",
       "@type": "AbstractClass",
       "extends": "ldfs:ViewExtension",
-      "requireElement": "views.summary.Summary",
-      "comment": "A SummaryHtmlViewExtension extends the Quad Pattern Fragments HTML view with a summary link",
+      "requireElement": "views.memento.Memento",
+      "comment": "A MementoHtmlViewExtension extends the Quad Pattern Fragments HTML view with Memento details",
       "constructorArguments": [
         {
-          "@id": "ldfs:ViewExtension/Html/Qpf/Summary#constructorArgumentsObject",
+          "@id": "ldfs:ViewExtension/Html/Qpf/Memento#constructorArgumentsObject",
           "extends": "ldfs:View/Html/constructorArgumentsObject"
         }
       ]

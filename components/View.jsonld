@@ -12,13 +12,13 @@
           "comment": "An extension for this view",
           "range": {
             "@id": "ldfs:ViewExtension",
-            "extends": "AbstractClass"
+            "@type": "AbstractClass"
           }
         }
       ],
       "constructorArguments": [
         {
-          "@id": "ldfs:ViewExtension/constructorArgumentsObject",
+          "@id": "ldfs:View/constructorArgumentsObject",
           "fields": [
             {
               "keyRaw": "extensions",
