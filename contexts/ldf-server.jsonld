@@ -36,6 +36,15 @@
       "sparqlEndpoint": "ldfs:Datasource/Sparql/endpoint",
       "sparqlDefaultGraph": "ldfs:Datasource/Sparql/defaultGraph",
 
+      "timeGatePath": "ldfs:Controller/Timegate/path",
+      "mementos": "ldfs:Controller/Timegate/memento",
+      "timeMapPath": "ldfs:Controller/Timegate/timeMapPath",
+      "versions": "ldfs:Controller/Timegate/versions",
+      "datasource": "ldfs:datasource",
+      "mementoDatasource": "ldfs:Controller/Timegate/mementoDatasource",
+      "mementoStart": "ldfs:Controller/Timegate/mementoStart",
+      "mementoEnd": "ldfs:Controller/Timegate/mementoEnd",
+
       "prefixes": "ldfs:prefix",
       "prefix": "rdfa:prefix",
       "uri": "rdfa:uri"

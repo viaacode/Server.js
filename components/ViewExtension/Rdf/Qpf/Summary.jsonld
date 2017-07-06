@@ -5,7 +5,7 @@
     {
       "@id": "ldfs:ViewExtension/Rdf/Qpf/Summary",
       "@type": "AbstractClass",
-      "extends": "ldfs:ViewExtension",
+      "extends": "ldfs:View/Rdf",
       "requireElement": "views.summary.Summary",
       "comment": "A SummaryRdfViewExtension extends the Quad Pattern Fragments RDF view with a summary link",
       "constructorArguments": [

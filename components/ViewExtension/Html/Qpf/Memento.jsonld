@@ -5,13 +5,40 @@
     {
       "@id": "ldfs:ViewExtension/Html/Qpf/Memento",
       "@type": "AbstractClass",
-      "extends": "ldfs:ViewExtension",
+      "extends": "ldfs:View/Html",
       "requireElement": "views.memento.Memento",
       "comment": "A MementoHtmlViewExtension extends the Quad Pattern Fragments HTML view with Memento details",
+      "parameters": [
+        {
+          "@id": "ldfs:Controller/Timegate/path"
+        },
+        {
+          "@id": "ldfs:Controller/Timegate/memento"
+        },
+        {
+          "@id": "ldfs:ControllerExtension/datasource",
+          "inheritValues": {
+            "@type": "InheritanceValue",
+            "onParameter": "ldfs:datasource",
+            "from": "ldfs:Server/Qpf"
+          }
+        }
+      ],
       "constructorArguments": [
         {
           "@id": "ldfs:ViewExtension/Html/Qpf/Memento#constructorArgumentsObject",
-          "extends": "ldfs:View/Html/constructorArgumentsObject"
+          "extends": "ldfs:View/Html/constructorArgumentsObject",
+          "fields": [
+            {
+              "@id": "ldfs:timeGatesField"
+            },
+            {
+              "@id": "ldfs:Server/Qpf/ObjectMappings/routers"
+            },
+            {
+              "@id": "ldfs:Server/Qpf/ObjectMappings/datasources"
+            }
+          ]
         }
       ]
     }

@@ -13,7 +13,12 @@
           "@id": "ldfs:Controller/Timegate/path",
           "comment": "Path matching for the time gate",
           "range": "xsd:string",
-          "unique": true
+          "unique": true,
+          "inheritValues": {
+            "@type": "InheritanceValue",
+            "onParameter": "ldfs:Controller/Timegate/path",
+            "from": "ldfs:Server/Qpf"
+          }
         },
         {
           "@id": "ldfs:Controller/Timegate/memento",
@@ -22,15 +27,13 @@
             "@id": "ldfs:Memento",
             "hasProperty": [
               "ldfs:Controller/Timegate/mementoDatasource",
-              "ldfs:Controller/Timegate/mementoVersion"
+              "ldfs:Controller/Timegate/mementoVersionStart",
+              "ldfs:Controller/Timegate/mementoVersionEnd"
             ]
-          }
-        },
-        {
-          "@id": "ldfs:timegateRouter",
+          },
           "inheritValues": {
             "@type": "InheritanceValue",
-            "onParameter": "ldfs:router",
+            "onParameter": "ldfs:Controller/Timegate/memento",
             "from": "ldfs:Server/Qpf"
           }
         }
@@ -54,8 +57,37 @@
                       "fields": [
                         {
                           "collectEntries": "ldfs:Controller/Timegate/memento",
-                          "key": "ldfs:Controller/Timegate/mementoDatasource",
-                          "value": "ldfs:Controller/Timegate/mementoVersion"
+                          "key": "ldfs:Controller/Timegate/timeMapPath",
+                          "value": {
+                            "elements": {
+                              "collectEntries": "ldfs:Controller/Timegate/versions",
+                              "value": {
+                                "fields": [
+                                  {
+                                    "keyRaw": "datasource",
+                                    "value": {
+                                      "@id": "ldfs:Controller/Timegate/mementoDatasource",
+                                      "unique": true
+                                    }
+                                  },
+                                  {
+                                    "keyRaw": "initial",
+                                    "value": {
+                                      "@id": "ldfs:Controller/Timegate/mementoStart",
+                                      "unique": true
+                                    }
+                                  },
+                                  {
+                                    "keyRaw": "final",
+                                    "value": {
+                                      "@id": "ldfs:Controller/Timegate/mementoEnd",
+                                      "unique": true
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
                         }
                       ]
                     }

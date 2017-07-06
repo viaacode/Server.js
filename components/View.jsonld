@@ -9,11 +9,7 @@
       "parameters": [
         {
           "@id": "ldfs:View/extension",
-          "comment": "An extension for this view",
-          "range": {
-            "@id": "ldfs:ViewExtension",
-            "@type": "AbstractClass"
-          }
+          "range": { "@id": "ldfs:View" }
         }
       ],
       "constructorArguments": [
@@ -21,7 +17,11 @@
           "@id": "ldfs:View/constructorArgumentsObject",
           "fields": [
             {
-              "keyRaw": "extensions",
+              "keyRaw": "urlData",
+              "value": "ldfs:urlData"
+            },
+            {
+              "keyRaw": "views",
               "value": "ldfs:View/extension"
             }
           ]

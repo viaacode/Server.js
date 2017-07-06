@@ -96,7 +96,7 @@
             {
               "@id": "ldfs:defaultQuadPatternFragmentsController",
               "@type": "ldfs:Controller/QuadPatternFragments",
-              "ldfs:qpfControllerExtension": { "@type": "ldfs:ControllerExtension/Memento" }
+              "ldfs:Controller/QuadPatternFragments/extension": { "@type": "ldfs:ControllerExtension/Memento" }
             },
             { "@id": "ldfs:defaultAssetsController",      "@type": "ldfs:Controller/Assets" },
             { "@id": "ldfs:defaultDereferenceController", "@type": "ldfs:Controller/Dereference" },
@@ -194,6 +194,12 @@
           "comment": "Path to a directory where assets can be found",
           "range": "xsd:string",
           "unique": true
+        },
+        {
+          "@id": "ldfs:Controller/Timegate/path"
+        },
+        {
+          "@id": "ldfs:Controller/Timegate/memento"
         }
       ],
       "constructorArguments": [
