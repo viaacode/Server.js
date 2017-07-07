@@ -32,16 +32,27 @@ loader.registerModuleResourcesUrl('components/components.jsonld', path.join(__di
       return loader.getConfigConstructorFromUrl(configUri, args[0])
         .then(function (constructor) {
           startClusterMaster(constructor.makeArguments(true)[0]);
+        })
+        .catch(function (e) {
+          console.error('Config error:');
+          console.error(e);
+          process.exit(1);
         });
     }
     else {
       return loader.instantiateFromUrl(configUri, args[0])
         .then(function (worker) {
           worker.run(cliPort);
+        })
+        .catch(function (e) {
+          console.error('Instantiation error:');
+          console.error(e);
+          process.exit(1);
         });
     }
   })
   .catch(function (e) {
+    console.error('Component definition error:');
     console.error(e);
     process.exit(1);
   });
