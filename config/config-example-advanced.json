@@ -14,8 +14,8 @@
       "@id": "ex:myDbpedia2014",
       "@type": "HdtDatasource",
       "path": "dbpedia",
-      "datasourceTitle": "DBpedia 2014",
-      "datasourceDescription": "DBpedia 2014 with an HDT back-end",
+      "title": "DBpedia 2014",
+      "description": "DBpedia 2014 with an HDT back-end",
       "license": "Creative Commons Attribution-ShareAlike 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
       "copyright": "The DBpedia dataset is Open Knowledge.",
@@ -26,8 +26,8 @@
       "@id": "ex:mySparqlDatasource",
       "@type": "SparqlDatasource",
       "path": "dbpedia-sparql",
-      "datasourceTitle": "DBpedia 3.9 (Virtuoso)",
-      "datasourceDescription": "DBpedia 3.9 with a Virtuoso back-end",
+      "title": "DBpedia 3.9 (Virtuoso)",
+      "description": "DBpedia 3.9 with a Virtuoso back-end",
       "sparqlEndpoint": "http://dbpedia.restdesc.org/",
       "sparqlDefaultGraph": "http://dbpedia.org"
     }

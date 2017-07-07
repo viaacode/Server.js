@@ -11,8 +11,7 @@
       "title": "ldfs:title",
 
       "datasources": "ldfs:datasource",
-      "datasourceTitle": "ldfs:Datasource/title",
-      "datasourceDescription": "ldfs:Datasource/description",
+      "description": "ldfs:Datasource/description",
       "hide": "ldfs:Datasource/hidden",
       "graph": "ldfs:Datasource/graph",
       "path": "ldfs:Datasource/path",
@@ -46,9 +45,9 @@
       "versions": "ldfs:Controller/Timegate/versions",
       "datasource": "ldfs:datasource",
       "mementoDatasource": "ldfs:Controller/Timegate/mementoDatasource",
-      "mementoStart": "ldfs:Controller/Timegate/mementoStart",
-      "mementoEnd": "ldfs:Controller/Timegate/mementoEnd",
-      "mementoOriginalBaseURL": "ldfs:Controller/Timegate/mementoOriginalBaseURL",
+      "start": "ldfs:Controller/Timegate/mementoStart",
+      "end": "ldfs:Controller/Timegate/mementoEnd",
+      "originalBaseURL": "ldfs:Controller/Timegate/mementoOriginalBaseURL",
 
       "routers": "ldfs:router",
       "dereference": "ldfs:Controller/Dereference/dereference",

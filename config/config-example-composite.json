@@ -12,8 +12,8 @@
     {
       "@id": "ex:myCompositeDatasource",
       "@type": "CompositeDatasource",
-      "datasourceTitle": "Composite",
-      "datasourceDescription": "An example composite datasource",
+      "title": "Composite",
+      "description": "An example composite datasource",
       "path": "composite",
       "compose": [ "ex:myHdt", "ex:myTtl", "ex:myJsonld", "ex:myHdtext", "ex:myTrig" ]
     },
@@ -21,8 +21,8 @@
       "@id": "ex:myHdt",
       "@type": "HdtDatasource",
       "hide": true,
-      "datasourceTitle": "HDT",
-      "datasourceDescription": "A test HDT datasource",
+      "title": "HDT",
+      "description": "A test HDT datasource",
       "path": "hdt",
       "hdtFile": "test/assets/test.hdt",
       "graph": "http://example.org/graph0"
@@ -31,8 +31,8 @@
       "@id": "ex:myTtl",
       "@type": "TurtleDatasource",
       "hide": true,
-      "datasourceTitle": "Turtle",
-      "datasourceDescription": "A test turtle datasource",
+      "title": "Turtle",
+      "description": "A test turtle datasource",
       "path": "turtle",
       "file": "test/assets/test.ttl",
       "graph": "http://example.org/graph1"
@@ -41,8 +41,8 @@
       "@id": "ex:myJsonld",
       "@type": "JsonLdDatasource",
       "hide": true,
-      "datasourceTitle": "JSONLD",
-      "datasourceDescription": "A test jsonld datasource",
+      "title": "JSONLD",
+      "description": "A test jsonld datasource",
       "path": "jsonld",
       "file": "test/assets/test.jsonld",
       "graph": "http://example.org/graph2"
@@ -51,8 +51,8 @@
       "@id": "ex:myHdtext",
       "@type": "HdtDatasource",
       "hide": true,
-      "datasourceTitle": "HDT-EXT",
-      "datasourceDescription": "A blank test HDT datasource",
+      "title": "HDT-EXT",
+      "description": "A blank test HDT datasource",
       "path": "hdtext",
       "hdtFile": "test/assets/test-blank.hdt",
       "graph": "http://example.org/graph3"
@@ -61,8 +61,8 @@
       "@id": "ex:myTrig",
       "@type": "TrigDatasource",
       "hide": true,
-      "datasourceTitle": "Trig",
-      "datasourceDescription": "A test Trig datasource",
+      "title": "Trig",
+      "description": "A test Trig datasource",
       "path": "trig",
       "file": "test/assets/test.trig"
     }

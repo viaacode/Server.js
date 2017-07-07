@@ -12,22 +12,22 @@
     {
       "@id": "ex:myDbpedia2015",
       "@type": "HdtDatasource",
-      "datasourceTitle": "DBpedia 2015",
+      "title": "DBpedia 2015",
       "path": "dbpedia2015",
       "hdtFile": "data/dbpedia2015en.hdt"
     },
     {
       "@id": "ex:myDbpedia2014",
       "@type": "HdtDatasource",
-      "datasourceTitle": "DBpedia 2014",
+      "title": "DBpedia 2014",
       "path": "dbpedia2014",
       "hdtFile": "data/dbpedia2014en.hdt"
     },
     {
       "@id": "ex:mySparqlDatasource",
       "@type": "SparqlDatasource",
-      "datasourceTitle": "DBpedia 3.9 (Virtuoso)",
-      "datasourceDescription": "DBpedia 3.9 with a Virtuoso back-end",
+      "title": "DBpedia 3.9 (Virtuoso)",
+      "description": "DBpedia 3.9 with a Virtuoso back-end",
       "path": "dbpedia-sparql",
       "sparqlEndpoint": "http://dbpedia.restdesc.org/",
       "sparqlDefaultGraph": "http://dbpedia.org"
@@ -42,19 +42,19 @@
       "versions": [
         {
           "mementoDatasource": "ex:myDbpedia2015",
-          "mementoStart": "2014-09-14T11:59:59Z",
-          "mementoEnd": "2015-04-15T00:00:00Z"
+          "start": "2014-09-14T11:59:59Z",
+          "end": "2015-04-15T00:00:00Z"
         },
         {
           "mementoDatasource": "ex:myDbpedia2014",
-          "mementoStart": "2013-06-15T11:59:59Z",
-          "mementoEnd": "2014-09-15T00:00:00Z"
+          "start": "2013-06-15T11:59:59Z",
+          "end": "2014-09-15T00:00:00Z"
         },
         {
           "mementoDatasource": "ex:mySparqlDatasource",
-          "mementoStart": "2015-06-15T11:59:59Z",
-          "mementoEnd": "2016-09-15T00:00:00Z",
-          "mementoOriginalBaseURL": "http://fragments.mementodepot.org/dbpedia_201510"
+          "start": "2015-06-15T11:59:59Z",
+          "end": "2016-09-15T00:00:00Z",
+          "originalBaseURL": "http://fragments.mementodepot.org/dbpedia_201510"
         }
       ]
     }
