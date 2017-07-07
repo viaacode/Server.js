@@ -16,6 +16,10 @@
       "hide": "ldfs:Datasource/hidden",
       "graph": "ldfs:Datasource/graph",
       "path": "ldfs:Datasource/path",
+      "license": "ldfs:Datasource/license",
+      "licenseUrl": "ldfs:Datasource/licenseUrl",
+      "copyright": "ldfs:Datasource/copyright",
+      "homepage": "ldfs:Datasource/homepage",
       "CompositeDatasource": "ldfs:Datasource/Composite",
       "compose": {
         "@id": "ldfs:Datasource/Composite/compose",
@@ -45,9 +49,22 @@
       "mementoStart": "ldfs:Controller/Timegate/mementoStart",
       "mementoEnd": "ldfs:Controller/Timegate/mementoEnd",
 
+      "routers": "ldfs:router",
+      "dereference": "ldfs:Controller/Dereference/dereference",
+      "dereferencePath": "ldfs:Controller/Dereference/dereferencePath",
+      "dereferenceDatasource": {
+        "@id": "ldfs:Controller/Dereference/dereferenceDatasource",
+        "@type": "@id"
+      },
+
+      "pageSize": "ldfs:Router/Page/size",
+
       "prefixes": "ldfs:prefix",
       "prefix": "rdfa:prefix",
-      "uri": "rdfa:uri"
+      "uri": "rdfa:uri",
+
+      "logging": "ldfs:logging",
+      "logFile": "ldfs:loggingFile"
     }
   ]
 }

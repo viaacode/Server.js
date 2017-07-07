@@ -1,56 +1,70 @@
 {
+  "@context": "http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@id": "urn:ldfserver:my",
+  "@type": "QpfServer",
+
   "title": "My Linked Data Fragments server",
   "baseURL": "http://example.org/",
 
-  "datasources": {
-    "dbpedia": {
-      "title":       "DBpedia 2014",
-      "description": "DBpedia 2014 with an HDT back-end",
-      "license":     "Creative Commons Attribution-ShareAlike 3.0",
-      "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0/",
-      "copyright":   "The DBpedia dataset is Open Knowledge.",
-      "homepage":    "http://dbpedia.org/",
-      "type":        "HdtDatasource",
-      "settings":    { "file": "data/dbpedia2014.hdt" }
+  "datasources": [
+    {
+      "@id": "ldfs:defaultIndexDatasource"
     },
-    "dbpedia-sparql": {
-      "title": "DBpedia 3.9 (Virtuoso)",
-      "type": "SparqlDatasource",
-      "description": "DBpedia 3.9 with a Virtuoso back-end",
-      "settings": { "endpoint": "http://dbpedia.restdesc.org/" }
+    {
+      "@id": "ex:myDbpedia2014",
+      "@type": "HdtDatasource",
+      "path": "dbpedia",
+      "datasourceTitle": "DBpedia 2014",
+      "datasourceDescription": "DBpedia 2014 with an HDT back-end",
+      "license": "Creative Commons Attribution-ShareAlike 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "copyright": "The DBpedia dataset is Open Knowledge.",
+      "homepage": "http://dbpedia.org/",
+      "hdtFile": "data/dbpedia2014.hdt"
+    },
+    {
+      "@id": "ex:mySparqlDatasource",
+      "@type": "SparqlDatasource",
+      "path": "dbpedia-sparql",
+      "datasourceTitle": "DBpedia 3.9 (Virtuoso)",
+      "datasourceDescription": "DBpedia 3.9 with a Virtuoso back-end",
+      "sparqlEndpoint": "http://dbpedia.restdesc.org/",
+      "sparqlDefaultGraph": "http://dbpedia.org"
     }
-  },
-
-  "dereference": {
-    "/resource/": "dbpedia"
-  },
-
-  "routers": [
-    { "type": "DatasourceRouter" },
-    { "type": "QuadPatternRouter" },
-    { "type": "PageRouter", "settings": { "pageSize": 100 } }
   ],
 
-  "prefixes": {
-    "rdf":         "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs":        "http://www.w3.org/2000/01/rdf-schema#",
-    "owl":         "http://www.w3.org/2002/07/owl#",
-    "skos":        "http://www.w3.org/2004/02/skos/core#",
-    "xsd":         "http://www.w3.org/2001/XMLSchema#",
-    "dc":          "http://purl.org/dc/terms/",
-    "dcterms":     "http://purl.org/dc/terms/",
-    "dc11":        "http://purl.org/dc/elements/1.1/",
-    "foaf":        "http://xmlns.com/foaf/0.1/",
-    "geo":         "http://www.w3.org/2003/01/geo/wgs84_pos#",
-    "dbpedia":     "http://dbpedia.org/resource/",
-    "dbpedia-owl": "http://dbpedia.org/ontology/",
-    "dbpprop":     "http://dbpedia.org/property/",
-    "hydra":       "http://www.w3.org/ns/hydra/core#",
-    "void":        "http://rdfs.org/ns/void#"
-  },
+  "dereference": [
+    {
+      "dereferencePath": "/resource/",
+      "dereferenceDatasource": "ex:mySparqlDatasource"
+    }
+  ],
 
-  "logging": {
-    "enabled": true,
-    "file": "access.log"
-  }
+  "routers": [
+    { "@id": "ldfs:defaultRouterDatasource",  "@type": "ldfs:Router/Datasource" },
+    { "@id": "ldfs:defaultRouterQuadPattern", "@type": "ldfs:Router/QuadPattern" },
+    { "@id": "ldfs:defaultRouterPage",        "@type": "ldfs:Router/Page" }
+  ],
+
+  "prefixes": [
+    { "prefix": "rdf",         "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" },
+    { "prefix": "rdfs",        "uri": "http://www.w3.org/2000/01/rdf-schema#" },
+    { "prefix": "owl",         "uri": "http://www.w3.org/2002/07/owl#" },
+    { "prefix": "skos",        "uri": "http://www.w3.org/2004/02/skos/core#" },
+    { "prefix": "xsd",         "uri": "http://www.w3.org/2001/XMLSchema#" },
+    { "prefix": "dc",          "uri": "http://purl.org/dc/terms/" },
+    { "prefix": "foaf",        "uri": "http://xmlns.com/foaf/0.1/" },
+    { "prefix": "dbpedia",     "uri": "http://dbpedia.org/resource/" },
+    { "prefix": "dbpedia-owl", "uri": "http://dbpedia.org/ontology/" },
+    { "prefix": "dbpprop",     "uri": "http://dbpedia.org/property/" },
+    { "prefix": "hydra",       "uri": "http://www.w3.org/ns/hydra/core#" },
+    { "prefix": "void",        "uri": "http://rdfs.org/ns/void#" },
+    { "prefix": "dc",          "uri": "http://purl.org/dc/terms/" },
+    { "prefix": "dcterms",     "uri": "http://purl.org/dc/terms/" },
+    { "prefix": "dc11",        "uri": "http://purl.org/dc/elements/1.1/" },
+    { "prefix": "geo",         "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#" }
+  ],
+
+  "logging": true,
+  "logFile": "access.log"
 }

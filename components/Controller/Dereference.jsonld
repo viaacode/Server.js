@@ -18,6 +18,11 @@
               "ldfs:Controller/Dereference/dereferenceDatasource",
               "ldfs:Controller/Dereference/dereferencePath"
             ]
+          },
+          "inheritValues": {
+            "@type": "InheritanceValue",
+            "onParameter": "ldfs:Controller/Dereference/dereference",
+            "from": "ldfs:Server/Qpf"
           }
         }
       ],

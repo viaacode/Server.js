@@ -196,6 +196,9 @@
           "unique": true
         },
         {
+          "@id": "ldfs:Controller/Dereference/dereference"
+        },
+        {
           "@id": "ldfs:Controller/Timegate/path"
         },
         {
@@ -238,10 +241,6 @@
                   }
                 ]
               }
-            },
-            {
-              "keyRaw": "dereference",
-              "value": "ldfs:Controller/Dereference/dereference"
             },
             {
               "@id": "ldfs:Server/Qpf/ObjectMappings/prefixes",

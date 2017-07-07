@@ -49,6 +49,28 @@
             "onParameter": "ldfs:urlData",
             "from": "ldfs:Server/Qpf"
           }
+        },
+        {
+          "@id": "ldfs:Datasource/license",
+          "comment": "The license of the datasource",
+          "range": "xsd:string",
+          "unique": true
+        },
+        {
+          "@id": "ldfs:Datasource/licenseUrl",
+          "comment": "A link to the license of the datasource",
+          "unique": true
+        },
+        {
+          "@id": "ldfs:Datasource/copyright",
+          "comment": "The copyright statement of the datasource",
+          "range": "xsd:string",
+          "unique": true
+        },
+        {
+          "@id": "ldfs:Datasource/homepage",
+          "comment": "The homepage url of the datasource",
+          "unique": true
         }
       ],
       "constructorArguments": [
@@ -85,6 +107,22 @@
             },
             {
               "@id": "ldfs:Server/Qpf/ObjectMappings/urlData"
+            },
+            {
+              "keyRaw": "license",
+              "value": "ldfs:Datasource/license"
+            },
+            {
+              "keyRaw": "licenseUrl",
+              "value": "ldfs:Datasource/licenseUrl"
+            },
+            {
+              "keyRaw": "copyright",
+              "value": "ldfs:Datasource/copyright"
+            },
+            {
+              "keyRaw": "homepage",
+              "value": "ldfs:Datasource/homepage"
             }
           ]
         }
