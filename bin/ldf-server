@@ -21,7 +21,7 @@ var cliPort = parseInt(args[1], 10),
 
 var loader = new ComponentsLoader({
   contexts: {
-    'http://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld':
+    'https://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld':
       fs.readFileSync(path.join(__dirname, '/../contexts/ldf-server.jsonld'), 'utf8'),
   },
 });
