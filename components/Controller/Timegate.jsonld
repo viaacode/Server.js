@@ -28,7 +28,8 @@
             "hasProperty": [
               "ldfs:Controller/Timegate/mementoDatasource",
               "ldfs:Controller/Timegate/mementoVersionStart",
-              "ldfs:Controller/Timegate/mementoVersionEnd"
+              "ldfs:Controller/Timegate/mementoVersionEnd",
+              "ldfs:Controller/Timegate/mementoOriginalBaseURL"
             ]
           },
           "inheritValues": {
@@ -81,6 +82,13 @@
                                     "keyRaw": "final",
                                     "value": {
                                       "@id": "ldfs:Controller/Timegate/mementoEnd",
+                                      "unique": true
+                                    }
+                                  },
+                                  {
+                                    "keyRaw": "originalBaseURL",
+                                    "value": {
+                                      "@id": "ldfs:Controller/Timegate/mementoOriginalBaseURL",
                                       "unique": true
                                     }
                                   }

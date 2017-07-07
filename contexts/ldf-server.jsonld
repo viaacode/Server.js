@@ -48,6 +48,7 @@
       "mementoDatasource": "ldfs:Controller/Timegate/mementoDatasource",
       "mementoStart": "ldfs:Controller/Timegate/mementoStart",
       "mementoEnd": "ldfs:Controller/Timegate/mementoEnd",
+      "mementoOriginalBaseURL": "ldfs:Controller/Timegate/mementoOriginalBaseURL",
 
       "routers": "ldfs:router",
       "dereference": "ldfs:Controller/Dereference/dereference",
