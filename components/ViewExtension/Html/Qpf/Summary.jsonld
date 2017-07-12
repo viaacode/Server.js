@@ -10,7 +10,7 @@
       "comment": "A SummaryHtmlViewExtension extends the Quad Pattern Fragments HTML view with a summary link",
       "constructorArguments": [
         {
-          "@id": "ldfs:ViewExtension/Html/Qpf/Summary#constructorArgumentsObject",
+          "@id": "ldfs:ViewExtension/Html/Qpf/Summary/constructorArgumentsObject",
           "extends": "ldfs:View/Html/constructorArgumentsObject"
         }
       ]

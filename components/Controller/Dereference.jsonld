@@ -5,7 +5,7 @@
     {
       "@id": "ldfs:Controller/Dereference",
       "@type": "Class",
-      "rdfs:subClassOf": { "@id": "ldfs:Controller" },
+      "extends": "ldfs:Controller",
       "requireElement": "controllers.DereferenceController",
       "comment": "A DeferenceController responds to dereferencing requests",
       "parameters": [

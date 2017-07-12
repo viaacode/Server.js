@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Rdf/Summary",
-      "@type": "AbstractClass",
+      "@type": "Class",
       "extends": "ldfs:View/Rdf",
       "requireElement": "views.summary.SummaryRdfView",
       "comment": "A SummaryRdfView represents a data summary in RDF",

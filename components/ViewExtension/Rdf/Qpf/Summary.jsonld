@@ -10,7 +10,7 @@
       "comment": "A SummaryRdfViewExtension extends the Quad Pattern Fragments RDF view with a summary link",
       "constructorArguments": [
         {
-          "@id": "ldfs:ViewExtension/Rdf/Qpf/Summary#constructorArgumentsObject",
+          "@id": "ldfs:ViewExtension/Rdf/Qpf/Summary/constructorArgumentsObject",
           "extends": "ldfs:View/Rdf/constructorArgumentsObject"
         }
       ]

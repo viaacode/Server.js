@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Html/NotFound",
-      "@type": "AbstractClass",
+      "@type": "Class",
       "extends": "ldfs:View/Html",
       "requireElement": "views.notfound.NotFoundHtmlView",
       "comment": "A NotFoundHtmlView represents a 404 response in HTML",

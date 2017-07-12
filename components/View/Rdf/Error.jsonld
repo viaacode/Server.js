@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Rdf/Error",
-      "@type": "AbstractClass",
+      "@type": "Class",
       "extends": "ldfs:View/Rdf",
       "requireElement": "views.error.ErrorRdfView",
       "comment": "An ErrorRdfView represents a 500 response in RDF",

@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Html/Forbidden",
-      "@type": "AbstractClass",
+      "@type": "Class",
       "extends": "ldfs:View/Html",
       "requireElement": "views.forbidden.ForbiddenHtmlView",
       "comment": "A ForbiddenHtmlView represents a 401 response in HTML",

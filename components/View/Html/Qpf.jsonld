@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Html/Qpf",
-      "@type": "AbstractClass",
+      "@type": "Class",
       "extends": "ldfs:View/Html",
       "requireElement": "views.quadpatternfragments.QuadPatternFragmentsHtmlView",
       "comment": "A QuadPatternFragmentsRdfView represents a TPF or QPF in HTML",

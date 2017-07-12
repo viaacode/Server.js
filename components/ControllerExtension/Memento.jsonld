@@ -16,7 +16,7 @@
           "@id": "ldfs:Controller/Timegate/memento"
         },
         {
-          "@id": "ldfs:ControllerExtension/datasource",
+          "@id": "ldfs:Controller/Timegate/datasource",
           "inheritValues": {
             "@type": "InheritanceValue",
             "onParameter": "ldfs:datasource",
@@ -24,7 +24,7 @@
           }
         },
         {
-          "@id": "ldfs:ControllerExtension/urlData",
+          "@id": "ldfs:Controller/Timegate/urlData",
           "inheritValues": {
             "@type": "InheritanceValue",
             "onParameter": "ldfs:urlData",
@@ -37,7 +37,7 @@
         {
           "fields": [
             {
-              "@id": "ldfs:timeGatesField"
+              "@id": "ldfs:Controller/Timegate/ObjectMappings/timegates"
             },
             {
               "@id": "ldfs:Server/Qpf/ObjectMappings/routers"
@@ -46,8 +46,7 @@
               "@id": "ldfs:Server/Qpf/ObjectMappings/datasources"
             },
             {
-              "keyRaw": "urlData",
-              "value": "ldfs:urlData"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/urlData"
             }
           ]
         }

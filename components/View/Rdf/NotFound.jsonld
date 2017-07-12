@@ -4,7 +4,7 @@
   "components": [
     {
       "@id": "ldfs:View/Rdf/NotFound",
-      "@type": "AbstractClass",
+      "@type": "Class",
       "extends": "ldfs:View/Rdf",
       "requireElement": "views.notfound.NotFoundRdfView",
       "comment": "A NotFoundRdfView represents a 404 response in RDF",

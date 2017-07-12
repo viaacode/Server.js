@@ -57,12 +57,10 @@
               "value": "ldfs:View/Html/n3Util"
             },
             {
-              "keyRaw": "urlData",
-              "value": "ldfs:urlData"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/urlData"
             },
             {
-              "keyRaw": "title",
-              "value": "ldfs:title"
+              "@id": "ldfs:Server/Qpf/ObjectMappings/title"
             },
             {
               "keyRaw": "header",

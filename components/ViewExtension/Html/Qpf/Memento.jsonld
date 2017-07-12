@@ -16,7 +16,7 @@
           "@id": "ldfs:Controller/Timegate/memento"
         },
         {
-          "@id": "ldfs:ControllerExtension/datasource",
+          "@id": "ldfs:ViewExtension/Html/Qpf/Memento/datasource",
           "inheritValues": {
             "@type": "InheritanceValue",
             "onParameter": "ldfs:datasource",
@@ -26,11 +26,11 @@
       ],
       "constructorArguments": [
         {
-          "@id": "ldfs:ViewExtension/Html/Qpf/Memento#constructorArgumentsObject",
+          "@id": "ldfs:ViewExtension/Html/Qpf/Memento/constructorArgumentsObject",
           "extends": "ldfs:View/Html/constructorArgumentsObject",
           "fields": [
             {
-              "@id": "ldfs:timeGatesField"
+              "@id": "ldfs:Controller/Timegate/ObjectMappings/timegates"
             },
             {
               "@id": "ldfs:Server/Qpf/ObjectMappings/routers"
