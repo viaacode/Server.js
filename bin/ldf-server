@@ -2,9 +2,7 @@
 /*! @license MIT ©2013-2017 Ruben Verborgh and Ruben Taelman, Ghent University - imec */
 /* Standalone Linked Data Fragments Server */
 
-var path = require('path'),
-    cluster = require('cluster'),
-    fs = require('fs'),
+var cluster = require('cluster'),
     components = require('lsd-components'),
     ComponentsLoader = components.Loader;
 
@@ -19,13 +17,8 @@ var cliPort = parseInt(args[1], 10),
     cliWorkers = parseInt(args[2], 10),
     configUri = args[3] || 'urn:ldfserver:my';
 
-var loader = new ComponentsLoader({
-  contexts: {
-    'https://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld':
-      fs.readFileSync(path.join(__dirname, '/../contexts/ldf-server.jsonld'), 'utf8'),
-  },
-});
-loader.registerModuleResourcesUrl('components/components.jsonld', path.join(__dirname, '../'))
+var loader = new ComponentsLoader();
+loader.registerAvailableModuleResources()
   .then(function () {
     // Start up a cluster master
     if (cluster.isMaster) {
