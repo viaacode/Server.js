@@ -17,7 +17,7 @@ var cliPort = parseInt(args[1], 10),
     cliWorkers = parseInt(args[2], 10),
     configUri = args[3] || 'urn:ldfserver:my';
 
-var loader = new ComponentsLoader();
+var loader = new ComponentsLoader({ scanGlobal: true });
 loader.registerAvailableModuleResources()
   .then(function () {
     // Start up a cluster master
