@@ -5,7 +5,7 @@
   "lsd:module": "https://linkedsoftwaredependencies.org/bundles/npm/ldf-server",
   "lsd:components": "components/components.jsonld",
   "lsd:contexts": {
-    "https://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld": "contexts/ldf-server.jsonld"
+    "https://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld": "components/context.jsonld"
   },
   "license": "MIT",
   "engines": {
