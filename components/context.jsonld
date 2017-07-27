@@ -28,9 +28,6 @@
       "EmptyDatasource": "ldfs:Datasource/Empty",
       "file": "ldfs:Datasource/Memory/file",
       "url": "ldfs:Datasource/Memory/url",
-      "SparqlDatasource": "ldfs:Datasource/Sparql",
-      "sparqlEndpoint": "ldfs:Datasource/Sparql/endpoint",
-      "sparqlDefaultGraph": "ldfs:Datasource/Sparql/defaultGraph",
 
       "timeGatePath": "ldfs:Controller/Timegate/path",
       "mementos": "ldfs:Controller/Timegate/memento",

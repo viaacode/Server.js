@@ -28,8 +28,7 @@
       "path": "dbpedia-sparql",
       "title": "DBpedia 3.9 (Virtuoso)",
       "description": "DBpedia 3.9 with a Virtuoso back-end",
-      "sparqlEndpoint": "http://dbpedia.restdesc.org/",
-      "sparqlDefaultGraph": "http://dbpedia.org"
+      "sparqlEndpoint": "http://dbpedia.restdesc.org/"
     }
   ],
 
