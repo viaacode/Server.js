@@ -21,7 +21,6 @@
 
     "ControllerExtension/Memento.jsonld",
 
-    "Datasource/Composite.jsonld",
     "Datasource/Memory.jsonld",
     "Datasource/Index.jsonld",
     "Datasource/Empty.jsonld",

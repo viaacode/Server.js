@@ -20,11 +20,6 @@
       "licenseUrl": "ldfs:Datasource/licenseUrl",
       "copyright": "ldfs:Datasource/copyright",
       "homepage": "ldfs:Datasource/homepage",
-      "CompositeDatasource": "ldfs:Datasource/Composite",
-      "compose": {
-        "@id": "ldfs:Datasource/Composite/compose",
-        "@type": "@id"
-      },
       "EmptyDatasource": "ldfs:Datasource/Empty",
       "file": "ldfs:Datasource/Memory/file",
       "url": "ldfs:Datasource/Memory/url",
