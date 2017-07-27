@@ -28,7 +28,6 @@
       "EmptyDatasource": "ldfs:Datasource/Empty",
       "file": "ldfs:Datasource/Memory/file",
       "url": "ldfs:Datasource/Memory/url",
-      "JsonLdDatasource": "ldfs:Datasource/JsonLd",
       "SparqlDatasource": "ldfs:Datasource/Sparql",
       "sparqlEndpoint": "ldfs:Datasource/Sparql/endpoint",
       "sparqlDefaultGraph": "ldfs:Datasource/Sparql/defaultGraph",

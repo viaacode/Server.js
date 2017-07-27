@@ -25,7 +25,6 @@
     "Datasource/Memory.jsonld",
     "Datasource/Index.jsonld",
     "Datasource/Empty.jsonld",
-    "Datasource/JsonLd.jsonld",
     "Datasource/Sparql.jsonld",
 
     "Router/Datasource.jsonld",
