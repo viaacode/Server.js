@@ -24,16 +24,6 @@
       "file": "ldfs:Datasource/Memory/file",
       "url": "ldfs:Datasource/Memory/url",
 
-      "timeGatePath": "ldfs:Controller/Timegate/path",
-      "mementos": "ldfs:Controller/Timegate/memento",
-      "timeMapPath": "ldfs:Controller/Timegate/timeMapPath",
-      "versions": "ldfs:Controller/Timegate/versions",
-      "datasource": "ldfs:datasource",
-      "mementoDatasource": "ldfs:Controller/Timegate/mementoDatasource",
-      "start": "ldfs:Controller/Timegate/mementoStart",
-      "end": "ldfs:Controller/Timegate/mementoEnd",
-      "originalBaseURL": "ldfs:Controller/Timegate/mementoOriginalBaseURL",
-
       "routers": "ldfs:router",
       "dereference": "ldfs:Controller/Dereference/dereference",
       "dereferencePath": "ldfs:Controller/Dereference/dereferencePath",

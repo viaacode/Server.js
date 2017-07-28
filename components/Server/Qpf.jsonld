@@ -92,11 +92,9 @@
           "range": { "@id": "ldfs:Controller" },
           "default": [
             { "@id": "ldfs:defaultSummaryController",     "@type": "ldfs:Controller/Summary" },
-            { "@id": "ldfs:defaultTimegateController",    "@type": "ldfs:Controller/Timegate" },
             {
               "@id": "ldfs:defaultQuadPatternFragmentsController",
-              "@type": "ldfs:Controller/QuadPatternFragments",
-              "ldfs:Controller/QuadPatternFragments/extension": { "@type": "ldfs:ControllerExtension/Memento" }
+              "@type": "ldfs:Controller/QuadPatternFragments"
             },
             { "@id": "ldfs:defaultAssetsController",      "@type": "ldfs:Controller/Assets" },
             { "@id": "ldfs:defaultDereferenceController", "@type": "ldfs:Controller/Dereference" },
@@ -124,7 +122,6 @@
               "@id": "ldfs:defaultViewHtmlQpf",
               "@type": "ldfs:View/Html/Qpf",
               "ldfs:View/extension": [
-                { "@type": "ldfs:ViewExtension/Html/Qpf/Memento" },
                 { "@type": "ldfs:ViewExtension/Html/Qpf/Summary" }
               ]
             },
@@ -197,12 +194,6 @@
         },
         {
           "@id": "ldfs:Controller/Dereference/dereference"
-        },
-        {
-          "@id": "ldfs:Controller/Timegate/path"
-        },
-        {
-          "@id": "ldfs:Controller/Timegate/memento"
         }
       ],
       "constructorArguments": [

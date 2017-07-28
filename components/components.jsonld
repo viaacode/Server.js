@@ -13,13 +13,10 @@
     "Server/Qpf.jsonld",
 
     "Controller/Summary.jsonld",
-    "Controller/Timegate.jsonld",
     "Controller/QuadPatternFragments.jsonld",
     "Controller/Assets.jsonld",
     "Controller/Dereference.jsonld",
     "Controller/NotFound.jsonld",
-
-    "ControllerExtension/Memento.jsonld",
 
     "Datasource/Memory.jsonld",
     "Datasource/Index.jsonld",
@@ -44,7 +41,6 @@
     "View/Rdf/Summary.jsonld",
 
     "ViewExtension/Html/Qpf/Summary.jsonld",
-    "ViewExtension/Html/Qpf/Memento.jsonld",
     "ViewExtension/Rdf/Qpf/Summary.jsonld"
   ]
 }

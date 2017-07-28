@@ -1,5 +1,9 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@context": [
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-hdt.jsonld",
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-sparql.jsonld",
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-feature-memento.jsonld"
+  ],
   "@id": "urn:ldfserver:my",
   "@type": "QpfServer",
 
@@ -29,8 +33,7 @@
       "title": "DBpedia 3.9 (Virtuoso)",
       "description": "DBpedia 3.9 with a Virtuoso back-end",
       "path": "dbpedia-sparql",
-      "sparqlEndpoint": "http://dbpedia.restdesc.org/",
-      "sparqlDefaultGraph": "http://dbpedia.org"
+      "sparqlEndpoint": "http://dbpedia.restdesc.org/"
     }
   ],
 
