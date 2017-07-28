@@ -42,7 +42,6 @@
   },
   "optionalDependencies": {
     "access-log": "^0.3.9",
-    "hdt": "^1.4.0",
     "parse-cache-control": "^1.0.1"
   },
   "devDependencies": {
