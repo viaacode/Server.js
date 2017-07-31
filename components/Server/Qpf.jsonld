@@ -91,7 +91,6 @@
           "comment": "A controller for the server",
           "range": { "@id": "ldfs:Controller" },
           "default": [
-            { "@id": "ldfs:defaultSummaryController",     "@type": "ldfs:Controller/Summary" },
             {
               "@id": "ldfs:defaultQuadPatternFragmentsController",
               "@type": "ldfs:Controller/QuadPatternFragments"
@@ -113,26 +112,13 @@
           "comment": "A view for the server",
           "range": { "@id": "ldfs:View" },
           "default": [
-            { "@id": "ldfs:defaultViewHtmlError", "@type": "ldfs:View/Html/Error" },
-            { "@id": "ldfs:defaultViewRdfError",  "@type": "ldfs:View/Rdf/Error"  },
+            { "@id": "ldfs:defaultViewHtmlError",     "@type": "ldfs:View/Html/Error" },
+            { "@id": "ldfs:defaultViewRdfError",      "@type": "ldfs:View/Rdf/Error"  },
             { "@id": "ldfs:defaultViewHtmlForbidden", "@type": "ldfs:View/Html/Forbidden" },
-            { "@id": "ldfs:defaultViewHtmlNotFound", "@type": "ldfs:View/Html/NotFound" },
-            { "@id": "ldfs:defaultViewRdfNotFound",  "@type": "ldfs:View/Rdf/NotFound"  },
-            {
-              "@id": "ldfs:defaultViewHtmlQpf",
-              "@type": "ldfs:View/Html/Qpf",
-              "ldfs:View/extension": [
-                { "@type": "ldfs:ViewExtension/Html/Qpf/Summary" }
-              ]
-            },
-            {
-              "@id": "ldfs:defaultViewRdfQpf",
-              "@type": "ldfs:View/Rdf/Qpf",
-              "ldfs:View/extension": [
-                { "@type": "ldfs:ViewExtension/Rdf/Qpf/Summary" }
-              ]
-            },
-            { "@id": "ldfs:defaultViewRdfSummary",  "@type": "ldfs:View/Rdf/Summary"  }
+            { "@id": "ldfs:defaultViewHtmlNotFound",  "@type": "ldfs:View/Html/NotFound" },
+            { "@id": "ldfs:defaultViewRdfNotFound",   "@type": "ldfs:View/Rdf/NotFound"  },
+            { "@id": "ldfs:defaultViewHtmlQpf",       "@type": "ldfs:View/Html/Qpf" },
+            { "@id": "ldfs:defaultViewRdfQpf",        "@type": "ldfs:View/Rdf/Qpf" }
           ]
         },
         {

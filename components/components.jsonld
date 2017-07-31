@@ -12,7 +12,6 @@
 
     "Server/Qpf.jsonld",
 
-    "Controller/Summary.jsonld",
     "Controller/QuadPatternFragments.jsonld",
     "Controller/Assets.jsonld",
     "Controller/Dereference.jsonld",
@@ -37,10 +36,6 @@
     "View/Rdf.jsonld",
     "View/Rdf/Error.jsonld",
     "View/Rdf/NotFound.jsonld",
-    "View/Rdf/Qpf.jsonld",
-    "View/Rdf/Summary.jsonld",
-
-    "ViewExtension/Html/Qpf/Summary.jsonld",
-    "ViewExtension/Rdf/Qpf/Summary.jsonld"
+    "View/Rdf/Qpf.jsonld"
   ]
 }
