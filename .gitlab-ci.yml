@@ -1,6 +1,8 @@
 image: node:latest
 
 before_script:
+  - npm set registry http://sinopia.linkedsoftwaredependencies.org
+  - npm config set @types:registry https://registry.npmjs.org/
   - npm install
 
 cache:
