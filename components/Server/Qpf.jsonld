@@ -176,7 +176,7 @@
           "@id": "ldfs:assetsDir",
           "comment": "Path to a directory where assets can be found",
           "range": "xsd:string",
-          "unique": true
+          "default": "file://../assets/"
         },
         {
           "@id": "ldfs:Controller/Dereference/dereference"

@@ -15,8 +15,7 @@
             "@type": "InheritanceValue",
             "onParameter": "ldfs:assetsDir",
             "from": "ldfs:Server/Qpf"
-          },
-          "unique": true
+          }
         },
         {
           "@id": "ldfs:Controller/Assets/assetsPath",
@@ -34,7 +33,7 @@
           "extends": "ldfs:Controller/constructorArgumentsObject",
           "fields": [
             {
-              "keyRaw": "assetsFolder",
+              "keyRaw": "assetsFolders",
               "value": "ldfs:assetsDir"
             },
             {

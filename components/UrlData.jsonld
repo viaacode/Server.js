@@ -26,13 +26,12 @@
           "unique": true
         },
         {
-          "@id": "ldfs:UrlData/assetsFolder",
+          "@id": "ldfs:UrlData/assetsDir",
           "inheritValues": {
             "@type": "InheritanceValue",
-            "onParameter": "ldfs:assetsFolder",
+            "onParameter": "ldfs:assetsDir",
             "from": "ldfs:Server/Qpf"
-          },
-          "unique": true
+          }
         }
       ],
       "constructorArguments": [
