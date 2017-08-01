@@ -10,6 +10,7 @@
       "QpfServer": "ldfs:Server/Qpf",
       "title": "ldfs:title",
       "baseURL": "ldfs:baseURL",
+      "protocol": "ldfs:protocol",
 
       "datasources": "ldfs:datasource",
       "description": "ldfs:Datasource/description",

@@ -32,6 +32,14 @@
             "onParameter": "ldfs:assetsDir",
             "from": "ldfs:Server/Qpf"
           }
+        },
+        {
+          "@id": "ldfs:UrlData/protocol",
+          "inheritValues": {
+            "@type": "InheritanceValue",
+            "onParameter": "ldfs:protocol",
+            "from": "ldfs:Server/Qpf"
+          }
         }
       ],
       "constructorArguments": [
@@ -44,6 +52,10 @@
             {
               "keyRaw": "assetsPath",
               "value": "ldfs:UrlData/assetsPath"
+            },
+            {
+              "keyRaw": "protocol",
+              "value": "ldfs:protocol"
             }
           ]
         }
