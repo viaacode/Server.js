@@ -1,5 +1,8 @@
 {
-  "@context": "https://linkedsoftwaredependencies.org/contexts/ldf-server.jsonld",
+  "@context": [
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-hdt.jsonld",
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-sparql.jsonld"
+  ],
   "@id": "urn:ldfserver:my",
   "@type": "QpfServer",
 
