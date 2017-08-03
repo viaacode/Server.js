@@ -44,38 +44,51 @@ $ [sudo] npm install -g ldf-server
 
 ### Configure the data sources
 
-First, create a configuration file `config.json` similar to `config/config-example.json`,
+First, create a [JSON-LD](https://json-ld.org/) configuration file `config.json` similar to `config/config-example.json`,
 in which you detail your data sources.
 For example, this configuration uses an [HDT file](http://www.rdfhdt.org/)
 and a [SPARQL endpoint](http://www.w3.org/TR/sparql11-protocol/) as sources:
 ```json
 {
+  "@context": [
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-hdt.jsonld",
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-sparql.jsonld"
+  ],
+  "@id": "urn:ldfserver:my",
+  "@type": "QpfServer",
   "title": "My Linked Data Fragments server",
-  "datasources": {
-    "dbpedia": {
+  "datasources": [
+    { "@id": "ldfs:defaultIndexDatasource" },
+    {
+      "@id": "ex:myHdtDatasource",
+      "@type": "HdtDatasource",
       "title": "DBpedia 2014",
-      "type": "HdtDatasource",
       "description": "DBpedia 2014 with an HDT back-end",
-      "settings": { "file": "data/dbpedia2014.hdt" }
+      "path": "dbpedia",
+      "hdtFile": "data/dbpedia2014.hdt"
     },
-    "dbpedia-sparql": {
+    {
+      "@id": "ex:mySparqlDatasource",
+      "@type": "SparqlDatasource",
       "title": "DBpedia 3.9 (Virtuoso)",
-      "type": "SparqlDatasource",
       "description": "DBpedia 3.9 with a Virtuoso back-end",
-      "settings": { "endpoint": "http://dbpedia.restdesc.org/", "defaultGraph": "http://dbpedia.org" }
+      "path": "dbpedia-sparql",
+      "sparqlEndpoint": "http://dbpedia.restdesc.org/"
     }
-  }
+  ],
 }
 ```
 
-The following sources are supported out of the box:
-- HDT files ([`HdtDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/HdtDatasource.js) with `file` setting)
-- N-Triples documents ([`NTriplesDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/NTriplesDatasource.js) with `url` setting)
-- Turtle documents ([`TurtleDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/TurtleDatasource.js) with `url` setting)
-- N-Quads documents ([`NQuadsDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/NQuadsDatasource.js) with `url` setting)
-- TriG documents ([`TrigDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/TrigDatasource.js) with `url` setting)
-- JSON-LD documents ([`JsonLdDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/JsonLdDatasource.js) with `url` setting)
-- SPARQL endpoints ([`SparqlDatasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/SparqlDatasource.js) with `endpoint` and optionally `defaultGraph` settings)
+The following sources can be used by installing external plugins,
+which requires importing of their respective context to use the JSON-LD shortcut terms:
+- HDT files ([`HdtDatasource`](https://github.com/LinkedDataFragments/server-datasource-hdt/blob/master/lib/datasources/HdtDatasource.js) with `file` setting)
+- N-Triples documents ([`NTriplesDatasource`](https://github.com/LinkedDataFragments/server-datasource-n3/blob/master/lib/datasources/NTriplesDatasource.js) with `url` setting)
+- Turtle documents ([`TurtleDatasource`](https://github.com/LinkedDataFragments/server-datasource-n3/blob/master/lib/datasources/TurtleDatasource.js) with `url` setting)
+- N-Quads documents ([`NQuadsDatasource`](https://github.com/LinkedDataFragments/server-datasource-n3/blob/master/lib/datasources/NQuadsDatasource.js) with `url` setting)
+- TriG documents ([`TrigDatasource`](https://github.com/LinkedDataFragments/server-datasource-n3/blob/master/lib/datasources/TrigDatasource.js) with `url` setting)
+- JSON-LD documents ([`JsonLdDatasource`](https://github.com/LinkedDataFragments/server-datasource-jsonld/blob/master/lib/datasources/JsonLdDatasource.js) with `url` setting)
+- SPARQL endpoints ([`SparqlDatasource`](https://github.com/LinkedDataFragments/server-datasource-sparql/blob/master/lib/datasources/SparqlDatasource.js) with `endpoint` setting)
+- [and more...](https://www.npmjs.com/org/ldf)
 
 Support for new sources is possible by implementing the [`Datasource`](https://github.com/LinkedDataFragments/Server.js/blob/master/lib/datasources/Datasource.js) interface.
 
@@ -101,7 +114,7 @@ One possibility to obtain this are the server logs:
 ```bash
 $ bin/ldf-server config.json
 Master 28106 running.
-Worker 28107 running on http://localhost:3000/.
+Worker 28107 running on http://localhost:3000/ (URL: /).
 ```
 
 If you send the server a `SIGHUP` signal:
@@ -112,6 +125,46 @@ it will reload by replacing its workers.
 
 Note that crashed or killed workers are always replaced automatically.
 
+### _(Optional)_ Installing plugins
+
+The modular nature of the server allows external components to be plugged in using the config file.
+In general, 4 types of plugin components exist:
+* Datasources: Holding data
+* Controllers: Handling HTTP(S) requests
+* Routers: Extracting query parameters
+* Views: Returning HTML or RDF responses.
+
+Plugins (such as `@ldf/server-datasource-n3`) can be installed in two different ways:
+1. If the server was install globally (with `-g`),
+plugins should also be installed globally: `$ [sudo] npm install -g @ldf/server-datasource-n3`
+2. If the server was installed as a local module (without `-g`),
+plugins should also be installed locally: `$ npm install @ldf/server-datasource-n3`
+
+After installation, the plugin's context can be used inside your config file
+for allowing its JSON-LD terminology to be used
+The N3 datasource plugin for example introduces the `TurtleDatasource` and `url` terms,
+which can be used as follows:
+```json
+{
+  "@context": [
+    "https://linkedsoftwaredependencies.org/contexts/@ldf/server-datasource-n3.jsonld"
+  ],
+  …
+  "datasources": [
+    …
+    {
+      "@id": "ex:myTtlDatasource",
+      "@type": "TurtleDatasource",
+      "title": "My Turtle Datasource",
+      "path": "my-ttl",
+      "url": "file:path/to/file.ttl"
+    }
+  ],
+}
+```
+
+All available plugins can be found on [NPM](https://www.npmjs.com/org/ldf).
+
 ### _(Optional)_ Set up a reverse proxy
 
 A typical Linked Data Fragments server will be exposed
@@ -121,9 +174,9 @@ Therefore, you need to configure the server to run behind an HTTP reverse proxy.
 To set this up, configure the server's public URL in your server's `config.json`:
 ```json
 {
-  "title": "My Linked Data Fragments server",
+  …
   "baseURL": "http://data.example.org/",
-  "datasources": { … }
+  …
 }
 ```
 Then configure your reverse proxy to pass requests to your server.
@@ -160,9 +213,6 @@ $ docker run -p 3000:3000 -t -i --rm -v $(pwd)/config.json:/tmp/config.json ldf-
 ### _(Optional)_ Host historical version of datasets
 
 You can [enable the Memento protocol](https://github.com/LinkedDataFragments/Server.js/wiki/Configuring-Memento) to offer different versions of an evolving dataset.
-
-## License
-The Linked Data Fragments server is written by [Ruben Verborgh](http://ruben.verborgh.org/).
 
 ## License
 The Linked Data Fragments client is written by [Ruben Verborgh](http://ruben.verborgh.org/) and colleagues.
