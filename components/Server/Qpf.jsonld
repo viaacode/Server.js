@@ -258,7 +258,7 @@
                 "@type": "ObjectMapping",
                 "fields": [
                   {
-                    "keyRaw": "header",
+                    "keyRaw": "headers",
                     "value": {
                       "fields": [
                         {
