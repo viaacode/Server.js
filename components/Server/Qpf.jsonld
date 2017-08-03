@@ -255,7 +255,7 @@
             {
               "keyRaw": "response",
               "value": {
-                "@type": "Object",
+                "@type": "ObjectMapping",
                 "fields": [
                   {
                     "keyRaw": "header",

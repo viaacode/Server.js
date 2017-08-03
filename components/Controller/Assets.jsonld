@@ -29,7 +29,7 @@
       ],
       "constructorArguments": [
         {
-          "@type": "Object",
+          "@type": "ObjectMapping",
           "extends": "ldfs:Controller/constructorArgumentsObject",
           "fields": [
             {

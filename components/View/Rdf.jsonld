@@ -10,7 +10,7 @@
       "constructorArguments": [
         {
           "@id": "ldfs:View/Rdf/constructorArgumentsObject",
-          "@type": "Object",
+          "@type": "ObjectMapping",
           "extends": "ldfs:View/constructorArgumentsObject"
         }
       ]
