@@ -6,7 +6,7 @@
      "title": "hetarchief.be",
      "type": "HdtDatasource",
      "description": "Nieuws van de Groote Oorlog",
-     "settings": { "file": "/var/data/hetarchief.hdt" }
+     "settings": { "file": "/var/data/yes.hdt" }
    }
  },
 
