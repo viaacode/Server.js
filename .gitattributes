@@ -1,3 +1,0 @@
-data/*.hdt.index.* filter=lfs diff=lfs merge=lfs -text
-data/*.hdt filter=lfs diff=lfs merge=lfs -text
-data/*.ttl filter=lfs diff=lfs merge=lfs -text
