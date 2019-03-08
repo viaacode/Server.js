@@ -14,11 +14,11 @@ RUN apt-get update && \
     rm -rf /var/cache/apt/archives
 
 # Expose the default port
-EXPOSE 3000
+EXPOSE 8000
 
 # Run base binary
 WORKDIR ${dir}
-ENTRYPOINT ["node", "bin/ldf-server"]
+ENTRYPOINT ["node", "bin/ldf-server", "config.json", "8000"]
 
 # Default command
 CMD ["--help"]
