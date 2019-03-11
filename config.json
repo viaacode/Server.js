@@ -1,26 +1,26 @@
 {
- "title": "VIAA Linked Data Fragments Server",
+  "title": "VIAA Linked Data Fragments server",
 
- "datasources": {
-   "hetarchief": {
-     "title": "hetarchief.be",
-     "type": "HdtDatasource",
-     "description": "Nieuws van de Groote Oorlog",
-     "settings": { "file": "/var/data/yes.hdt" }
-   }
- },
+  "datasources": {
+    "hetarchief": {
+      "title": "hetarchief.be export",
+      "type": "HdtDatasource",
+      "description": "Nieuws van de Groote Oorlog Linked Data",
+      "settings": { "file": "data/hetarchief.hdt" }
+    }
+  },
 
- "prefixes": {
-   "rdf":         "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-   "rdfs":        "http://www.w3.org/2000/01/rdf-schema#",
-   "xsd":         "http://www.w3.org/2001/XMLSchema#",
-   "dc":          "http://purl.org/dc/elements/1.1/",
-   "dcmitype":    "http://purl.org/dc/dcmitype/",
-   "foaf":        "http://xmlns.com/foaf/0.1/",
-   "dbpedia":     "http://dbpedia.org/resource/",
-   "dbpedia-owl": "http://dbpedia.org/ontology/",
-   "dbpprop":     "http://dbpedia.org/property/",
-   "hydra":       "http://www.w3.org/ns/hydra/core#",
-   "void":        "http://rdfs.org/ns/void#"
- }
+  "prefixes": {
+    "rdf":         "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":        "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd":         "http://www.w3.org/2001/XMLSchema#",
+    "dc":          "http://purl.org/dc/elements/1.1/",
+    "dcmitype":    "http://purl.org/dc/dcmitype/",
+    "foaf":        "http://xmlns.com/foaf/0.1/",
+    "dbpedia":     "http://dbpedia.org/resource/",
+    "dbpedia-owl": "http://dbpedia.org/ontology/",
+    "dbpprop":     "http://dbpedia.org/property/",
+    "hydra":       "http://www.w3.org/ns/hydra/core#",
+    "void":        "http://rdfs.org/ns/void#"
+  }
 }
